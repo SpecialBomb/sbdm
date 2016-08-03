@@ -5,6 +5,7 @@ For example, if you had the Nailgun, and got the Super Nailgun, why would you wa
 This mod tries to fix that.
 
 Weapon changes:
+
 +The Axe now does 80 damage, making it a viable melee weapon.
 
 +The Nailgun now throws nails, and they stick to the map. If they are touched by a player, they get damaged from it. The nails last a minute until they disappear.
@@ -16,11 +17,13 @@ Weapon changes:
 +The Super Nailgun no longer shoots nails, but rather acts like the Doom Chaingun.
 
 Gameplay changes:
+
 +The Quad and Ring now drop on death.
 
 +There is no longer any automatic weapon switching, besides switching on low ammo.
 
 Other changes:
+
 +While standing still, you can look at a player to see their name.
 
 Other things will be added at some point.
