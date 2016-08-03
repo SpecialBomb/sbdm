@@ -1,1 +1,26 @@
 # sbdm
+
+sbdm, or SpecialBomb's Death Match, is a mod that is aimed at making all of the weapons useful in their own way.
+For example, if you had the Nailgun, and got the Super Nailgun, why would you want to use the Nailgun anymore?
+This mod tries to fix that.
+
+Weapon changes:
++The Axe now does 80 damage, making it a viable melee weapon.
+
++The Nailgun now throws nails, and they stick to the map. If they are touched by a player, they get damaged from it. The nails last a minute until they disappear.
+
++The Shotgun is now infinitly accurate, and does more damage. This is useful in long range encounters with enemies.
+
++The Double-Barreled Shotgun has a square spread rather than a rectangular one, and does more damage. It also has kickback, which can be used for stopping in midair, or boosting jumps.
+
++The Super Nailgun no longer shoots nails, but rather acts like the Doom Chaingun.
+
+Gameplay changes:
++The Quad and Ring now drop on death.
+
++There is no longer any automatic weapon switching, besides switching on low ammo.
+
+Other changes:
++While standing still, you can look at a player to see their name.
+
+Other things will be added at some point.
