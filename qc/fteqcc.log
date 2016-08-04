@@ -57,13 +57,13 @@ ai.qc:681: warning: direct  no references
 ai.qc:681: warning: ang_rint  no references
 ai.qc:681: warning: ang_floor  no references
 ai.qc:681: warning: ang_ceil  no references
-items.qc:152: warning: amount  no references
-items.qc:871: warning: stemp  no references
-items.qc:872: warning: best  no references
-items.qc:1007: warning: stemp  no references
-items.qc:1008: warning: best  no references
-items.qc:1080: warning: stemp  no references
-items.qc:1081: warning: best  no references
+items.qc:157: warning: amount  no references
+items.qc:876: warning: stemp  no references
+items.qc:877: warning: best  no references
+items.qc:1012: warning: stemp  no references
+items.qc:1013: warning: best  no references
+items.qc:1085: warning: stemp  no references
+items.qc:1086: warning: best  no references
 weapons.qc:103: warning: mpuff  no references
 weapons.qc:406: warning: mpuff  no references
 weapons.qc:581: warning: mpuff  no references
@@ -102,13 +102,13 @@ demon.qc:280: warning: vec  no references
 dog.qc:306: warning: vec  no references
 zombie.qc:164: warning: mpuff  no references
  88828 strofs (of 1000000)
- 20965 numstatements (of 524288)
+ 20969 numstatements (of 524288)
   2098 numfunctions (of 16384)
   4307 numglobaldefs (of 32768)
    218 numfielddefs (195 unique) (of 2048)
   4356 numpr_globals (of 65536)
 Writing ../progs.dat
-385888 TOTAL SIZE
+385920 TOTAL SIZE
 Writing ../progs.lno
 225 unique precache_sounds
  95 unique precache_models
@@ -116,7 +116,7 @@ Writing ../progs.lno
 Compile Complete
 
 optres_shortenifnots 122
-optres_overlaptemps 7500
+optres_overlaptemps 7501
 optres_constantarithmatic 20
 optres_nonvec_parms 3963
 optres_assignments 409
