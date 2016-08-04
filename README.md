@@ -24,8 +24,12 @@ Gameplay changes:
 
 +Instagib axes can be enabled with "deathmatch 3". Disables item pickups, and spawns player with only an axe. The axe will do 1000 damage.
 
++Random spawns.
+
 Other changes:
 
 +While standing still, you can look at a player to see their name.
+
++Drowning doesn't damage armor.
 
 Other things will be added at some point.
