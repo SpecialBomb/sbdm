@@ -22,6 +22,8 @@ Gameplay changes:
 
 +There is no longer any automatic weapon switching, besides switching on low ammo.
 
++Instagib axes can be enabled with "deathmatch 3". Disables item pickups, and spawns player with only an axe. The axe will do 1000 damage.
+
 Other changes:
 
 +While standing still, you can look at a player to see their name.
