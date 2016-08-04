@@ -55,9 +55,7 @@ void () NewQuad_touch =
 
 void () DropQuad =
 {
-	bprint ("Time left is ");
-    bprint (ftos(self.super_damage_finished));
-    bprint ("\n");
+
 	if (self.super_damage_finished < 1) return;
 	local entity item;
 	item = spawn ();
