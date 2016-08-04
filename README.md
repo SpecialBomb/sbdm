@@ -26,6 +26,8 @@ Gameplay changes:
 
 +Random spawns.
 
++Grenades aren't random.
+
 Other changes:
 
 +While standing still, you can look at a player to see their name.
