@@ -170,6 +170,15 @@ void(entity targ, entity inflictor, entity attacker, float damage) T_Damage=
 		
 // do the damage
 	targ.health = targ.health - take;
+          
+          // Cobalt Obit problem fix
+          if ((attacker.flags & FL_CLIENT) && (targ.flags & FL_CLIENT))
+	{
+          if (inflictor != world)
+	targ.deathtype = inflictor.weaponmodel;
+	}
+          
+          
 			
 	if (targ.health <= 0)
 	{
