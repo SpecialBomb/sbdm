@@ -486,7 +486,7 @@ void() PutClientInServer =
 	local	entity spot;
 
 	spot = SelectSpawnPoint ();
-
+          self.deathtype = spot.deathtype; // Cobalt , clear deathtype on respawn 
 	self.classname = "player";
 	self.health = 100;
 	self.takedamage = DAMAGE_AIM;
@@ -1280,32 +1280,32 @@ void(entity targ, entity attacker) ClientObituary =
 				attacker.frags = attacker.frags + 1;
 
 				rnum = attacker.weapon;
-				if (rnum == IT_AXE)
+				if (targ.deathtype == "progs/v_axe.mdl")
 				{
 					deathstring = " was ax-murdered by ";
 					deathstring2 = "\n";
 				}
-				if (rnum == IT_SHOTGUN)
+				if (targ.deathtype == "progs/v_shot.mdl")
 				{
 					deathstring = " was holepunched by ";
 					deathstring2 = "'s slug\n";
 				}
-				if (rnum == IT_SUPER_SHOTGUN)
+				if (targ.deathtype == "progs/v_shot2.mdl")
 				{
 					deathstring = " ate 2 loads of ";
 					deathstring2 = "'s buckshot\n";
 				}
-				if (rnum == IT_NAILGUN)
+				if (targ.deathtype == "progs/v_nail.mdl")
 				{
 					deathstring = " was spiked by ";
 					deathstring2 = "\n";
 				}
-				if (rnum == IT_SUPER_NAILGUN)
+				if (targ.deathtype == "progs/v_nail2.mdl")
 				{
 					deathstring = " was punctured by ";
 					deathstring2 = "\n";
 				}
-				if (rnum == IT_GRENADE_LAUNCHER)
+				if (targ.deathtype == "progs/v_rock.mdl")
 				{
 					deathstring = " eats ";
 					deathstring2 = "'s pineapple\n";
@@ -1315,7 +1315,7 @@ void(entity targ, entity attacker) ClientObituary =
 						deathstring2 = "'s grenade\n";
 					}
 				}
-				if (rnum == IT_ROCKET_LAUNCHER)
+				if (targ.deathtype == "progs/v_rock2.mdl")
 				{
 					deathstring = " rides ";
 					deathstring2 = "'s rocket\n";
@@ -1325,7 +1325,7 @@ void(entity targ, entity attacker) ClientObituary =
 						deathstring2 = "'s rocket\n" ;
 					}
 				}
-				if (rnum == IT_LIGHTNING)
+				if (targ.deathtype == "progs/v_light.mdl")
 				{
 					deathstring = " accepts ";
 					if (attacker.waterlevel > 1)
