@@ -598,7 +598,7 @@ void() W_FireGrenade =
 	makevectors (self.v_angle);
 
 	if (self.v_angle_x)
-		missile.velocity = v_forward*600 + v_up * 200 + crandom()*v_right*10 + crandom()*v_up*10;
+		missile.velocity = v_forward*600 + v_up * 200; //+ crandom()*v_right*10 + crandom()*v_up*10; remed crandom
 	else
 	{
 		missile.velocity = aim(self, 10000);
