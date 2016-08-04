@@ -63,10 +63,21 @@ void() SetChangeParms =
 
 void() SetNewParms =
 {
-	parm1 = IT_SHOTGUN | IT_AXE;
+	//insta-axe remove shotgun fix by SpecialBomb
+	if (deathmatch != 3)
+	{
+		parm1 = IT_SHOTGUN | IT_AXE;
+		parm4 = 25;
+	}
+	else
+	{
+		parm1 = IT_AXE;
+		parm4 = 0;
+	}
 	parm2 = 100;
 	parm3 = 0;
-	parm4 = 25;
+	//parm4 = 25;
+	//end fix
 	parm5 = 0;
 	parm6 = 0;
 	parm7 = 0;

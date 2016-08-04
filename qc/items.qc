@@ -35,6 +35,7 @@ plants the object on the floor
 */
 void() PlaceItem =
 {
+	//insta-axe items fix by SpecialBomb
 	if (deathmatch != 3) {
 	local float	oldz;
 
@@ -57,6 +58,7 @@ void() PlaceItem =
 	else {
 	return;
 	}
+	//end fix
 };
 
 /*
