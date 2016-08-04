@@ -420,7 +420,7 @@ SpawnThink
 Randomly sets ACTIVESPAWN entity where player respawns to
 ============
 */
-Void() SpawnThink =
+void() SpawnThink =
 {
 
 if (random () < 0.10)
