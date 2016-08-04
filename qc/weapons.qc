@@ -429,7 +429,7 @@ void() W_FireRocket =
 // set missile duration
 	missile.nextthink = time + 5;
 	missile.think = SUB_Remove;
-
+          missile.weaponmodel = self.weaponmodel;
 	setmodel (missile, "progs/missile.mdl");
 	setsize (missile, '0 0 0', '0 0 0');		
 	setorigin (missile, self.origin + v_forward*8 + '0 0 16');
@@ -591,6 +591,7 @@ void() W_FireGrenade =
 	missile.movetype = MOVETYPE_BOUNCE;
 	missile.solid = SOLID_BBOX;
 	missile.classname = "grenade";
+          missile.weaponmodel = self.weaponmodel;
 		
 // set missile speed	
 
@@ -641,7 +642,7 @@ void(vector org, vector dir) launch_spike =
 	newmis.solid = SOLID_TRIGGER;
 
 	newmis.angles = vectoangles(dir);
-	
+	newmis.weaponmodel = self.weaponmodel;
 	newmis.touch = spike_touch;
 	newmis.classname = "spike";
 	newmis.think = SUB_Remove;
