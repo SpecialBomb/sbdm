@@ -690,4 +690,4 @@ float (entity e, float healamount, float ignore) T_Heal; // health function
 
 float(entity targ, entity inflictor) CanDamage;
 
-
+entity ACTIVESPAWN; // Cobalt holds spawn entity for when player respawns
