@@ -35,6 +35,7 @@ plants the object on the floor
 */
 void() PlaceItem =
 {
+	if (deathmatch != 3) {
 	local float	oldz;
 
 	self.mdl = self.model;		// so it can be restored on respawn
@@ -51,6 +52,10 @@ void() PlaceItem =
 		dprint ("\n");
 		remove(self);
 		return;
+	}
+	}
+	else {
+	return;
 	}
 };
 
