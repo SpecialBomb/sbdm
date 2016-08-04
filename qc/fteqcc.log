@@ -1,7 +1,6 @@
 Source file: progs.src
 outputfile: ../progs.dat
 compiling defs.qc
-compiling dpextensions.qc
 compiling subs.qc
 compiling fight.qc
 compiling ai.qc
@@ -49,63 +48,6 @@ defs.qc:501: warning: dest  no references
 defs.qc:548: warning: waitmax  no references
 defs.qc:549: warning: distance  no references
 defs.qc:550: warning: volume  no references
-dpextensions.qc:5: warning: disableclientprediction  no references
-dpextensions.qc:39: warning: buttonchat  no references
-dpextensions.qc:47: warning: buttonuse  no references
-dpextensions.qc:200: warning: alpha  no references
-dpextensions.qc:208: warning: colormod  no references
-dpextensions.qc:233: warning: exteriormodeltoclient  no references
-dpextensions.qc:241: warning: glow_color  no references
-dpextensions.qc:242: warning: glow_size  no references
-dpextensions.qc:243: warning: glow_trail  no references
-dpextensions.qc:251: warning: glowmod  no references
-dpextensions.qc:267: warning: scale  no references
-dpextensions.qc:275: warning: viewmodelforclient  no references
-dpextensions.qc:384: warning: tag_entity  no references
-dpextensions.qc:385: warning: tag_index  no references
-dpextensions.qc:453: warning: button3  no references
-dpextensions.qc:454: warning: button4  no references
-dpextensions.qc:455: warning: button5  no references
-dpextensions.qc:456: warning: button6  no references
-dpextensions.qc:457: warning: button7  no references
-dpextensions.qc:458: warning: button8  no references
-dpextensions.qc:558: warning: pitch_speed  no references
-dpextensions.qc:790: warning: gettaginfo_parent  no references
-dpextensions.qc:791: warning: gettaginfo_name  no references
-dpextensions.qc:792: warning: gettaginfo_offset  no references
-dpextensions.qc:793: warning: gettaginfo_forward  no references
-dpextensions.qc:794: warning: gettaginfo_right  no references
-dpextensions.qc:795: warning: gettaginfo_up  no references
-dpextensions.qc:1202: warning: bouncefactor  no references
-dpextensions.qc:1203: warning: bouncestop  no references
-dpextensions.qc:1211: warning: clientcolors  no references
-dpextensions.qc:1225: warning: customizeentityforclient  no references
-dpextensions.qc:1242: warning: drawonlytoclient  no references
-dpextensions.qc:1269: warning: contentstransition  no references
-dpextensions.qc:1279: warning: movetypesteplandevent  no references
-dpextensions.qc:1321: warning: modelflags  no references
-dpextensions.qc:1349: warning: netaddress  no references
-dpextensions.qc:1357: warning: nodrawtoclient  no references
-dpextensions.qc:1365: warning: ping  no references
-dpextensions.qc:1389: warning: punchvector  no references
-dpextensions.qc:1397: warning: movement  no references
-dpextensions.qc:1422: warning: worldstatus  no references
-dpextensions.qc:1426: warning: clientstatus  no references
-dpextensions.qc:1693: warning: dphitcontentsmask  no references
-dpextensions.qc:1694: warning: trace_dpstartcontents  no references
-dpextensions.qc:1695: warning: trace_dphitcontents  no references
-dpextensions.qc:1696: warning: trace_dphitq3surfaceflags  no references
-dpextensions.qc:1697: warning: trace_dphittexturename  no references
-dpextensions.qc:1745: warning: viewzoom  no references
-dpextensions.qc:2004: warning: playermodel  no references
-dpextensions.qc:2005: warning: playerskin  no references
-dpextensions.qc:2021: warning: cursor_active  no references
-dpextensions.qc:2022: warning: cursor_screen  no references
-dpextensions.qc:2023: warning: cursor_trace_start  no references
-dpextensions.qc:2024: warning: cursor_trace_endpos  no references
-dpextensions.qc:2025: warning: cursor_trace_ent  no references
-dpextensions.qc:2040: warning: color  no references
-dpextensions.qc:2042: warning: pflags  no references
 fight.qc:298: warning: chance  no references
 ai.qc:37: warning: current_yaw  no references
 ai.qc:476: warning: mtemp  no references
@@ -159,14 +101,14 @@ ogre.qc:92: warning: mpuff  no references
 demon.qc:280: warning: vec  no references
 dog.qc:306: warning: vec  no references
 zombie.qc:164: warning: mpuff  no references
- 97308 strofs (of 1000000)
- 21120 numstatements (of 524288)
-  2303 numfunctions (of 16384)
-  4714 numglobaldefs (of 32768)
-   299 numfielddefs (268 unique) (of 2048)
-  4743 numpr_globals (of 65536)
+ 88852 strofs (of 1000000)
+ 20937 numstatements (of 524288)
+  2098 numfunctions (of 16384)
+  4308 numglobaldefs (of 32768)
+   218 numfielddefs (195 unique) (of 2048)
+  4357 numpr_globals (of 65536)
 Writing ../progs.dat
-408440 TOTAL SIZE
+385700 TOTAL SIZE
 Writing ../progs.lno
 225 unique precache_sounds
  95 unique precache_models
@@ -174,11 +116,11 @@ Writing ../progs.lno
 Compile Complete
 
 optres_shortenifnots 122
-optres_overlaptemps 7542
+optres_overlaptemps 7475
 optres_constantarithmatic 20
-optres_nonvec_parms 4006
-optres_assignments 431
-optres_unreferenced 172
-optres_dupconstdefs 188
-numtemps 123
-121 warnings
+optres_nonvec_parms 3967
+optres_assignments 410
+optres_unreferenced 67
+optres_dupconstdefs 101
+numtemps 122
+64 warnings
