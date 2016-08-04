@@ -486,7 +486,7 @@ void() PutClientInServer =
 	local	entity spot;
 
 	spot = SelectSpawnPoint ();
-          self.deathtype = spot.deathtype; // Cobalt , clear deathtype on respawn 
+          self.deathtype = string_null; // Cobalt , clear deathtype on respawn 
 	self.classname = "player";
 	self.health = 100;
 	self.takedamage = DAMAGE_AIM;
