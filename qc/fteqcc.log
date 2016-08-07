@@ -48,6 +48,7 @@ defs.qc:501: warning: dest  no references
 defs.qc:548: warning: waitmax  no references
 defs.qc:549: warning: distance  no references
 defs.qc:550: warning: volume  no references
+defs.qc:693: warning: ACTIVESPAWN  no references
 fight.qc:298: warning: chance  no references
 ai.qc:37: warning: current_yaw  no references
 ai.qc:476: warning: mtemp  no references
@@ -74,15 +75,15 @@ weapons.qc:726: warning: rand  no references
 weapons.qc:819: warning: rand  no references
 world.qc:362: warning: e  no references
 client.qc:306: warning: pos  no references
-client.qc:664: warning: old_self  no references
-client.qc:699: warning: start  no references
-client.qc:699: warning: end  no references
-client.qc:871: warning: mspeed  no references
-client.qc:871: warning: aspeed  no references
-client.qc:872: warning: r  no references
-client.qc:1083: warning: mspeed  no references
-client.qc:1083: warning: aspeed  no references
-client.qc:1084: warning: r  no references
+client.qc:715: warning: old_self  no references
+client.qc:750: warning: start  no references
+client.qc:750: warning: end  no references
+client.qc:922: warning: mspeed  no references
+client.qc:922: warning: aspeed  no references
+client.qc:923: warning: r  no references
+client.qc:1134: warning: mspeed  no references
+client.qc:1134: warning: aspeed  no references
+client.qc:1135: warning: r  no references
 monsters.qc:51: warning: ent  no references
 monsters.qc:51: warning: otemp  no references
 monsters.qc:51: warning: stemp  no references
@@ -101,26 +102,26 @@ ogre.qc:92: warning: mpuff  no references
 demon.qc:280: warning: vec  no references
 dog.qc:306: warning: vec  no references
 zombie.qc:164: warning: mpuff  no references
- 88660 strofs (of 1000000)
- 20920 numstatements (of 524288)
+ 88828 strofs (of 1000000)
+ 20978 numstatements (of 524288)
   2098 numfunctions (of 16384)
-  4301 numglobaldefs (of 32768)
+  4307 numglobaldefs (of 32768)
    218 numfielddefs (195 unique) (of 2048)
-  4347 numpr_globals (of 65536)
+  4354 numpr_globals (of 65536)
 Writing ../progs.dat
-385276 TOTAL SIZE
+385984 TOTAL SIZE
 Writing ../progs.lno
 225 unique precache_sounds
  95 unique precache_models
 104 unique precache_files
 Compile Complete
 
-optres_shortenifnots 121
-optres_overlaptemps 7487
+optres_shortenifnots 122
+optres_overlaptemps 7493
 optres_constantarithmatic 20
-optres_nonvec_parms 3943
-optres_assignments 406
-optres_unreferenced 67
+optres_nonvec_parms 3963
+optres_assignments 409
+optres_unreferenced 68
 optres_dupconstdefs 101
 numtemps 119
-64 warnings
+65 warnings
