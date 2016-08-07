@@ -415,17 +415,70 @@ float(vector v) CheckSpawnPoint =
 
 /*
 ============
-SpawnThink
+SelectSpawnPoint
 
-Randomly sets ACTIVESPAWN entity where player respawns to
+Returns the entity to spawn at
 ============
 */
-void() SpawnThink =
+entity() SelectSpawnPoint =
 {
+	local	entity spot;
+	local	entity thing;
+	local	float  pcount;
+	
+// testinfo_player_start is only found in regioned levels
+	spot = find (world, classname, "testplayerstart");
+	if (spot)
+		return spot;
+		
+// choose a info_player_deathmatch point
+	if (coop)
+	{
+		lastspawn = find(lastspawn, classname, "info_player_coop");
+		if (lastspawn == world)
+			lastspawn = find (lastspawn, classname, "info_player_start");
+		if (lastspawn != world)
+			return lastspawn;
+	}
+	else if (deathmatch)
+	{
+		spot = lastspawn;
+		while (1)
+		{
+			spot = find(spot, classname, "info_player_deathmatch");
+			if (spot != world)
+			{
+				if (spot == lastspawn)
+					return lastspawn;
+				pcount = 0;
+				thing = findradius(spot.origin, 32);
+				while(thing)
+				{
+					if (thing.classname == "player")
+						pcount = pcount + 1;
+					thing = thing.chain;
+				}
+				if (pcount == 0 && random() < 0.1)
+				{
+					lastspawn = spot;
+					return spot;
+				}
+			}
+		}
+	}
 
-if (random () < 0.10)
-ACTIVESPAWN = self;
-self.nextthink = time + frametime + (frametime * (random () * 33)); // Stagger thinks a little
+	if (serverflags)
+	{	// return with a rune to start
+		spot = find (world, classname, "info_player_start2");
+		if (spot)
+			return spot;
+	}
+	
+	spot = find (world, classname, "info_player_start");
+	if (!spot)
+		error ("PutClientInServer: no info_player_start on level");
+	
+	return spot;
 };
 
 /*
@@ -443,7 +496,7 @@ void() PutClientInServer =
 {
 	local	entity spot;
 
-	spot = ACTIVESPAWN;
+	spot = SelectSpawnPoint ();
           self.deathtype = string_null; // Cobalt , clear deathtype on respawn 
 	self.classname = "player";
 	self.health = 100;
