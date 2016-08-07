@@ -596,8 +596,6 @@ potential spawning position for deathmatch games
 */
 void() info_player_deathmatch =
 {
-self.think = SpawnThink;
-self.nextthink = time + frametime;
 };
 
 /*QUAKED info_player_coop (1 0 1) (-16 -16 -24) (16 16 24)
