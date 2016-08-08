@@ -1428,6 +1428,15 @@ void(entity targ, entity attacker) ClientObituary =
 
 			// in-water deaths
 			rnum = targ.watertype;
+			// falls into lava with recent attacker
+			if (rnum <= -3 && targ.push_time > time)
+			{
+				bprint (" was finished off by ");
+				bprint ("targ.attacker.netname");
+				bprint ("\n");
+				targ.attacker.frags = targ.attacker.frags + 1;
+				return;
+			}
 			if (rnum == -3)
 			{
 				if (random() < 0.5)
