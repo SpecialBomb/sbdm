@@ -1,6 +1,8 @@
 Source file: progs.src
 outputfile: ../progs.dat
 compiling defs.qc
+defs.qc:694: warning: Missing semicolon at end of definition
+defs.qc:696: warning: Missing semicolon at end of definition
 compiling subs.qc
 compiling fight.qc
 compiling ai.qc
@@ -48,7 +50,6 @@ defs.qc:501: warning: dest  no references
 defs.qc:548: warning: waitmax  no references
 defs.qc:549: warning: distance  no references
 defs.qc:550: warning: volume  no references
-defs.qc:693: warning: ACTIVESPAWN  no references
 fight.qc:298: warning: chance  no references
 ai.qc:37: warning: current_yaw  no references
 ai.qc:476: warning: mtemp  no references
@@ -102,14 +103,14 @@ ogre.qc:92: warning: mpuff  no references
 demon.qc:280: warning: vec  no references
 dog.qc:306: warning: vec  no references
 zombie.qc:164: warning: mpuff  no references
- 88828 strofs (of 1000000)
- 20978 numstatements (of 524288)
+ 88968 strofs (of 1000000)
+ 21019 numstatements (of 524288)
   2098 numfunctions (of 16384)
-  4307 numglobaldefs (of 32768)
-   218 numfielddefs (195 unique) (of 2048)
-  4354 numpr_globals (of 65536)
+  4312 numglobaldefs (of 32768)
+   220 numfielddefs (197 unique) (of 2048)
+  4358 numpr_globals (of 65536)
 Writing ../progs.dat
-385984 TOTAL SIZE
+386524 TOTAL SIZE
 Writing ../progs.lno
 225 unique precache_sounds
  95 unique precache_models
@@ -117,11 +118,11 @@ Writing ../progs.lno
 Compile Complete
 
 optres_shortenifnots 122
-optres_overlaptemps 7493
+optres_overlaptemps 7517
 optres_constantarithmatic 20
-optres_nonvec_parms 3963
+optres_nonvec_parms 3966
 optres_assignments 409
-optres_unreferenced 68
+optres_unreferenced 67
 optres_dupconstdefs 101
 numtemps 119
-65 warnings
+66 warnings
