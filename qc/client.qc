@@ -1432,7 +1432,7 @@ void(entity targ, entity attacker) ClientObituary =
 			if (rnum <= -3 && targ.push_time > time)
 			{
 				bprint (" finished himself off for ");
-				bprint ("targ.pusher.netname");
+				bprint (targ.pusher.netname);
 				bprint ("\n");
 				targ.pusher.frags = targ.pusher.frags + 1;
 				return;
