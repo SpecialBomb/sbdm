@@ -530,6 +530,14 @@ void() PutClientInServer =
 	
 //	spot = SelectSpawnPoint ();
 
+	thing = findradius(spot.origin, 50);
+	while(thing)
+	{
+		if (thing.classname == "stuck_spike")
+			remove(thing);
+		thing = thing.chain;
+	}
+
 //	self.origin = spot.origin + '0 0 1';
 	self.origin = self.oldorigin = spot.origin + '0 0 1';	// 1998-07-21 Respawning where player died fix by Robert Field
 	self.angles = spot.angles;
