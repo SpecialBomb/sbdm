@@ -142,7 +142,18 @@ void(entity targ, entity inflictor, entity attacker, float damage) T_Damage=
 		targ.dmg_save = targ.dmg_save + save;
 		targ.dmg_inflictor = inflictor;
 	}
-
+	
+	// pushtime and push entity gets set here
+	if (targ.flags & FL_CLIENT && attacker.flags & FL_CLIENT)
+	{
+		targ.pusher = attacker;
+		
+		if (targ.push_time < time)
+		{
+			targ.push_time = time + 3;
+		}
+	}
+	
 // figure momentum add
 	if ( (inflictor != world) && (targ.movetype == MOVETYPE_WALK) )
 	{
