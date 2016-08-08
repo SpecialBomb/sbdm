@@ -495,6 +495,7 @@ void() PlayerDie;
 void() PutClientInServer =
 {
 	local	entity spot;
+	local   entity thing;
 
 	spot = SelectSpawnPoint ();
     self.deathtype = string_null; // Cobalt , clear deathtype on respawn 
