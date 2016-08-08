@@ -1186,7 +1186,7 @@ void() ClientConnect =
 {
 	bprint (self.netname);
 	bprint (" entered the game\n");
-	motd();
+	motd ();
 // a client connecting during an intermission can cause problems
 	if (intermission_running)
 		ExitIntermission ();
