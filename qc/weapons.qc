@@ -788,6 +788,7 @@ local float rand;
 	}
 	else
 	{
+		self.classname = "stuck_spike";
 		self.movetype = MOVETYPE_NONE;
 		//setsize (self, VEC_ORIGIN, ' 0 0 4');
 		self.velocity = '0 0 0';
