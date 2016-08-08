@@ -277,7 +277,18 @@ void(entity inflictor, entity attacker, float damage, entity ignore) T_RadiusDam
 			}
 			if (head.classname == "stuck_spike")
 			{
-				remove(head);
+				if (random() >= 0.5)
+				{
+					remove(head);
+				}
+				else
+				{
+					local vector 	rng;
+					
+					head.movetype = MOVETYPE_BOUNCE;
+					rng = normalize(inflictor.origin - head.origin);
+					head.velocity = rng * 5;
+				}
 			}
 		}
 		head = head.chain;
