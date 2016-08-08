@@ -1431,15 +1431,14 @@ void(entity targ, entity attacker) ClientObituary =
 			// falls into lava with recent attacker
 			if (rnum <= -3 && targ.push_time > time)
 			{
-				if (targ == targ.pusher)
+				if (targ != targ.pusher)
 				{
+					bprint (" finished himself off for ");
+					bprint (targ.pusher.netname);
+					bprint ("\n");
+					targ.pusher.frags = targ.pusher.frags + 1;
 					return;
 				}
-				bprint (" finished himself off for ");
-				bprint (targ.pusher.netname);
-				bprint ("\n");
-				targ.pusher.frags = targ.pusher.frags + 1;
-				return;
 			}
 			if (rnum == -3)
 			{
