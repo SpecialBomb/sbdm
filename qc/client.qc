@@ -1295,6 +1295,10 @@ void(entity targ, entity attacker) ClientObituary =
 				{
 					deathstring = " was ax-murdered by ";
 					deathstring2 = "\n";
+					if (targ.health < -40 )
+					{
+						deathstring = " was chopped to ground beef by ";
+					}
 				}
 				if (targ.deathtype == "progs/v_shot.mdl")
 				{
