@@ -275,6 +275,10 @@ void(entity inflictor, entity attacker, float damage, entity ignore) T_RadiusDam
 					}
 				}
 			}
+			if (head.classname == "stuck_spike")
+			{
+				remove(head);
+			}
 		}
 		head = head.chain;
 	}
