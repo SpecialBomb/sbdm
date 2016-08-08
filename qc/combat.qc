@@ -148,7 +148,11 @@ void(entity targ, entity inflictor, entity attacker, float damage) T_Damage=
 	{
 		targ.pusher = attacker;
 		
-		if (targ.push_time < time)
+		if (targ.push_time >= time)
+		{
+			targ.push_time = targ.push_time + 3;
+		}
+		else
 		{
 			targ.push_time = time + 3;
 		}
