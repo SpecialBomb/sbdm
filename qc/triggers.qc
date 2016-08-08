@@ -415,6 +415,16 @@ local vector	org;
 		if (other.flags & FL_ONGROUND)
 			other.flags = other.flags - FL_ONGROUND;
 		other.velocity = v_forward * 300;
+		
+		local entity	thing;
+		
+		thing = findradius(self.origin, 70);
+		while(thing)
+		{
+			if (thing.classname == "stuck_spike")
+				remove(thing);
+			thing = thing.chain;
+		}
 	}
 	other.flags = other.flags - other.flags & FL_ONGROUND;
 };
