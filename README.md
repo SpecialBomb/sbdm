@@ -8,7 +8,7 @@ Weapon changes:
 
 +The Axe now does 80 damage, making it a viable melee weapon.
 
-+The Nailgun now throws nails, and they stick to the map. If they are touched by a player, they get damaged from it. The nails last a minute until they disappear.
++The Nailgun now throws nails, and they stick to the map. If they are touched by a player, they get damaged by it. The nails last a minute until they disappear, and can be destroyed using explosives.
 
 +The Shotgun is now infinitly accurate, and does more damage. This is useful in long range encounters with enemies.
 
