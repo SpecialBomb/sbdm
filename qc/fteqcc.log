@@ -2,7 +2,8 @@ Source file: progs.src
 outputfile: ../progs.dat
 compiling defs.qc
 defs.qc:694: warning: Missing semicolon at end of definition
-defs.qc:696: warning: Missing semicolon at end of definition
+defs.qc:695: warning: Missing semicolon at end of definition
+defs.qc:697: warning: Missing semicolon at end of definition
 compiling subs.qc
 compiling fight.qc
 compiling ai.qc
@@ -103,14 +104,14 @@ ogre.qc:92: warning: mpuff  no references
 demon.qc:280: warning: vec  no references
 dog.qc:306: warning: vec  no references
 zombie.qc:164: warning: mpuff  no references
- 88968 strofs (of 1000000)
- 21051 numstatements (of 524288)
+ 88984 strofs (of 1000000)
+ 21061 numstatements (of 524288)
   2098 numfunctions (of 16384)
-  4313 numglobaldefs (of 32768)
-   220 numfielddefs (197 unique) (of 2048)
-  4359 numpr_globals (of 65536)
+  4314 numglobaldefs (of 32768)
+   221 numfielddefs (198 unique) (of 2048)
+  4360 numpr_globals (of 65536)
 Writing ../progs.dat
-386792 TOTAL SIZE
+386908 TOTAL SIZE
 Writing ../progs.lno
 225 unique precache_sounds
  95 unique precache_models
@@ -118,11 +119,11 @@ Writing ../progs.lno
 Compile Complete
 
 optres_shortenifnots 122
-optres_overlaptemps 7532
+optres_overlaptemps 7539
 optres_constantarithmatic 20
 optres_nonvec_parms 3971
 optres_assignments 412
 optres_unreferenced 67
 optres_dupconstdefs 101
 numtemps 119
-66 warnings
+67 warnings
