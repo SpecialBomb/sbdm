@@ -1361,7 +1361,7 @@ void () TraceID =
         centerprint (self, trace_ent.netname);
         self.tidcheck = 1;
     }
-    else if (trace_ent.classname == "player" && self.tidcheck == 1)
+    else if (trace_ent.classname != "player" && self.tidcheck == 1)
     {
 		centerprint (self, "\n");
 		self.tidcheck = 0;
