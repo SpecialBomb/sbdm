@@ -1360,6 +1360,10 @@ void () TraceID =
     {
         centerprint (self, trace_ent.netname);
     }
+    else
+    {
+		centerprint (self, "\n");
+    }
 };
 
 /*
