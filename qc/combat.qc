@@ -287,7 +287,7 @@ void(entity inflictor, entity attacker, float damage, entity ignore) T_RadiusDam
 					
 					head.movetype = MOVETYPE_BOUNCE;
 					rng = normalize(inflictor.origin - head.origin);
-					head.velocity = rng * 5;
+					head.velocity = rng * 50;
 				}
 			}
 		}
