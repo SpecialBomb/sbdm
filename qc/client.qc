@@ -425,6 +425,7 @@ entity() SelectSpawnPoint =
 	local	entity spot;
 	local	entity thing;
 	local	float  pcount;
+	local	float  lcount;
 	
 // testinfo_player_start is only found in regioned levels
 	spot = find (world, classname, "testplayerstart");
@@ -443,12 +444,14 @@ entity() SelectSpawnPoint =
 	else if (deathmatch)
 	{
 		spot = lastspawn;
+		lcount = 0;
 		while (1)
 		{
+			lcount = lcount + 1;
 			spot = find(spot, classname, "info_player_deathmatch");
 			if (spot != world)
 			{
-				if (spot == lastspawn)
+				if (spot == lastspawn && lcount >= 20)
 					return lastspawn;
 				pcount = 0;
 				thing = findradius(spot.origin, 32);
