@@ -77,15 +77,15 @@ weapons.qc:726: warning: rand  no references
 weapons.qc:820: warning: rand  no references
 world.qc:362: warning: e  no references
 client.qc:306: warning: pos  no references
-client.qc:725: warning: old_self  no references
-client.qc:760: warning: start  no references
-client.qc:760: warning: end  no references
-client.qc:932: warning: mspeed  no references
-client.qc:932: warning: aspeed  no references
-client.qc:933: warning: r  no references
-client.qc:1144: warning: mspeed  no references
-client.qc:1144: warning: aspeed  no references
-client.qc:1145: warning: r  no references
+client.qc:728: warning: old_self  no references
+client.qc:763: warning: start  no references
+client.qc:763: warning: end  no references
+client.qc:935: warning: mspeed  no references
+client.qc:935: warning: aspeed  no references
+client.qc:936: warning: r  no references
+client.qc:1147: warning: mspeed  no references
+client.qc:1147: warning: aspeed  no references
+client.qc:1148: warning: r  no references
 monsters.qc:51: warning: ent  no references
 monsters.qc:51: warning: otemp  no references
 monsters.qc:51: warning: stemp  no references
@@ -104,14 +104,14 @@ ogre.qc:92: warning: mpuff  no references
 demon.qc:280: warning: vec  no references
 dog.qc:306: warning: vec  no references
 zombie.qc:164: warning: mpuff  no references
- 88984 strofs (of 1000000)
- 21061 numstatements (of 524288)
+ 88992 strofs (of 1000000)
+ 21065 numstatements (of 524288)
   2098 numfunctions (of 16384)
-  4314 numglobaldefs (of 32768)
+  4315 numglobaldefs (of 32768)
    221 numfielddefs (198 unique) (of 2048)
-  4360 numpr_globals (of 65536)
+  4361 numpr_globals (of 65536)
 Writing ../progs.dat
-386908 TOTAL SIZE
+386960 TOTAL SIZE
 Writing ../progs.lno
 225 unique precache_sounds
  95 unique precache_models
@@ -119,10 +119,10 @@ Writing ../progs.lno
 Compile Complete
 
 optres_shortenifnots 122
-optres_overlaptemps 7539
+optres_overlaptemps 7542
 optres_constantarithmatic 20
 optres_nonvec_parms 3971
-optres_assignments 412
+optres_assignments 413
 optres_unreferenced 67
 optres_dupconstdefs 101
 numtemps 119
