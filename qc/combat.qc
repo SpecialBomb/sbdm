@@ -159,7 +159,7 @@ void(entity targ, entity inflictor, entity attacker, float damage) T_Damage=
 	}
 	
 // figure momentum add
-	if ( (inflictor != world) && (targ.movetype == MOVETYPE_WALK) )
+	if ( (inflictor != world) && (targ.movetype == MOVETYPE_WALK) && (inflictor.classname != "stuck_spike") )
 	{
 		dir = targ.origin - (inflictor.absmin + inflictor.absmax) * 0.5;
 		dir = normalize(dir);
