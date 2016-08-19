@@ -28,6 +28,8 @@ Gameplay changes:
 
 +Grenades aren't random.
 
++Players won't keep weapons, ammo, and armor when changing levels.
+
 +If someone were to hit you, and you fall into water, slime, or lava and die within 3 seconds, a frag will go to the attacker. (Essentially, you push someone into lava, you get a frag).
 
 Other changes:
