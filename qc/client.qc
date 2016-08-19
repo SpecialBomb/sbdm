@@ -32,7 +32,7 @@ void() info_intermission =
 
 void() SetChangeParms =
 {
-	if (self.health <= 0)
+	if (self.health <= 0 || deathmatch >= 1)
 	{
 		SetNewParms ();
 		return;
