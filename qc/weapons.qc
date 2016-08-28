@@ -1393,6 +1393,12 @@ void() W_WeaponFrame =
 	
 	if (self.velocity == VEC_ORIGIN && (self.flags & FL_CLIENT))
 		TraceID ();
+		
+	if (self.tidcheck == 1)
+	{
+		centerprint (self, "\n");
+		self.tidcheck = 0;
+	}
 };
 
 /*
