@@ -456,7 +456,7 @@ entity() SelectSpawnPoint =
 			spot = find(spot, classname, "info_player_deathmatch");
 			if (spot != world)
 			{
-				if (spot == lastspawn && lcount >= 20)
+				if (spot == lastspawn && lcount >= 100)
 					return lastspawn;
 				pcount = 0;
 				thing = findradius(spot.origin, 32);
