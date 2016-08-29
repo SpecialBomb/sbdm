@@ -94,6 +94,11 @@ void() DecodeLevelParms =
 			SetNewParms ();		// take away all stuff on starting new episode
 	}
 	
+	if (deathmatch)
+	{
+		SetNewParms ();
+	}
+	
 	self.items = parm1;
 	self.health = parm2;
 	self.armorvalue = parm3;

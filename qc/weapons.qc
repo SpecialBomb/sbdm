@@ -1391,8 +1391,9 @@ void() W_WeaponFrame =
 		W_Attack ();
 	}
 	
-	if (self.velocity == VEC_ORIGIN && (self.flags & FL_CLIENT))
+	if ((self.flags & FL_CLIENT))
 		TraceID ();
+		
 };
 
 /*
