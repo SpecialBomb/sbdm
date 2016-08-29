@@ -4,7 +4,7 @@ sbdm, or SpecialBomb's Death Match, is a mod that is aimed at making all of the 
 For example, if you had the Nailgun, and got the Super Nailgun, why would you want to use the Nailgun anymore?
 This mod tries to fix that.
 
-Weapon changes:
+#Weapon Changes
 
 +The Axe now does 80 damage, making it a viable melee weapon.
 
@@ -16,7 +16,7 @@ Weapon changes:
 
 +The Super Nailgun no longer shoots nails, but rather acts like the Doom Chaingun.
 
-Gameplay changes:
+#Gameplay Changes
 
 +The Quad and Ring now drop on death.
 
@@ -28,13 +28,13 @@ Gameplay changes:
 
 +Grenades aren't random.
 
-+Players won't keep weapons, ammo, and armor when changing levels.
++Players won't keep weapons, ammo, health, and armor when changing levels.
 
 +If someone were to hit you, and you fall into water, slime, or lava and die within 3 seconds, a frag will go to the attacker. (Essentially, you push someone into lava, you get a frag).
 
-Other changes:
+#Other Changes
 
-+While standing still, you can look at a player to see their name.
++You can look at a player to see their name.
 
 +Drowning doesn't damage armor.
 
