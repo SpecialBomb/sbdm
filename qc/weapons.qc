@@ -1391,14 +1391,12 @@ void () wjcheck =
 	makevectors (self.v_angle);
 	temper = v_forward;
 	temper_z = 0;
-	traceline (self.origin, (self.origin + (temper * 100)), FALSE, self);
-	if ((trace_ent.solid == SOLID_BSP))
+	traceline (self.origin, (self.origin + (temper * -20)), FALSE, self);
+	if ((trace_endpos - self.origin) <= 12)
 	{
-		sprint(self, trace_ent.classname);
-		sprint(self, "\n");
 		self.wjump = 1;
 	}
-	else if ((trace_ent.solid != SOLID_BSP))
+	else
 	{
 		self.wjump = 0;
 	}
