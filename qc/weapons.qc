@@ -1335,22 +1335,19 @@ ImpulseCommands
 
 void() walljump =
 {
-	//if (self.wjump == 1)
-	//{
+	if (self.wjump == 1)
+	{
 		local	vector wj;
 		makevectors (self.v_angle);
 		wj = v_forward * 500;
 		wj_z = 200;
 		self.velocity = wj;
 		sound (self, CHAN_VOICE, "player/land.wav", 1, ATTN_NORM);
-	//}
+	}
 };
 
 void() ImpulseCommands =
 {
-	if (self.impulse == 30)
-		walljump();
-
 	if (self.impulse >= 1 && self.impulse <= 8)
 		W_ChangeWeapon ();
 
@@ -1415,6 +1412,9 @@ Called every frame so impulse events can be handled as well as possible
 
 void() W_WeaponFrame =
 {
+	if (self.impulse == 30)
+		ImpulseCommands ();
+	
 	if (time < self.attack_finished)
 		return;
 
