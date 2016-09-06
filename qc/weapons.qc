@@ -1335,15 +1335,15 @@ ImpulseCommands
 
 void() walljump =
 {
-	if (self.wjump == 1)
-	{
+	//if (self.wjump == 1)
+	//{
 		local	vector wj;
 		makevectors (self.v_angle);
 		wj = v_forward * 200;
 		wj_z = 300;
 		self.velocity = wj;
 		sound (self, CHAN_VOICE, "player/land.wav", 1, ATTN_NORM);
-	}
+	//}
 };
 
 void() ImpulseCommands =
