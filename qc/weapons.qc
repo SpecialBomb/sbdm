@@ -1388,10 +1388,9 @@ void () TraceID =
 void () wjcheck =
 {
 	local	vector temper;
-	makevectors (self.angles);
-	temper = v_forward;
-	temper_z = 0;
-	traceline (self.origin, (self.origin + (temper * -28)), FALSE, self);
+	temper_y = self.angles_y;
+	makevectors (temper);
+	traceline (self.origin, (self.origin + (v_forward * -28)), FALSE, self);
 	if (vlen(trace_endpos - self.origin) <= 27)
 	{
 		sprint (self, vtos(self.angles));
