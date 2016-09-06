@@ -1394,6 +1394,8 @@ void () wjcheck =
 	traceline (self.origin, (self.origin + (temper * -50)), FALSE, self);
 	if ((trace_ent.solid == SOLID_BSP))
 	{
+		sprint(self, trace_ent.classname);
+		sprint(self, "\n");
 		self.wjump = 1;
 	}
 	else if ((trace_ent.solid != SOLID_BSP))
