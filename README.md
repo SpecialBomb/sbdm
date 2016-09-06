@@ -32,6 +32,8 @@ This mod tries to fix that.
 
 +If someone were to hit you, and you fall into water, slime, or lava and die within 3 seconds, a frag will go to the attacker. (Essentially, you push someone into lava, you get a frag).
 
++Walljumping! (see below)
+
 #Other Changes
 
 +You can look at a player to see their name.
@@ -39,3 +41,7 @@ This mod tries to fix that.
 +Drowning doesn't damage armor.
 
 Other things will be added at some point.
+
+#Walljumping
+
+To do walljumps, bind a key (perferrably mouse2) to "impulse 30." Using the bound key while your back is facing towards a wall, you will jump in the direction you are looking in. This can be useful for finding combos in maps that let you get around quicker than usual. There is an angular limit to when you can walljump, so practice a bit to get used to it, because nothing will happen if you jump at the wrong angle.
