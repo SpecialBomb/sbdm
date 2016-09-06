@@ -1338,10 +1338,12 @@ void() walljump =
 	if (self.wjump == 1)
 	{
 		local	vector wj;
-		makevectors (self.v_angle);
-		wj = v_forward * 500;
-		wj_z = 200;
-		self.velocity = wj;
+		local	vector wwj;
+		wj_y = self.angles_y;
+		makevectors (wj);
+		wwj = v_forward * 500;
+		wwj_z = 200;
+		self.velocity = wwj;
 		sound (self, CHAN_VOICE, "player/land.wav", 1, ATTN_NORM);
 	}
 };
@@ -1393,8 +1395,6 @@ void () wjcheck =
 	traceline (self.origin, (self.origin + (v_forward * -42)), FALSE, self);
 	if (vlen(trace_endpos - self.origin) <= 41)
 	{
-		sprint (self, vtos(self.angles));
-		sprint (self, "\n");
 		self.wjump = 1;
 	}
 	else
