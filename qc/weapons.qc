@@ -1391,7 +1391,7 @@ void () wjcheck =
 	makevectors (self.v_angle);
 	temper = v_forward;
 	temper_z = 0;
-	traceline (self.origin, ((self.origin + (temper * -40)), FALSE, self);
+	traceline (self.origin, (self.origin + (temper * -40)), FALSE, self);
 	if ((trace_ent == world))
 	{
 		self.wjump = 1;
