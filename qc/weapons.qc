@@ -1391,7 +1391,7 @@ void () wjcheck =
 	makevectors (self.v_angle);
 	temper = v_forward;
 	temper_z = 0;
-	traceline (self.origin, (self.origin + (temper * -50)), FALSE, self);
+	traceline (self.origin, (self.origin + (temper * 100)), FALSE, self);
 	if ((trace_ent.solid == SOLID_BSP))
 	{
 		sprint(self, trace_ent.classname);
