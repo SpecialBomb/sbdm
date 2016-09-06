@@ -1392,7 +1392,7 @@ void () wjcheck =
 	temper = v_forward;
 	temper_z = 0;
 	traceline (self.origin, (self.origin + (temper * -20)), FALSE, self);
-	if ((self.origin - trace_endpos) <= 12)
+	if (vlen(self.origin - trace_endpos) <= 12)
 	{
 		self.wjump = 1;
 	}
