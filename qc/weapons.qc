@@ -1394,7 +1394,9 @@ void () wjcheck =
 	traceline (self.origin, (self.origin + (temper * -28)), FALSE, self);
 	if (vlen(trace_endpos - self.origin) <= 27)
 	{
-		sprint (self, vtos(v_forward));
+		sprint (self, vtos(self.angles_x));
+		sprint (self, vtos(self.angles_y));
+		sprint (self, vtos(self.angles_z));
 		sprint (self, "\n");
 		self.wjump = 1;
 	}
