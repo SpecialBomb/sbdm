@@ -1392,11 +1392,11 @@ void () wjcheck =
 	temper = v_forward;
 	temper_z = 0;
 	traceline (self.origin, (self.origin + (temper * -40)), FALSE, self);
-	if ((trace_ent == world))
+	if ((trace_ent.solid == SOLID_BSP))
 	{
 		self.wjump = 1;
 	}
-	else if ((trace_ent != world))
+	else if ((trace_ent != SOLID_BSP))
 	{
 		self.wjump = 0;
 	}
