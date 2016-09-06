@@ -1395,6 +1395,7 @@ void () wjcheck =
 	if (vlen(trace_endpos - self.origin) <= 27)
 	{
 		sprint (self, vtos(trace_endpos - self.origin));
+		sprint (self, "\n");
 		self.wjump = 1;
 	}
 	else
