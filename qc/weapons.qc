@@ -1396,7 +1396,7 @@ void () wjcheck =
 	{
 		self.wjump = 1;
 	}
-	else if ((trace_ent != SOLID_BSP))
+	else if ((trace_ent.solid != SOLID_BSP))
 	{
 		self.wjump = 0;
 	}
