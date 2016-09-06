@@ -116,10 +116,10 @@ Writing ../progs.lno
 Compile Complete
 
 optres_shortenifnots 122
-optres_overlaptemps 7581
+optres_overlaptemps 7584
 optres_constantarithmatic 20
 optres_nonvec_parms 3982
-optres_assignments 417
+optres_assignments 418
 optres_unreferenced 67
 optres_dupconstdefs 101
 numtemps 119
