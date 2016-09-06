@@ -1391,8 +1391,8 @@ void () wjcheck =
 	makevectors (self.v_angle);
 	temper = v_forward;
 	temper_z = 0;
-	traceline (self.origin, (self.origin + (temper * -20)), FALSE, self);
-	if (vlen(trace_endpos - self.origin) <= 19)
+	traceline (self.origin, (self.origin + (temper * -25)), FALSE, self);
+	if (vlen(trace_endpos - self.origin) <= 24)
 	{
 		self.wjump = 1;
 	}
