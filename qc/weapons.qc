@@ -1332,8 +1332,25 @@ ImpulseCommands
 
 ============
 */
+
+void() walljump =
+{
+	if (self.wjump == 1)
+	{
+		local	vector wj;
+		makevectors (self.v_angle);
+		wj = v_forward * 200;
+		wj_z = 300;
+		self.velocity = wj;
+		sound (self, CHAN_VOICE, "player/land.wav", 1, ATTN_NORM);
+	}
+};
+
 void() ImpulseCommands =
 {
+	if (self.impulse == 30)
+		walljump();
+
 	if (self.impulse >= 1 && self.impulse <= 8)
 		W_ChangeWeapon ();
 
@@ -1348,6 +1365,9 @@ void() ImpulseCommands =
 
 	if (self.impulse == 255)
 		QuadCheat ();
+		
+	if (self.impulse == 30)
+		walljump ();
 		
 	self.impulse = 0;
 };
@@ -1366,6 +1386,23 @@ void () TraceID =
 		centerprint (self, "\n");
 		self.tidcheck = 0;
     }
+};
+
+void () wjcheck =
+{
+	local	vector temper;
+	makevectors (self.v_angle);
+	temper = v_forward;
+	temper_z = 0;
+	traceline (self.origin, (self.origin - (temper * 20)), FALSE, self);
+	if (trace_ent.classname == "world" && !(self.flags & FL_ONGROUND))
+	{
+		self.wjump = 1;
+	}
+	else
+	{
+		self.wjump = 0;
+	}
 };
 
 /*
@@ -1392,8 +1429,10 @@ void() W_WeaponFrame =
 	}
 	
 	if ((self.flags & FL_CLIENT))
+	{
 		TraceID ();
-		
+		wjcheck ();
+	}	
 };
 
 /*
