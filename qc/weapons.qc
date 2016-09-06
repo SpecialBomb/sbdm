@@ -1390,8 +1390,8 @@ void () wjcheck =
 	local	vector temper;
 	temper_y = self.angles_y;
 	makevectors (temper);
-	traceline (self.origin, (self.origin + (v_forward * -28)), FALSE, self);
-	if (vlen(trace_endpos - self.origin) <= 27)
+	traceline (self.origin, (self.origin + (v_forward * -32)), FALSE, self);
+	if (vlen(trace_endpos - self.origin) <= 31)
 	{
 		sprint (self, vtos(self.angles));
 		sprint (self, "\n");
