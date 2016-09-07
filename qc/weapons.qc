@@ -1413,6 +1413,12 @@ Called every frame so impulse events can be handled as well as possible
 
 void() W_WeaponFrame =
 {
+	if ((self.flags & FL_CLIENT))
+	{
+		TraceID ();
+		wjcheck ();
+	}
+
 	if (self.impulse == 30)
 		ImpulseCommands ();
 	
@@ -1429,11 +1435,7 @@ void() W_WeaponFrame =
 		W_Attack ();
 	}
 	
-	if ((self.flags & FL_CLIENT))
-	{
-		TraceID ();
-		wjcheck ();
-	}	
+		
 };
 
 /*
