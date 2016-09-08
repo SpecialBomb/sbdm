@@ -1392,10 +1392,12 @@ void () wjcheck =
 	local	vector vecm;
 	local	vector vecr;
 	local	vector vecl;
+	local	vector veca;
 	
+	veca = vectoangles('-4 -10 0');
 	vecm_y = self.angles_y;
-	vecr_y = anglemod((self.angles_y + vectoangles('-4 -10 0')));
-	vecl_y = anglemod((self.angles_y - vectoangles('-4 -10 0')));
+	vecr_y = anglemod(self.angles_y + veca_y);
+	vecl_y = anglemod(self.angles_y - veca_y);
 	
 	makevectors (vecm);
 	vecm = v_forward;
