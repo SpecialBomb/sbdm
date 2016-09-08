@@ -1389,11 +1389,29 @@ void () TraceID =
 
 void () wjcheck =
 {
-	local	vector temper;
-	temper_y = self.angles_y;
-	makevectors (temper);
-	traceline (self.origin, (self.origin + (v_forward * -42)), FALSE, self);
-	if (vlen(trace_endpos - self.origin) <= 41)
+	local	vector vecm;
+	local	vector vecr;
+	local	vector vecl;
+	
+	vecm_y = self.angles_y;
+	vecr_y = anglemod(self.angles_y + vectoangles('-4 -10 0'));
+	vecl_y = anglemod(self.angles_y - vectoangles('-4 -10 0'));
+	
+	makevectors (vecm);
+	vecm = v_forward;
+	makevectors (vecr);
+	vecr = v_forward;
+	makevectors (vecl);
+	vecl = v_forward;
+	
+	traceline (self.origin, (self.origin + (vecm * -41)), FALSE, self);
+	vecm = trace_endpos;
+	traceline (self.origin, (self.origin + (vecr * 41)), FALSE, self);
+	vecr = trace_endpos;
+	traceline (self.origin, (self.origin + (vecl * 41)), FALSE, self);
+	vecl = trace_endpos;
+	
+	if (vlen(vecm - self.origin) <= 40 || vlen(vecr - self.origin) <= 40 || vlen(vecl - self.origin) <= 40)
 	{
 		self.wjump = 1;
 	}
