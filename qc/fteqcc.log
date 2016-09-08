@@ -11,9 +11,6 @@ in function spike_touch (line 627),
 weapons.qc:765: warning: rand duplicate definition ignored
 weapons.qc:726:    rand  is defined here
 weapons.qc:766: warning: Implicit conversion
-in function wjcheck (line 1390),
-weapons.qc:1397: warning: Implicit conversion
-weapons.qc:1398: warning: Implicit conversion
 compiling world.qc
 compiling client.qc
 compiling dropping.qc
@@ -104,14 +101,14 @@ ogre.qc:92: warning: mpuff  no references
 demon.qc:280: warning: vec  no references
 dog.qc:306: warning: vec  no references
 zombie.qc:164: warning: mpuff  no references
- 89176 strofs (of 1000000)
- 21168 numstatements (of 524288)
+ 89204 strofs (of 1000000)
+ 21167 numstatements (of 524288)
   2100 numfunctions (of 16384)
-  4340 numglobaldefs (of 32768)
+  4344 numglobaldefs (of 32768)
    222 numfielddefs (199 unique) (of 2048)
-  4384 numpr_globals (of 65536)
+  4387 numpr_globals (of 65536)
 Writing ../progs.dat
-388340 TOTAL SIZE
+388404 TOTAL SIZE
 Writing ../progs.lno
 225 unique precache_sounds
  95 unique precache_models
@@ -126,4 +123,4 @@ optres_assignments 421
 optres_unreferenced 67
 optres_dupconstdefs 101
 numtemps 120
-66 warnings
+64 warnings
