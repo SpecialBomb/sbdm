@@ -1342,7 +1342,7 @@ void() walljump =
 		wj_y = self.angles_y;
 		makevectors (wj);
 		wwj = v_forward * 500;
-		wwj_z = 200;
+		//wwj_z = 200;
 		self.velocity = wwj;
 		sound (self, CHAN_VOICE, "player/land.wav", 1, ATTN_NORM);
 	}
