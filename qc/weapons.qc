@@ -1333,8 +1333,34 @@ ImpulseCommands
 ============
 */
 
+void () wjcheck =
+{
+	local	vector vecm;
+	local	vector vecr;
+	local	vector vecl;
+	
+	makevectors(self.angles);
+	
+	traceline (self.origin, (self.origin + (v_forward * -41)), FALSE, self);
+	vecm = trace_endpos;
+	traceline (self.origin, (self.origin + (v_right * 12) + (v_forward * -41)), FALSE, self);
+	vecr = trace_endpos;
+	traceline (self.origin, (self.origin + (v_right * -12) + (v_forward * -41)), FALSE, self);
+	vecl = trace_endpos;
+	
+	if (vlen(vecm - self.origin) <= 40 || vlen(vecr - self.origin) <= 40 || vlen(vecl - self.origin) <= 40)
+	{
+		self.wjump = 1;
+	}
+	else
+	{
+		self.wjump = 0;
+	}
+};
+
 void() walljump =
 {
+	wjcheck ();
 	if (self.wjump == 1)
 	{
 		local	vector wj;
@@ -1387,30 +1413,7 @@ void () TraceID =
     }
 };
 
-void () wjcheck =
-{
-	local	vector vecm;
-	local	vector vecr;
-	local	vector vecl;
-	
-	makevectors(self.angles);
-	
-	traceline (self.origin, (self.origin + (v_forward * -41)), FALSE, self);
-	vecm = trace_endpos;
-	traceline (self.origin, (self.origin + (v_right * 12) + (v_forward * -41)), FALSE, self);
-	vecr = trace_endpos;
-	traceline (self.origin, (self.origin + (v_right * -12) + (v_forward * -41)), FALSE, self);
-	vecl = trace_endpos;
-	
-	if (vlen(vecm - self.origin) <= 40 || vlen(vecr - self.origin) <= 40 || vlen(vecl - self.origin) <= 40)
-	{
-		self.wjump = 1;
-	}
-	else
-	{
-		self.wjump = 0;
-	}
-};
+
 
 /*
 ============
@@ -1425,7 +1428,6 @@ void() W_WeaponFrame =
 	if ((self.flags & FL_CLIENT))
 	{
 		TraceID ();
-		wjcheck ();
 	}
 
 	if (self.impulse == 30)
