@@ -1361,7 +1361,7 @@ void () wjcheck =
 void() walljump =
 {
 	wjcheck ();
-	if (self.wjump == 1)
+	if (self.wjump == 1 && self.wjcount < 3)
 	{
 		local	vector wj;
 		local	vector wwj;
@@ -1428,6 +1428,11 @@ void() W_WeaponFrame =
 	if ((self.flags & FL_CLIENT))
 	{
 		TraceID ();
+	}
+	
+	if ((self.flags & FL_ONGROUND) && self.wjcount != 0)
+	{
+		self.wjcount = 0;
 	}
 
 	if (self.impulse == 30)
