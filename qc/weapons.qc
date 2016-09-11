@@ -1363,6 +1363,7 @@ void() walljump =
 	wjcheck ();
 	if (self.wjump == 1 && self.wjcount < 3)
 	{
+		self.wjcount = self.wjcount + 1;
 		local	vector wj;
 		local	vector wwj;
 		wj_y = self.angles_y;
