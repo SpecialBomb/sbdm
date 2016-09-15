@@ -1392,7 +1392,7 @@ void() ImpulseCommands =
 	if (self.impulse == 255)
 		QuadCheat ();
 		
-	if (self.impulse == 30 && self.deadflag != DEAD_NO)
+	if (self.impulse == 30 && self.health > 0)
 		walljump ();
 		
 	self.impulse = 0;
