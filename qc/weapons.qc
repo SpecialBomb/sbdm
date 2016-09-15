@@ -1339,7 +1339,7 @@ void () wjcheck =
 	local	vector vecr;
 	local	vector vecl;
 	
-	if (self.deadflag == DEAD_NO)
+	if (self.deadflag != DEAD_NO)
 	{
 		self.wjump = 0;
 		return;
