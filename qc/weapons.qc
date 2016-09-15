@@ -1339,6 +1339,12 @@ void () wjcheck =
 	local	vector vecr;
 	local	vector vecl;
 	
+	if (self.deadflag == DEAD_NO)
+	{
+		self.wjump = 0;
+		return;
+	}
+	
 	makevectors(self.angles);
 	
 	traceline (self.origin, (self.origin + (v_forward * -41)), FALSE, self);
@@ -1361,7 +1367,7 @@ void () wjcheck =
 void() walljump =
 {
 	wjcheck ();
-	if (self.wjump == 1 && self.wjcount < 3 && self.deadflag == DEAD_NO)
+	if (self.wjump == 1 && self.wjcount < 3)
 	{
 		self.wjcount = self.wjcount + 1;
 		local	vector wj;
