@@ -1361,7 +1361,7 @@ void () wjcheck =
 void() walljump =
 {
 	wjcheck ();
-	if (self.wjump == 1 && self.wjcount < 3 && self.deadflag & DEAD_NO)
+	if (self.wjump == 1 && self.wjcount < 3 && self.deadflag == DEAD_NO)
 	{
 		self.wjcount = self.wjcount + 1;
 		local	vector wj;
