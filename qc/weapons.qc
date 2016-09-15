@@ -1339,12 +1339,6 @@ void () wjcheck =
 	local	vector vecr;
 	local	vector vecl;
 	
-	if (self.deadflag != DEAD_NO)
-	{
-		self.wjump = 0;
-		return;
-	}
-	
 	makevectors(self.angles);
 	
 	traceline (self.origin, (self.origin + (v_forward * -41)), FALSE, self);
@@ -1398,7 +1392,7 @@ void() ImpulseCommands =
 	if (self.impulse == 255)
 		QuadCheat ();
 		
-	if (self.impulse == 30)
+	if (self.impulse == 30 && self.deadflag != DEAD_NO)
 		walljump ();
 		
 	self.impulse = 0;
