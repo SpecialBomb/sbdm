@@ -507,6 +507,7 @@ void() PutClientInServer =
 
 	spot = SelectSpawnPoint ();
     self.deathtype = string_null; // Cobalt , clear deathtype on respawn 
+    self.impulse = 0;
     self.push_time = 0;
     self.wjump = 0;
 	self.classname = "player";
