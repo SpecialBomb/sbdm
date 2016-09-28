@@ -74,15 +74,15 @@ weapons.qc:726: warning: rand  no references
 weapons.qc:820: warning: rand  no references
 world.qc:362: warning: e  no references
 client.qc:311: warning: pos  no references
-client.qc:734: warning: old_self  no references
-client.qc:769: warning: start  no references
-client.qc:769: warning: end  no references
-client.qc:941: warning: mspeed  no references
-client.qc:941: warning: aspeed  no references
-client.qc:942: warning: r  no references
-client.qc:1153: warning: mspeed  no references
-client.qc:1153: warning: aspeed  no references
-client.qc:1154: warning: r  no references
+client.qc:735: warning: old_self  no references
+client.qc:770: warning: start  no references
+client.qc:770: warning: end  no references
+client.qc:942: warning: mspeed  no references
+client.qc:942: warning: aspeed  no references
+client.qc:943: warning: r  no references
+client.qc:1154: warning: mspeed  no references
+client.qc:1154: warning: aspeed  no references
+client.qc:1155: warning: r  no references
 monsters.qc:51: warning: ent  no references
 monsters.qc:51: warning: otemp  no references
 monsters.qc:51: warning: stemp  no references
@@ -102,13 +102,13 @@ demon.qc:280: warning: vec  no references
 dog.qc:306: warning: vec  no references
 zombie.qc:164: warning: mpuff  no references
  89192 strofs (of 1000000)
- 21169 numstatements (of 524288)
+ 21171 numstatements (of 524288)
   2100 numfunctions (of 16384)
   4341 numglobaldefs (of 32768)
    223 numfielddefs (200 unique) (of 2048)
   4383 numpr_globals (of 65536)
 Writing ../progs.dat
-388376 TOTAL SIZE
+388392 TOTAL SIZE
 Writing ../progs.lno
 225 unique precache_sounds
  95 unique precache_models
@@ -116,7 +116,7 @@ Writing ../progs.lno
 Compile Complete
 
 optres_shortenifnots 122
-optres_overlaptemps 7644
+optres_overlaptemps 7645
 optres_constantarithmatic 20
 optres_nonvec_parms 3982
 optres_assignments 419
