@@ -7,7 +7,6 @@ ai.qc
 combat.qc
 items.qc
 weapons.qc
-mathlib.qc
 world.qc
 client.qc
 dropping.qc
