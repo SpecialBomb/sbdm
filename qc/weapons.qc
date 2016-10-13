@@ -284,11 +284,11 @@ void() W_FireShotgun =
 	self.currentammo = self.ammo_shells = self.ammo_shells - 1;
 	dir = aim (self, 100000);
 	if (!deathmatch){
-	FireBullets (6, dir, '0.04 0.04 0');
+	FireBullets (6, dir, '0.04 0.04 0', 4);
 	}
 	else
 	{
-	FireBullets (10, dir, '0 0 0.14');
+	FireBullets (1, dir, '0 0 0', 40);
 	}
 };
 
@@ -316,7 +316,7 @@ void() W_FireSuperShotgun =
 	dir = aim (self, 100000);
 	if (!deathmatch)
 	{
-	FireBullets (14, dir, '0.14 0.08 0');
+	FireBullets (14, dir, '0.14 0.08 0', 4);
 	}
 	else
 	{
@@ -326,7 +326,7 @@ void() W_FireSuperShotgun =
 	else {
 		self.velocity = (-dir*150)+self.velocity;
 	}
-	FireBullets (18, dir, '0.08 0.08 0');
+	FireBullets (15, dir, '0.16 0.16 0', 10);
 	}
 };
 
@@ -681,7 +681,7 @@ void() W_FireSuperSpikes =
 	}
 	else
 	{
-	FireBullets(3, dir, '0.01 0.01 0.0');
+	FireBullets(3, dir, '0.01 0.01 0.0', 6);
 	}		
 	self.punchangle_x = -2;
 };
