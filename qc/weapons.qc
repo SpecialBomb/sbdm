@@ -243,7 +243,7 @@ Used by shotgun, super shotgun, and enemy soldier firing
 Go to the trouble of combining multiple pellets into a single damage call.
 ================
 */
-void(float shotcount, vector dir, vector spread) FireBullets =
+void(float shotcount, vector dir, vector spread, float dpp) FireBullets =
 {
 	local	vector direction;
 	local	vector	src;
@@ -261,7 +261,7 @@ void(float shotcount, vector dir, vector spread) FireBullets =
 		direction = dir + crandom()*spread_x*v_right + crandom()*spread_y*v_up;
 		traceline (src, src + direction*2048, FALSE, self);
 		if (trace_fraction != 1.0)
-			TraceAttack (4, direction);
+			TraceAttack (dpp, direction);
 			
 		shotcount = shotcount - 1;
 	}
