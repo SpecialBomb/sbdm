@@ -3,6 +3,7 @@
 sbdm, or SpecialBomb's Death Match, is a mod that is aimed at making all of the weapons useful in their own way.
 For example, if you had the Nailgun, and got the Super Nailgun, why would you want to use the Nailgun anymore?
 This mod tries to fix that.
+It also adds more ways to move, and adds different ways of playing.
 
 #Weapon Changes
 
@@ -12,7 +13,7 @@ This mod tries to fix that.
 
 +The Shotgun is now infinitly accurate, and does more damage. This is useful in long range encounters with enemies.
 
-+The Double-Barreled Shotgun has a square spread rather than a rectangular one, and does more damage. It also has kickback, which can be used for stopping in midair, or boosting jumps.
++The Double-Barreled Shotgun has a much larger square spread rather than a rectangular one, and does more damage. It also has kickback, which can be used for stopping in midair, or boosting jumps.
 
 +The Super Nailgun no longer shoots nails, but rather acts like the Doom Chaingun.
 
@@ -44,4 +45,4 @@ Other things will be added at some point.
 
 #Walljumping
 
-To do walljumps, bind a key (perferrably mouse2) to "impulse 30." Using the bound key while your back is facing towards a wall, you will jump in the direction you are looking in. This can be useful for finding combos in maps that let you get around quicker than usual. There is an angular limit to when you can walljump, so practice a bit to get used to it, because nothing will happen if you jump at the wrong angle.
+To do walljumps, bind a key (perferrably mouse2) to "impulse 30." Using the bound key while your back is facing towards a wall, you will jump in the direction you are looking in. This can be useful for finding combos in maps that let you get around quicker than usual. There is an angular limit to when you can walljump, so practice a bit to get used to it, because nothing will happen if you jump at the wrong angle. You can only walljump 3 times until you have to touch the ground again.
