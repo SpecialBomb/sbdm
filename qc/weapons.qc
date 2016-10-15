@@ -369,7 +369,7 @@ void() T_MissileTouch =
 		return;
 	}
 
-	damg = 100 + random()*20;
+	damg = 120;
 	
 	if (other.health)
 	{

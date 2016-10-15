@@ -29,6 +29,8 @@ It also adds more ways to move, and adds different ways of playing.
 
 +Grenades aren't random.
 
++Rocket impact damage is always 120.
+
 +Players won't keep weapons, ammo, health, and armor when changing levels.
 
 +If someone were to hit you, and you fall into water, slime, or lava and die within 3 seconds, a frag will go to the attacker. (Essentially, you push someone into lava, you get a frag).
