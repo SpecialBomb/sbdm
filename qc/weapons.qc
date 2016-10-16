@@ -545,7 +545,7 @@ void() Lshoot =
 	WriteCoord (MSG_BROADCAST, trace_endpos_y);
 	WriteCoord (MSG_BROADCAST, trace_endpos_z);
 
-	LightningDamage (self.origin, trace_endpos + v_forward*4, self, self.lcharge);
+	LightningDamage (self.origin, trace_endpos + v_forward*4, self, self.lcharge * 3);
 };
 
 //=============================================================================
@@ -1453,7 +1453,6 @@ void() W_WeaponFrame =
 	{
 		Lshoot ();
 		sound (self, CHAN_VOICE, "weapons/lstart.wav", 1, ATTN_NORM);
-		SuperDamageSound();
 		self.lcharge = 0;
 	}
 	
