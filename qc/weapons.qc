@@ -513,7 +513,7 @@ void() W_FireLightning =
 		return;
 	}
 
-	if (self.t_width < time)
+	if (self.t_width < time && self.lcharge > 0)
 	{
 		sound (self, CHAN_WEAPON, "weapons/lhit.wav", 1, ATTN_NORM);
 		self.t_width = time + 0.6;
