@@ -513,12 +513,15 @@ void() W_FireLightning =
 		return;
 	}
 
-	if (self.t_width < time && self.lcharge > 0)
+	if (self.lcharge > 0)
 	{
-		sound (self, CHAN_WEAPON, "weapons/lhit.wav", 1, ATTN_NORM);
-		self.t_width = time + 0.6;
+		if (self.t_width < time && self.lcharge > 0)
+		{
+			sound (self, CHAN_WEAPON, "weapons/lhit.wav", 1, ATTN_NORM);
+			self.t_width = time + 0.6;
+		}
+		self.punchangle_x = -2;
 	}
-	self.punchangle_x = -2;
 
 	if (self.ammo_cells > 1)
 	{
