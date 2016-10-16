@@ -1455,6 +1455,7 @@ void() W_WeaponFrame =
 	if (self.button0 == FALSE && self.weapon == IT_LIGHTNING && self.lcharge > 0)
 	{
 		Lshoot ();
+		SuperDamageSound();
 		sound (self, CHAN_VOICE, "weapons/lstart.wav", 1, ATTN_NORM);
 		self.lcharge = 0;
 	}
