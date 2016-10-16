@@ -938,7 +938,6 @@ float() W_BestWeapon =
 {
 	local	float	it;
 	
-	return;
 	
 	it = self.items;
 
