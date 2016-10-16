@@ -402,7 +402,7 @@ void() weapon_touch =
 	local	entity	stemp;
 	local	float	leave;
 
-	if (!(other.flags & FL_CLIENT))
+	if (!(other.flags & FL_CLIENT) || (self.weaponmodel == "progs/v_light.mdl" && self.attack_finished > time))
 		return;
 
 // if the player was using his best weapon, change up to the new one if better		
