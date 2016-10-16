@@ -202,11 +202,13 @@ void() player_nail2   =[$nailatt2, player_nail1  ]
 void() player_light1   =[$light1, player_light2  ] 
 {
 	if (self.lcharge > 0)
+	{
 		self.effects = self.effects | EF_MUZZLEFLASH;
-
+		self.weaponframe = self.weaponframe + 1;
+	}
 	if (!self.button0)
 		{player_run ();return;}
-	self.weaponframe = self.weaponframe + 1;
+	
 	if (self.weaponframe == 5)
 		self.weaponframe = 1;
 	
@@ -216,11 +218,13 @@ void() player_light1   =[$light1, player_light2  ]
 void() player_light2   =[$light2, player_light1  ]
 {
 	if (self.lcharge > 0)
+	{
 		self.effects = self.effects | EF_MUZZLEFLASH;
-
+		self.weaponframe = self.weaponframe + 1;
+	}
 	if (!self.button0)
 		{player_run ();return;}
-	self.weaponframe = self.weaponframe + 1;
+	
 	if (self.weaponframe == 5)
 		self.weaponframe = 1;
 	

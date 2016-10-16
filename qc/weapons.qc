@@ -548,7 +548,7 @@ void() Lshoot =
 	WriteCoord (MSG_BROADCAST, trace_endpos_y);
 	WriteCoord (MSG_BROADCAST, trace_endpos_z);
 
-	LightningDamage (self.origin, trace_endpos + v_forward*4, self, self.lcharge * 3);
+	LightningDamage (self.origin, trace_endpos + v_forward*4, self, self.lcharge * 4);
 };
 
 //=============================================================================
