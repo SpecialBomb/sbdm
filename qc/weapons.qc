@@ -494,7 +494,6 @@ void(vector p1, vector p2, entity from, float damage) LightningDamage =
 
 void() W_FireLightning =
 {
-	local	vector		org;
 	local	float		cells;
 
 	if (self.ammo_cells < 1)
@@ -531,6 +530,7 @@ void() W_FireLightning =
 
 void() Lshoot =
 {
+	local	vector		org;
 	org = self.origin + '0 0 16';
 	
 	traceline (org, org + v_forward*600, TRUE, self);
