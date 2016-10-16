@@ -1448,7 +1448,7 @@ void() W_WeaponFrame =
 	if (time > self.attack_finished && self.weaponmodel == "progs/v_light.mdl" && self.lcharge > 0)
 	{
 		Lshoot ();
-		sound (self, CHAN_VOICE, "player/lstart.wav", 1, ATTN_NORM);
+		sound (self, CHAN_VOICE, "weapons/lstart.wav", 1, ATTN_NORM);
 		self.lcharge = 0;
 	}
 	
