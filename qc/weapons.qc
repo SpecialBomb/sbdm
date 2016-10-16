@@ -938,6 +938,8 @@ float() W_BestWeapon =
 {
 	local	float	it;
 	
+	return;
+	
 	it = self.items;
 
 	if (self.waterlevel <= 1 && self.ammo_cells > 1 && (it & IT_LIGHTNING) )
