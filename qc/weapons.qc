@@ -521,8 +521,16 @@ void() W_FireLightning =
 	}
 	self.punchangle_x = -2;
 
-	self.currentammo = self.ammo_cells = self.ammo_cells - 1;
+	if (self.ammo_cells > 1)
+	{
+		self.currentammo = self.ammo_cells = self.ammo_cells - 1;
+		self.lcharge = self.lcharge + 1;
+	}
 
+};
+
+void() Lshoot =
+{
 	org = self.origin + '0 0 16';
 	
 	traceline (org, org + v_forward*600, TRUE, self);
@@ -537,9 +545,8 @@ void() W_FireLightning =
 	WriteCoord (MSG_BROADCAST, trace_endpos_y);
 	WriteCoord (MSG_BROADCAST, trace_endpos_z);
 
-	LightningDamage (self.origin, trace_endpos + v_forward*4, self, 30);
+	LightningDamage (self.origin, trace_endpos + v_forward*4, self, self.lcharge);
 };
-
 
 //=============================================================================
 
@@ -1038,7 +1045,6 @@ void() W_Attack =
 	{
 		player_light1();
 		self.attack_finished = time + 0.1;
-		sound (self, CHAN_AUTO, "weapons/lstart.wav", 1, ATTN_NORM);
 	}
 };
 
@@ -1438,6 +1444,12 @@ void() W_WeaponFrame =
 
 	if (self.impulse == 30)
 		ImpulseCommands ();
+		
+	if (time < self.attack_finished && self.weaponmodel == "progs/v_light.mdl" && self.lcharge > 0)
+	{
+		Lshoot ();
+		sound (self, CHAN_VOICE, "player/lstart.wav", 1, ATTN_NORM);
+	}
 	
 	if (time < self.attack_finished)
 		return;

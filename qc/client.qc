@@ -506,6 +506,7 @@ void() PutClientInServer =
 	local   entity thing;
 
 	spot = SelectSpawnPoint ();
+	self.lcharge = 0;
     self.deathtype = string_null; // Cobalt , clear deathtype on respawn 
     self.impulse = 0;
     self.push_time = 0;
