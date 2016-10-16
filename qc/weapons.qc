@@ -1453,6 +1453,7 @@ void() W_WeaponFrame =
 	{
 		Lshoot ();
 		sound (self, CHAN_VOICE, "weapons/lstart.wav", 1, ATTN_NORM);
+		SuperDamageSound();
 		self.lcharge = 0;
 	}
 	
