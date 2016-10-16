@@ -1445,10 +1445,11 @@ void() W_WeaponFrame =
 	if (self.impulse == 30)
 		ImpulseCommands ();
 		
-	if (time < self.attack_finished && self.weaponmodel == "progs/v_light.mdl" && self.lcharge > 0)
+	if (time > self.attack_finished && self.weaponmodel == "progs/v_light.mdl" && self.lcharge > 0)
 	{
 		Lshoot ();
 		sound (self, CHAN_VOICE, "player/lstart.wav", 1, ATTN_NORM);
+		self.lcharge = 0;
 	}
 	
 	if (time < self.attack_finished)
