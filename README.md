@@ -17,6 +17,8 @@ It also adds more ways to move, and adds different ways of playing.
 
 +The Super Nailgun no longer shoots nails, but rather acts like the Doom Chaingun.
 
++The lightning gun now acts very differently. You hold down you attack button to charge it, and you let go to fire. The more ammo and the longer you charge for, it will do more damage.
+
 #Gameplay Changes
 
 +The Quad and Ring now drop on death.
