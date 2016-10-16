@@ -1449,7 +1449,7 @@ void() W_WeaponFrame =
 	if (self.impulse == 30)
 		ImpulseCommands ();
 		
-	if (time > self.attack_finished && self.weapon == IT_LIGHTNING && self.lcharge > 0)
+	if (self.button0 == FALSE && self.weapon == IT_LIGHTNING && self.lcharge > 0)
 	{
 		Lshoot ();
 		sound (self, CHAN_VOICE, "weapons/lstart.wav", 1, ATTN_NORM);
