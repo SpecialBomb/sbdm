@@ -496,12 +496,6 @@ void() W_FireLightning =
 {
 	local	float		cells;
 
-	if (self.ammo_cells < 1)
-	{
-		self.weapon = W_BestWeapon ();
-		W_SetCurrentAmmo ();
-		return;
-	}
 
 // explode if under water
 	if (self.waterlevel > 1)
@@ -523,7 +517,7 @@ void() W_FireLightning =
 		self.punchangle_x = -2;
 	}
 
-	if (self.ammo_cells > 1)
+	if (self.ammo_cells > 0)
 	{
 		self.currentammo = self.ammo_cells = self.ammo_cells - 1;
 		self.lcharge = self.lcharge + 1;
