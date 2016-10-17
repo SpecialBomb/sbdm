@@ -530,7 +530,7 @@ void() Lshoot =
 	local	vector		org;
 	org = self.origin + '0 0 16';
 	
-	traceline (org, org + v_forward*600, TRUE, self);
+	traceline (org, org + v_forward*2000, TRUE, self);
 
 	WriteByte (MSG_BROADCAST, SVC_TEMPENTITY);
 	WriteByte (MSG_BROADCAST, TE_LIGHTNING2);
