@@ -962,6 +962,9 @@ float() W_BestWeapon =
 
 float() W_CheckNoAmmo =
 {
+	if (self.weapon == IT_LIGHTNING)
+		return FALSE;
+		
 	if (self.currentammo > 0)
 		return TRUE;
 
