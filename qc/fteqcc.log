@@ -11,8 +11,6 @@ in function spike_touch (line 631),
 weapons.qc:769: warning: rand duplicate definition ignored
 weapons.qc:730:    rand  is defined here
 weapons.qc:770: warning: Implicit conversion
-in function W_CheckNoAmmo (line 957),
-weapons.qc:975: warning: W_CheckNoAmmo: not all control paths return a value
 compiling world.qc
 compiling client.qc
 compiling dropping.qc
@@ -105,13 +103,13 @@ demon.qc:280: warning: vec  no references
 dog.qc:306: warning: vec  no references
 zombie.qc:164: warning: mpuff  no references
  89248 strofs (of 1000000)
- 21213 numstatements (of 524288)
+ 21210 numstatements (of 524288)
   2101 numfunctions (of 16384)
   4345 numglobaldefs (of 32768)
    225 numfielddefs (202 unique) (of 2048)
   4385 numpr_globals (of 65536)
 Writing ../progs.dat
-388876 TOTAL SIZE
+388852 TOTAL SIZE
 Writing ../progs.lno
 225 unique precache_sounds
  95 unique precache_models
@@ -119,11 +117,11 @@ Writing ../progs.lno
 Compile Complete
 
 optres_shortenifnots 123
-optres_overlaptemps 7673
+optres_overlaptemps 7671
 optres_constantarithmatic 20
 optres_nonvec_parms 3990
 optres_assignments 418
 optres_unreferenced 67
 optres_dupconstdefs 101
 numtemps 120
-66 warnings
+65 warnings
