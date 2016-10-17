@@ -39,16 +39,16 @@ compiling shalrath.qc
 compiling enforcer.qc
 compiling oldone.qc
 oldone.qc:29: warning: Duplicate macro defined (shake12)
-Warning: progs CRC not recognised from quake nor clones
+Recognised progs as NetQuake server gamecode
 Progs should run on any Quake executor
-defs.qc:402: warning: empty_float  no references
-defs.qc:418: warning: wad  no references
-defs.qc:429: warning: light_lev  no references
-defs.qc:502: warning: dest  no references
-defs.qc:549: warning: waitmax  no references
-defs.qc:550: warning: distance  no references
-defs.qc:551: warning: volume  no references
-defs.qc:702: warning: lattacking  no references
+defs.qc:401: warning: empty_float  no references
+defs.qc:417: warning: wad  no references
+defs.qc:428: warning: light_lev  no references
+defs.qc:501: warning: dest  no references
+defs.qc:548: warning: waitmax  no references
+defs.qc:549: warning: distance  no references
+defs.qc:550: warning: volume  no references
+defs.qc:701: warning: lattacking  no references
 fight.qc:298: warning: chance  no references
 ai.qc:37: warning: current_yaw  no references
 ai.qc:476: warning: mtemp  no references
@@ -73,7 +73,7 @@ weapons.qc:702: warning: old  no references
 weapons.qc:730: warning: hit_z  no references
 weapons.qc:736: warning: rand  no references
 weapons.qc:830: warning: rand  no references
-world.qc:364: warning: e  no references
+world.qc:363: warning: e  no references
 client.qc:311: warning: pos  no references
 client.qc:736: warning: old_self  no references
 client.qc:771: warning: start  no references
@@ -102,14 +102,14 @@ ogre.qc:92: warning: mpuff  no references
 demon.qc:280: warning: vec  no references
 dog.qc:306: warning: vec  no references
 zombie.qc:164: warning: mpuff  no references
- 89276 strofs (of 1000000)
- 21221 numstatements (of 524288)
+ 89240 strofs (of 1000000)
+ 21218 numstatements (of 524288)
   2101 numfunctions (of 16384)
-  4347 numglobaldefs (of 32768)
+  4344 numglobaldefs (of 32768)
    225 numfielddefs (202 unique) (of 2048)
-  4388 numpr_globals (of 65536)
+  4385 numpr_globals (of 65536)
 Writing ../progs.dat
-388996 TOTAL SIZE
+388900 TOTAL SIZE
 Writing ../progs.lno
 225 unique precache_sounds
  95 unique precache_models
@@ -119,7 +119,7 @@ Compile Complete
 optres_shortenifnots 123
 optres_overlaptemps 7674
 optres_constantarithmatic 20
-optres_nonvec_parms 3992
+optres_nonvec_parms 3990
 optres_assignments 418
 optres_unreferenced 67
 optres_dupconstdefs 101
