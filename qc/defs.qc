@@ -29,6 +29,7 @@ string		mapname;
 float		deathmatch;
 float		coop;
 float		teamplay;
+float		lgonly;
 
 float		serverflags;		// propagated from level to level, used to
 								// keep track of completed episodes
