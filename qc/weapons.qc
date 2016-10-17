@@ -941,7 +941,7 @@ float() W_BestWeapon =
 	
 	it = self.items;
 
-	if (self.waterlevel <= 1 && self.ammo_cells > 1 && (it & IT_LIGHTNING) )
+	if (self.waterlevel <= 1 && self.ammo_cells > 0 && (it & IT_LIGHTNING) )
 			return IT_LIGHTNING;
 	if(self.ammo_nails >= 2 && (it & IT_SUPER_NAILGUN) )
 		return IT_SUPER_NAILGUN;
