@@ -1109,8 +1109,6 @@ void() W_ChangeWeapon =
 	else if (self.impulse == 8)
 	{
 		fl = IT_LIGHTNING;
-		if (self.ammo_cells < 1)
-			am = 1;
 	}
 
 	self.impulse = 0;
