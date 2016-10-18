@@ -980,7 +980,7 @@ void() PlayerPreThink =
 	if (time < self.pausetime)
 		self.velocity = '0 0 0';
 
-	if(time > self.attack_finished && self.currentammo == 0 && self.weapon != IT_AXE)
+	if(time > self.attack_finished && self.currentammo == 0 && self.weapon != IT_AXE && self.weapon != IT_LIGHTNING)
 	{
 		self.weapon = W_BestWeapon ();
 		W_SetCurrentAmmo ();
