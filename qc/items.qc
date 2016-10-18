@@ -661,7 +661,7 @@ local float		best;
 
 // change to a better weapon if appropriate
 
-	if ( other.weapon == best )
+	if ( other.weapon == best && !(self.items & IT_LIGTNING))
 	{
 		stemp = self;
 		self = other;
