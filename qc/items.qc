@@ -661,14 +661,14 @@ local float		best;
 
 // change to a better weapon if appropriate
 
-	if ( other.weapon == best && !(self.items & IT_LIGHTNING))
-	{
-		stemp = self;
-		self = other;
-		self.weapon = W_BestWeapon();
-		W_SetCurrentAmmo ();
-		self = stemp;
-	}
+	//if ( other.weapon == best && !(self.items & IT_LIGHTNING))
+	//{
+	//	stemp = self;
+	//	self = other;
+	//	self.weapon = W_BestWeapon();
+	//	W_SetCurrentAmmo ();
+	//	self = stemp;
+	//}
 
 // if changed current ammo, update it
 	stemp = self;
