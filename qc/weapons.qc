@@ -1453,6 +1453,7 @@ void() W_WeaponFrame =
 		SuperDamageSound();
 		sound (self, CHAN_VOICE, "weapons/lstart.wav", 1, ATTN_NORM);
 		self.lcharge = 0;
+		self.attack_finished = time + 0.4;
 	}
 	
 	if (time < self.attack_finished)
