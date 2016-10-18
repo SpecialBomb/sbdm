@@ -963,15 +963,16 @@ float() W_CheckNoAmmo =
 	if (self.weapon == IT_AXE)
 		return TRUE;
 		
-	if (self.weapon == IT_LIGHTNING)
-		return TRUE;
+	if (self.weapon != IT_LIGHTNING)
+	{
 	
-	self.weapon = W_BestWeapon ();
+		self.weapon = W_BestWeapon ();
 
-	W_SetCurrentAmmo ();
+		W_SetCurrentAmmo ();
 	
-// drop the weapon down
-	return FALSE;
+	// drop the weapon down
+		return FALSE;
+	}
 };
 
 /*
