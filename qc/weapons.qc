@@ -1109,6 +1109,8 @@ void() W_ChangeWeapon =
 	else if (self.impulse == 8)
 	{
 		fl = IT_LIGHTNING;
+		if (self.ammo_cells < 1)
+			am = 1;
 	}
 
 	self.impulse = 0;
@@ -1224,6 +1226,8 @@ void() CycleWeaponCommand =
 		else if (self.weapon == IT_ROCKET_LAUNCHER)
 		{
 			self.weapon = IT_LIGHTNING;
+			if (self.ammo_cells < 1)
+				am = 1;
 		}
 	
 		if ( (it & self.weapon) && am == 0)
@@ -1296,6 +1300,8 @@ void() CycleWeaponReverseCommand =
 		else if (self.weapon == IT_AXE)
 		{
 			self.weapon = IT_LIGHTNING;
+			if (self.ammo_cells < 1)
+				am = 1;
 		}
 	
 		if ( (it & self.weapon) && am == 0)
