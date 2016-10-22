@@ -531,6 +531,8 @@ void() PutClientInServer =
 	DecodeLevelParms ();
 	
 	W_SetCurrentAmmo ();
+	
+	self.items = self.items - (self.items & (IT_INVISIBILITY | IT_INVULNERABILITY | IT_SUIT | IT_QUAD) );
 
 	self.attack_finished = time;
 	self.th_pain = player_pain;
