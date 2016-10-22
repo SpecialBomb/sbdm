@@ -517,7 +517,7 @@ void() W_FireLightning =
 		self.punchangle_x = -2;
 	}
 
-	if (self.ammo_cells > 0)
+	if (self.ammo_cells > 0 && self.lcharge < 25)
 	{
 		self.currentammo = self.ammo_cells = self.ammo_cells - 1;
 		self.lcharge = self.lcharge + 1;
@@ -542,7 +542,7 @@ void() Lshoot =
 	WriteCoord (MSG_BROADCAST, trace_endpos_y);
 	WriteCoord (MSG_BROADCAST, trace_endpos_z);
 
-	LightningDamage (self.origin, trace_endpos + v_forward*4, self, self.lcharge * 4);
+	LightningDamage (self.origin, trace_endpos + v_forward*4, self, self.lcharge * (20/3));
 };
 
 //=============================================================================
