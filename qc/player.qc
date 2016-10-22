@@ -539,11 +539,9 @@ void() PlayerDie =
 {
 	local	float	i;
 	if (self.super_time > 0) DropQuad ();
-    if (self.invisible_time > 0) 
-    DropRing ();
+    if (self.invisible_time > 0) DropRing ();
 //	self.items = self.items - (self.items & IT_INVISIBILITY);
-	self.items = self.items - (self.items &
-	(IT_INVISIBILITY | IT_INVULNERABILITY | IT_SUIT | IT_QUAD) );
+	self.items = self.items - (self.items & (IT_INVISIBILITY | IT_INVULNERABILITY | IT_SUIT | IT_QUAD) );
 	self.invisible_finished = 0;	// don't die as eyes
 	self.invincible_finished = 0;
 	//self.super_damage_finished = 0;
