@@ -538,7 +538,7 @@ void() GibPlayer =
 void() PlayerDie =
 {
 	local	float	i;
-	if (self.super_time > 0) DropQuad ();
+	if (self.super_time > 0 && (self.items & IT_INVISIBILITY)) DropQuad ();
     if (self.invisible_time > 0) DropRing ();
 	self.items = self.items - (self.items & IT_INVISIBILITY);
 	self.items = self.items - (self.items & (IT_INVISIBILITY | IT_INVULNERABILITY | IT_SUIT | IT_QUAD) );
