@@ -967,6 +967,11 @@ float() W_CheckNoAmmo =
 		return TRUE;
 	
 	self.weapon = W_BestWeapon ();
+	
+	if (self.weapon == IT_LIGHTNING)
+	{
+		player_run ();
+	}
 
 	W_SetCurrentAmmo ();
 	
