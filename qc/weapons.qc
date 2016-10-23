@@ -706,6 +706,7 @@ void(float ox) W_FireSpikes =
 	if (self.ammo_nails < 1)
 	{
 		self.weapon = W_BestWeapon ();
+		player_run ();
 		W_SetCurrentAmmo ();
 		return;
 	}
