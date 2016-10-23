@@ -8,9 +8,9 @@ compiling combat.qc
 compiling items.qc
 compiling weapons.qc
 in function spike_touch (line 631),
-weapons.qc:769: warning: rand duplicate definition ignored
-weapons.qc:730:    rand  is defined here
-weapons.qc:770: warning: Implicit conversion
+weapons.qc:770: warning: rand duplicate definition ignored
+weapons.qc:731:    rand  is defined here
+weapons.qc:771: warning: Implicit conversion
 compiling world.qc
 compiling client.qc
 compiling dropping.qc
@@ -70,9 +70,9 @@ weapons.qc:406: warning: mpuff  no references
 weapons.qc:585: warning: mpuff  no references
 weapons.qc:673: warning: old  no references
 weapons.qc:696: warning: old  no references
-weapons.qc:724: warning: hit_z  no references
-weapons.qc:730: warning: rand  no references
-weapons.qc:824: warning: rand  no references
+weapons.qc:725: warning: hit_z  no references
+weapons.qc:731: warning: rand  no references
+weapons.qc:825: warning: rand  no references
 world.qc:363: warning: e  no references
 client.qc:311: warning: pos  no references
 client.qc:736: warning: old_self  no references
@@ -103,13 +103,13 @@ demon.qc:280: warning: vec  no references
 dog.qc:306: warning: vec  no references
 zombie.qc:164: warning: mpuff  no references
  89260 strofs (of 1000000)
- 21225 numstatements (of 524288)
+ 21226 numstatements (of 524288)
   2101 numfunctions (of 16384)
   4346 numglobaldefs (of 32768)
    225 numfielddefs (202 unique) (of 2048)
   4385 numpr_globals (of 65536)
 Writing ../progs.dat
-388992 TOTAL SIZE
+389000 TOTAL SIZE
 Writing ../progs.lno
 225 unique precache_sounds
  95 unique precache_models
