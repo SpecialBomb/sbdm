@@ -1357,9 +1357,9 @@ void () wjcheck =
 	
 	traceline (self.origin, (self.origin + (v_forward * -41)), FALSE, self);
 	vecm = trace_endpos;
-	traceline (self.origin, (self.origin + (v_right * 12) + (v_forward * -41)), FALSE, self);
+	traceline (self.origin, (self.origin + (v_right * 16) + (v_forward * -41)), FALSE, self);
 	vecr = trace_endpos;
-	traceline (self.origin, (self.origin + (v_right * -12) + (v_forward * -41)), FALSE, self);
+	traceline (self.origin, (self.origin + (v_right * -16) + (v_forward * -41)), FALSE, self);
 	vecl = trace_endpos;
 	
 	if (vlen(vecm - self.origin) <= 40 || vlen(vecr - self.origin) <= 40 || vlen(vecl - self.origin) <= 40)
