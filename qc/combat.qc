@@ -277,7 +277,7 @@ void(entity inflictor, entity attacker, float damage, entity ignore) T_RadiusDam
 			}
 			if (head.classname == "stuck_spike")
 			{
-				if (random() >= 0.5)
+				if (random() >= 0.5 && CanDamage (head, inflictor))
 				{
 					remove(head);
 				}

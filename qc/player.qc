@@ -201,27 +201,33 @@ void() player_nail2   =[$nailatt2, player_nail1  ]
 
 void() player_light1   =[$light1, player_light2  ] 
 {
-	self.effects = self.effects | EF_MUZZLEFLASH;
-
+	if (self.lcharge > 0)
+	{
+		self.effects = self.effects | EF_MUZZLEFLASH;
+		self.weaponframe = self.weaponframe + 1;
+	}
 	if (!self.button0)
 		{player_run ();return;}
-	self.weaponframe = self.weaponframe + 1;
+	
 	if (self.weaponframe == 5)
 		self.weaponframe = 1;
-	SuperDamageSound();
+	
 	W_FireLightning();
 	self.attack_finished = time + 0.2;
 };
 void() player_light2   =[$light2, player_light1  ]
 {
-	self.effects = self.effects | EF_MUZZLEFLASH;
-
+	if (self.lcharge > 0)
+	{
+		self.effects = self.effects | EF_MUZZLEFLASH;
+		self.weaponframe = self.weaponframe + 1;
+	}
 	if (!self.button0)
 		{player_run ();return;}
-	self.weaponframe = self.weaponframe + 1;
+	
 	if (self.weaponframe == 5)
 		self.weaponframe = 1;
-	SuperDamageSound();
+	
 	W_FireLightning();
 	self.attack_finished = time + 0.2;
 };
@@ -533,12 +539,11 @@ void() PlayerDie =
 {
 	local	float	i;
 	if (self.super_time > 0) DropQuad ();
-    if (self.invisible_time > 0) 
-    DropRing ();
-//	self.items = self.items - (self.items & IT_INVISIBILITY);
-	self.items = self.items - (self.items &
-	(IT_INVISIBILITY | IT_INVULNERABILITY | IT_SUIT | IT_QUAD) );
+    if (self.invisible_time > 0 && (self.items & IT_INVISIBILITY)) DropRing ();
+	self.items = self.items - (self.items & IT_INVISIBILITY);
+	self.items = self.items - (self.items & (IT_INVISIBILITY | IT_INVULNERABILITY | IT_SUIT | IT_QUAD) );
 	self.invisible_finished = 0;	// don't die as eyes
+	self.invisible_time = 0;
 	self.invincible_finished = 0;
 	//self.super_damage_finished = 0;
 	self.radsuit_finished = 0;

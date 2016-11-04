@@ -506,8 +506,11 @@ void() PutClientInServer =
 	local   entity thing;
 
 	spot = SelectSpawnPoint ();
+	self.lcharge = 0;
     self.deathtype = string_null; // Cobalt , clear deathtype on respawn 
+    self.impulse = 0;
     self.push_time = 0;
+    self.wjump = 0;
 	self.classname = "player";
 	self.health = 100;
 	self.takedamage = DAMAGE_AIM;
@@ -977,7 +980,7 @@ void() PlayerPreThink =
 	if (time < self.pausetime)
 		self.velocity = '0 0 0';
 
-	if(time > self.attack_finished && self.currentammo == 0 && self.weapon != IT_AXE)
+	if(time > self.attack_finished && self.currentammo == 0 && self.weapon != IT_AXE && self.weapon != IT_LIGHTNING)
 	{
 		self.weapon = W_BestWeapon ();
 		W_SetCurrentAmmo ();

@@ -661,14 +661,14 @@ local float		best;
 
 // change to a better weapon if appropriate
 
-	if ( other.weapon == best )
-	{
-		stemp = self;
-		self = other;
-		self.weapon = W_BestWeapon();
-		W_SetCurrentAmmo ();
-		self = stemp;
-	}
+	//if ( other.weapon == best && !(self.items & IT_LIGHTNING))
+	//{
+	//	stemp = self;
+	//	self = other;
+	//	self.weapon = W_BestWeapon();
+	//	W_SetCurrentAmmo ();
+	//	self = stemp;
+	//}
 
 // if changed current ammo, update it
 	stemp = self;
@@ -779,13 +779,13 @@ void() item_cells =
 	{
 		precache_model ("maps/b_batt1.bsp");
 		setmodel (self, "maps/b_batt1.bsp");
-		self.aflag = 12;
+		self.aflag = 24;
 	}
 	else
 	{
 		precache_model ("maps/b_batt0.bsp");
 		setmodel (self, "maps/b_batt0.bsp");
-		self.aflag = 6;
+		self.aflag = 12;
 	}
 	self.weapon = 4;
 	self.netname = "cells";

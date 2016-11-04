@@ -1,19 +1,16 @@
 Source file: progs.src
 outputfile: ../progs.dat
 compiling defs.qc
-defs.qc:694: warning: Missing semicolon at end of definition
-defs.qc:695: warning: Missing semicolon at end of definition
-defs.qc:697: warning: Missing semicolon at end of definition
 compiling subs.qc
 compiling fight.qc
 compiling ai.qc
 compiling combat.qc
 compiling items.qc
 compiling weapons.qc
-in function spike_touch (line 627),
-weapons.qc:765: warning: rand duplicate definition ignored
-weapons.qc:726:    rand  is defined here
-weapons.qc:766: warning: Implicit conversion
+in function spike_touch (line 631),
+weapons.qc:770: warning: rand duplicate definition ignored
+weapons.qc:731:    rand  is defined here
+weapons.qc:771: warning: Implicit conversion
 compiling world.qc
 compiling client.qc
 compiling dropping.qc
@@ -51,6 +48,7 @@ defs.qc:501: warning: dest  no references
 defs.qc:548: warning: waitmax  no references
 defs.qc:549: warning: distance  no references
 defs.qc:550: warning: volume  no references
+defs.qc:701: warning: lattacking  no references
 fight.qc:298: warning: chance  no references
 ai.qc:37: warning: current_yaw  no references
 ai.qc:476: warning: mtemp  no references
@@ -69,23 +67,23 @@ items.qc:1087: warning: stemp  no references
 items.qc:1088: warning: best  no references
 weapons.qc:103: warning: mpuff  no references
 weapons.qc:406: warning: mpuff  no references
-weapons.qc:581: warning: mpuff  no references
-weapons.qc:669: warning: old  no references
-weapons.qc:692: warning: old  no references
-weapons.qc:720: warning: hit_z  no references
-weapons.qc:726: warning: rand  no references
-weapons.qc:820: warning: rand  no references
-world.qc:362: warning: e  no references
+weapons.qc:585: warning: mpuff  no references
+weapons.qc:673: warning: old  no references
+weapons.qc:696: warning: old  no references
+weapons.qc:725: warning: hit_z  no references
+weapons.qc:731: warning: rand  no references
+weapons.qc:825: warning: rand  no references
+world.qc:363: warning: e  no references
 client.qc:311: warning: pos  no references
-client.qc:733: warning: old_self  no references
-client.qc:768: warning: start  no references
-client.qc:768: warning: end  no references
-client.qc:940: warning: mspeed  no references
-client.qc:940: warning: aspeed  no references
-client.qc:941: warning: r  no references
-client.qc:1152: warning: mspeed  no references
-client.qc:1152: warning: aspeed  no references
-client.qc:1153: warning: r  no references
+client.qc:736: warning: old_self  no references
+client.qc:771: warning: start  no references
+client.qc:771: warning: end  no references
+client.qc:943: warning: mspeed  no references
+client.qc:943: warning: aspeed  no references
+client.qc:944: warning: r  no references
+client.qc:1155: warning: mspeed  no references
+client.qc:1155: warning: aspeed  no references
+client.qc:1156: warning: r  no references
 monsters.qc:51: warning: ent  no references
 monsters.qc:51: warning: otemp  no references
 monsters.qc:51: warning: stemp  no references
@@ -104,26 +102,26 @@ ogre.qc:92: warning: mpuff  no references
 demon.qc:280: warning: vec  no references
 dog.qc:306: warning: vec  no references
 zombie.qc:164: warning: mpuff  no references
- 88992 strofs (of 1000000)
- 21069 numstatements (of 524288)
-  2098 numfunctions (of 16384)
-  4315 numglobaldefs (of 32768)
-   221 numfielddefs (198 unique) (of 2048)
-  4361 numpr_globals (of 65536)
+ 89260 strofs (of 1000000)
+ 21226 numstatements (of 524288)
+  2101 numfunctions (of 16384)
+  4346 numglobaldefs (of 32768)
+   225 numfielddefs (202 unique) (of 2048)
+  4385 numpr_globals (of 65536)
 Writing ../progs.dat
-386992 TOTAL SIZE
+389000 TOTAL SIZE
 Writing ../progs.lno
 225 unique precache_sounds
  95 unique precache_models
 104 unique precache_files
 Compile Complete
 
-optres_shortenifnots 122
-optres_overlaptemps 7542
-optres_constantarithmatic 20
-optres_nonvec_parms 3971
-optres_assignments 413
+optres_shortenifnots 123
+optres_overlaptemps 7687
+optres_constantarithmatic 21
+optres_nonvec_parms 3990
+optres_assignments 418
 optres_unreferenced 67
 optres_dupconstdefs 101
 numtemps 119
-67 warnings
+65 warnings

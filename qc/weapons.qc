@@ -243,7 +243,7 @@ Used by shotgun, super shotgun, and enemy soldier firing
 Go to the trouble of combining multiple pellets into a single damage call.
 ================
 */
-void(float shotcount, vector dir, vector spread) FireBullets =
+void(float shotcount, vector dir, vector spread, float dpp) FireBullets =
 {
 	local	vector direction;
 	local	vector	src;
@@ -261,7 +261,7 @@ void(float shotcount, vector dir, vector spread) FireBullets =
 		direction = dir + crandom()*spread_x*v_right + crandom()*spread_y*v_up;
 		traceline (src, src + direction*2048, FALSE, self);
 		if (trace_fraction != 1.0)
-			TraceAttack (4, direction);
+			TraceAttack (dpp, direction);
 			
 		shotcount = shotcount - 1;
 	}
@@ -284,11 +284,11 @@ void() W_FireShotgun =
 	self.currentammo = self.ammo_shells = self.ammo_shells - 1;
 	dir = aim (self, 100000);
 	if (!deathmatch){
-	FireBullets (6, dir, '0.04 0.04 0');
+	FireBullets (6, dir, '0.04 0.04 0', 4);
 	}
 	else
 	{
-	FireBullets (10, dir, '0 0 0.14');
+	FireBullets (1, dir, '0 0 0', 40);
 	}
 };
 
@@ -316,7 +316,7 @@ void() W_FireSuperShotgun =
 	dir = aim (self, 100000);
 	if (!deathmatch)
 	{
-	FireBullets (14, dir, '0.14 0.08 0');
+	FireBullets (14, dir, '0.14 0.08 0', 4);
 	}
 	else
 	{
@@ -326,7 +326,7 @@ void() W_FireSuperShotgun =
 	else {
 		self.velocity = (-dir*150)+self.velocity;
 	}
-	FireBullets (18, dir, '0.08 0.08 0');
+	FireBullets (15, dir, '0.16 0.16 0', 10);
 	}
 };
 
@@ -369,7 +369,7 @@ void() T_MissileTouch =
 		return;
 	}
 
-	damg = 100 + random()*20;
+	damg = 120;
 	
 	if (other.health)
 	{
@@ -494,15 +494,8 @@ void(vector p1, vector p2, entity from, float damage) LightningDamage =
 
 void() W_FireLightning =
 {
-	local	vector		org;
 	local	float		cells;
 
-	if (self.ammo_cells < 1)
-	{
-		self.weapon = W_BestWeapon ();
-		W_SetCurrentAmmo ();
-		return;
-	}
 
 // explode if under water
 	if (self.waterlevel > 1)
@@ -514,18 +507,30 @@ void() W_FireLightning =
 		return;
 	}
 
-	if (self.t_width < time)
+	if (self.lcharge > 0)
 	{
-		sound (self, CHAN_WEAPON, "weapons/lhit.wav", 1, ATTN_NORM);
-		self.t_width = time + 0.6;
+		if (self.t_width < time && self.lcharge > 0)
+		{
+			sound (self, CHAN_WEAPON, "weapons/lhit.wav", 1, ATTN_NORM);
+			self.t_width = time + 0.6;
+		}
+		self.punchangle_x = -2;
 	}
-	self.punchangle_x = -2;
 
-	self.currentammo = self.ammo_cells = self.ammo_cells - 1;
+	if (self.ammo_cells > 0 && self.lcharge < 25)
+	{
+		self.currentammo = self.ammo_cells = self.ammo_cells - 1;
+		self.lcharge = self.lcharge + 1;
+	}
 
+};
+
+void() Lshoot =
+{
+	local	vector		org;
 	org = self.origin + '0 0 16';
 	
-	traceline (org, org + v_forward*600, TRUE, self);
+	traceline (org, org + v_forward*2000, TRUE, self);
 
 	WriteByte (MSG_BROADCAST, SVC_TEMPENTITY);
 	WriteByte (MSG_BROADCAST, TE_LIGHTNING2);
@@ -537,9 +542,8 @@ void() W_FireLightning =
 	WriteCoord (MSG_BROADCAST, trace_endpos_y);
 	WriteCoord (MSG_BROADCAST, trace_endpos_z);
 
-	LightningDamage (self.origin, trace_endpos + v_forward*4, self, 30);
+	LightningDamage (self.origin, trace_endpos + v_forward*4, self, self.lcharge * (20/3));
 };
-
 
 //=============================================================================
 
@@ -681,7 +685,7 @@ void() W_FireSuperSpikes =
 	}
 	else
 	{
-	FireBullets(3, dir, '0.01 0.01 0.0');
+	FireBullets(3, dir, '0.01 0.01 0.0', 6);
 	}		
 	self.punchangle_x = -2;
 };
@@ -702,6 +706,7 @@ void(float ox) W_FireSpikes =
 	if (self.ammo_nails < 1)
 	{
 		self.weapon = W_BestWeapon ();
+		player_run ();
 		W_SetCurrentAmmo ();
 		return;
 	}
@@ -860,7 +865,10 @@ PLAYER WEAPON USE
 
 void() W_SetCurrentAmmo =
 {
-	player_run ();		// get out of any weapon firing states
+	if (!(self.weapon == IT_LIGHTNING))
+	{
+		player_run (); // get out of any weapon firing states
+	}		
 
 	self.items = self.items - ( self.items & (IT_SHELLS | IT_NAILS | IT_ROCKETS | IT_CELLS) );
 	
@@ -931,9 +939,10 @@ float() W_BestWeapon =
 {
 	local	float	it;
 	
+	
 	it = self.items;
 
-	if (self.waterlevel <= 1 && self.ammo_cells >= 1 && (it & IT_LIGHTNING) )
+	if (self.waterlevel <= 1 && self.ammo_cells > 0 && (it & IT_LIGHTNING) )
 			return IT_LIGHTNING;
 	if(self.ammo_nails >= 2 && (it & IT_SUPER_NAILGUN) )
 		return IT_SUPER_NAILGUN;
@@ -948,13 +957,19 @@ float() W_BestWeapon =
 
 float() W_CheckNoAmmo =
 {
+		
 	if (self.currentammo > 0)
 		return TRUE;
 
 	if (self.weapon == IT_AXE)
 		return TRUE;
+		
+	if (self.weapon == IT_LIGHTNING)
+		return TRUE;
 	
 	self.weapon = W_BestWeapon ();
+	
+	player_run ();
 
 	W_SetCurrentAmmo ();
 	
@@ -1038,7 +1053,6 @@ void() W_Attack =
 	{
 		player_light1();
 		self.attack_finished = time + 0.1;
-		sound (self, CHAN_AUTO, "weapons/lstart.wav", 1, ATTN_NORM);
 	}
 };
 
@@ -1332,6 +1346,49 @@ ImpulseCommands
 
 ============
 */
+
+void () wjcheck =
+{
+	local	vector vecm;
+	local	vector vecr;
+	local	vector vecl;
+	
+	makevectors(self.angles);
+	
+	traceline (self.origin, (self.origin + (v_forward * -41)), FALSE, self);
+	vecm = trace_endpos;
+	traceline (self.origin, (self.origin + (v_right * 16) + (v_forward * -41)), FALSE, self);
+	vecr = trace_endpos;
+	traceline (self.origin, (self.origin + (v_right * -16) + (v_forward * -41)), FALSE, self);
+	vecl = trace_endpos;
+	
+	if (vlen(vecm - self.origin) <= 40 || vlen(vecr - self.origin) <= 40 || vlen(vecl - self.origin) <= 40)
+	{
+		self.wjump = 1;
+	}
+	else
+	{
+		self.wjump = 0;
+	}
+};
+
+void() walljump =
+{
+	wjcheck ();
+	if (self.wjump == 1 && self.wjcount < 3)
+	{
+		self.wjcount = self.wjcount + 1;
+		local	vector wj;
+		local	vector wwj;
+		wj_y = self.angles_y;
+		makevectors (wj);
+		wwj = v_forward * 500;
+		wwj_z = 200;
+		self.velocity = wwj;
+		sound (self, CHAN_VOICE, "player/land.wav", 1, ATTN_NORM);
+	}
+};
+
 void() ImpulseCommands =
 {
 	if (self.impulse >= 1 && self.impulse <= 8)
@@ -1348,6 +1405,9 @@ void() ImpulseCommands =
 
 	if (self.impulse == 255)
 		QuadCheat ();
+		
+	if (self.impulse == 30)
+		walljump ();
 		
 	self.impulse = 0;
 };
@@ -1368,6 +1428,8 @@ void () TraceID =
     }
 };
 
+
+
 /*
 ============
 W_WeaponFrame
@@ -1378,6 +1440,28 @@ Called every frame so impulse events can be handled as well as possible
 
 void() W_WeaponFrame =
 {
+	if ((self.flags & FL_CLIENT))
+	{
+		TraceID ();
+	}
+	
+	if ((self.flags & FL_ONGROUND) && self.wjcount != 0)
+	{
+		self.wjcount = 0;
+	}
+
+	if (self.impulse == 30)
+		ImpulseCommands ();
+		
+	if (self.button0 == FALSE && self.weapon == IT_LIGHTNING && self.lcharge > 0)
+	{
+		Lshoot ();
+		SuperDamageSound();
+		sound (self, CHAN_WEAPON, "weapons/lstart.wav", 1, ATTN_NORM);
+		self.lcharge = 0;
+		self.attack_finished = time + 0.4;
+	}
+	
 	if (time < self.attack_finished)
 		return;
 
@@ -1391,8 +1475,6 @@ void() W_WeaponFrame =
 		W_Attack ();
 	}
 	
-	if ((self.flags & FL_CLIENT))
-		TraceID ();
 		
 };
 

@@ -179,6 +179,7 @@ void() worldspawn =
 		cvar_set ("sv_gravity", "100");
 	else
 		cvar_set ("sv_gravity", "800");
+		
 
 // the area based ambient sounds MUST be the first precache_sounds
 
