@@ -17,17 +17,17 @@ It also adds more ways to move, and adds different ways of playing.
 
 +The Super Nailgun no longer shoots nails, but rather acts like the Doom Chaingun.
 
-+The lightning gun now acts very differently. You hold down you attack button to charge it, and you let go to fire. The more ammo and the longer you charge for, it will do more damage.
++The lightning gun now acts very differently. You hold down you attack button to charge it, and you let go to fire. The more ammo and the longer you charge for, it will do more damage. It will use a max of 25 cells.
 
 #Gameplay Changes
 
-+The Quad and Ring now drop on death.
++The Quad and Ring now drop on death. (needs improving)
 
-+There is no longer any automatic weapon switching, besides switching on low ammo.
++There is no longer any automatic weapon switching, besides on low ammo.
 
 +Instagib axes can be enabled with "deathmatch 3". Disables item pickups, and spawns player with only an axe. The axe will do 1000 damage.
 
-+Random spawns.
++Random spawns. (needs improving)
 
 +Grenades aren't random.
 
@@ -43,10 +43,10 @@ It also adds more ways to move, and adds different ways of playing.
 
 +You can look at a player to see their name.
 
-+Drowning doesn't damage armor.
++Drowning doesn't damage armor. (might not be working)
 
 Other things will be added at some point.
 
 #Walljumping
 
-To do walljumps, bind a key (perferrably mouse2) to "impulse 30." Using the bound key while your back is facing towards a wall, you will jump in the direction you are looking in. This can be useful for finding combos in maps that let you get around quicker than usual. There is an angular limit to when you can walljump, so practice a bit to get used to it, because nothing will happen if you jump at the wrong angle. You can only walljump 3 times until you have to touch the ground again.
+To do walljumps, bind a key (perferrably mouse2) to "impulse 30." Using the bound key while your back is facing towards a wall, you will jump in the direction you are looking in. This can be useful for finding combos in maps that let you get around quicker than usual. Practice a bit to get used to it, because nothing will happen if you jump at the wrong angle. You can only walljump 3 times until you have to touch the ground again.
