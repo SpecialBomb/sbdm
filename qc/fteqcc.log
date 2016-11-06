@@ -75,12 +75,12 @@ weapons.qc:741: warning: rand  no references
 weapons.qc:836: warning: rand  no references
 world.qc:363: warning: e  no references
 client.qc:318: warning: pos  no references
-client.qc:749: warning: old_self  no references
-client.qc:784: warning: start  no references
-client.qc:784: warning: end  no references
-client.qc:956: warning: mspeed  no references
-client.qc:956: warning: aspeed  no references
-client.qc:957: warning: r  no references
+client.qc:744: warning: old_self  no references
+client.qc:779: warning: start  no references
+client.qc:779: warning: end  no references
+client.qc:951: warning: mspeed  no references
+client.qc:951: warning: aspeed  no references
+client.qc:952: warning: r  no references
 client.qc:1168: warning: mspeed  no references
 client.qc:1168: warning: aspeed  no references
 client.qc:1169: warning: r  no references
@@ -103,13 +103,13 @@ demon.qc:280: warning: vec  no references
 dog.qc:306: warning: vec  no references
 zombie.qc:164: warning: mpuff  no references
  89388 strofs (of 1000000)
- 21267 numstatements (of 524288)
+ 21269 numstatements (of 524288)
   2101 numfunctions (of 16384)
   4347 numglobaldefs (of 32768)
    226 numfielddefs (203 unique) (of 2048)
   4386 numpr_globals (of 65536)
 Writing ../progs.dat
-389476 TOTAL SIZE
+389492 TOTAL SIZE
 Writing ../progs.lno
 225 unique precache_sounds
  95 unique precache_models
@@ -117,7 +117,7 @@ Writing ../progs.lno
 Compile Complete
 
 optres_shortenifnots 123
-optres_overlaptemps 7710
+optres_overlaptemps 7712
 optres_constantarithmatic 21
 optres_nonvec_parms 3996
 optres_assignments 418
