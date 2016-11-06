@@ -1209,18 +1209,12 @@ called when a player connects to a server
 ============
 */
 
-void() motd =
-{
-	if(self.classname != "player")
-		return;
-	centerprint(self, "Welcome to SpecialBomb's Deathmatch!/n");
-};
+
 
 void() ClientConnect =
 {
 	bprint (self.netname);
 	bprint (" entered the game\n");
-	motd ();
 // a client connecting during an intermission can cause problems
 	if (intermission_running)
 		ExitIntermission ();
