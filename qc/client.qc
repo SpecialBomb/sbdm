@@ -957,7 +957,7 @@ void() PlayerPreThink =
 		return;					// the think tics
 	}
 	
-	if (time < self.motd + time)
+	if (time < self.motd)
 	{
 		centerprint (self, "Welcome to SpecialBomb's Deathmatch Mod!\n\nTo use the walljump, bind impulse 30\n\nThe weapons have been changed, so you may need to get used to them\n");
 	}
