@@ -27,6 +27,8 @@ It also adds more ways to move, and adds different ways of playing.
 
 +Instagib axes can be enabled with "deathmatch 3". Disables item pickups, and spawns player with only an axe. The axe will do 1000 damage.
 
++Lightning gun only mode can be enabled with "dethamatch 4". Disables item pickups, and you have infinite ammo.
+
 +Random spawns. (needs improving)
 
 +Grenades aren't random.
