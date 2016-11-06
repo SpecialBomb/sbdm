@@ -1473,6 +1473,11 @@ void() W_WeaponFrame =
 		self.attack_finished = time + 0.4;
 	}
 	
+	if (self.button0 == FALSE && deathmatch == 4 && self.weapon == IT_LIGHTNING && self.ammo_cells < 100)
+	{
+		self.ammo_cells = self.ammo_cells + 1;
+	}
+	
 	if (time < self.attack_finished)
 		return;
 
