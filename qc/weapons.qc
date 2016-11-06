@@ -724,6 +724,16 @@ void(float ox) W_FireSpikes =
 
 .float hit_z;
 
+void() spike_hurt =
+{
+if (other.takedamage)
+	{
+		spawn_touchblood (9);
+		T_Damage (other, self, self.owner, 9);
+		remove(self);
+	}
+};
+
 void() spike_touch =
 {
 if (!deathmatch)
@@ -795,6 +805,7 @@ local float rand;
 	{
 		self.classname = "stuck_spike";
 		self.movetype = MOVETYPE_NONE;
+		self.touch = spike_hurt;
 		//setsize (self, VEC_ORIGIN, ' 0 0 4');
 		self.velocity = '0 0 0';
 		self.angles = vectoangles(trace_plane_normal);
