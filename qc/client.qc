@@ -108,6 +108,13 @@ void() DecodeLevelParms =
 	self.ammo_cells = parm7;
 	self.weapon = parm8;
 	self.armortype = parm9 * 0.01;
+	if (deathmatch == 4)
+	{
+		self.ammo_shells = 0;
+		self.ammo_cells = 100;
+		self.items = IT_LIGHTNING;
+		self.weapon = IT_LIGHTNING;
+	}
 };
 
 /*
