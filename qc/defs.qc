@@ -699,3 +699,5 @@ float(entity targ, entity inflictor) CanDamage;
 
 .float lcharge;
 .float lattacking;
+
+.float motd;
