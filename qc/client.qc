@@ -585,11 +585,6 @@ void() PutClientInServer =
 
 	spawn_tdeath (self.origin, self);
 	
-	if (self.motd != 1)
-	{
-		centerprint (self, "Welcome to SpecialBomb's Deathmatch Mod!\n\nTo use the walljump, bind impulse 30\n\nThe weapons have been changed, so you may need to get used to them\n");
-		self.motd = 1;
-	}
 };
 
 
@@ -961,6 +956,11 @@ void() PlayerPreThink =
 		IntermissionThink ();	// otherwise a button could be missed between
 		return;					// the think tics
 	}
+	
+	if (time < self.motd + time)
+	{
+		centerprint (self, "Welcome to SpecialBomb's Deathmatch Mod!\n\nTo use the walljump, bind impulse 30\n\nThe weapons have been changed, so you may need to get used to them\n");
+	}
 
 	if (self.view_ofs == '0 0 0')
 		return;		// intermission or finale
@@ -1213,6 +1213,7 @@ called when a player connects to a server
 
 void() ClientConnect =
 {
+	self.motd = time + 5;
 	bprint (self.netname);
 	bprint (" entered the game\n");
 // a client connecting during an intermission can cause problems
