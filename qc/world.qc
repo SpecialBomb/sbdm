@@ -387,7 +387,7 @@ void() voter =
 			if (vote_subj == "dm1")
 			{
 				bprint ("Changing level to dm1...\n");
-				changelevel ("maps/dm1.bsp");
+				changelevel ("dm1");
 			}
 			else
 			{
