@@ -62,6 +62,11 @@ float		trace_inwater;
 
 entity		msg_entity;				// destination of single entity writes
 
+//vote vars
+float		vote_time;
+float		vote_yes;
+float		vote_no;
+
 //
 // required prog functions
 //
