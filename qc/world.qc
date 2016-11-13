@@ -337,11 +337,11 @@ void() worldspawn =
 };
 
 void() voter =
-local entity	thing;
 {
+	local entity	thing;
 	if (vote_time > time && self.lefty == 0)
 	{
-		self.lefty == 1;
+		self.lefty = 1;
 	}
 	if (vote_time < time && self.lefty == 0)
 	{
@@ -385,6 +385,7 @@ local entity	thing;
 		}
 	}
 }
+};
 
 void() StartFrame =
 {
