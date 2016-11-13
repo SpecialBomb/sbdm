@@ -1417,6 +1417,27 @@ void() ImpulseCommands =
 	if (self.impulse == 255)
 		QuadCheat ();
 		
+	if (self.impulse == 13 && vote_time > time && self.voted == 0) //yes
+	{
+		vote_yes = vote_yes + 1;
+		self.voted = 1;
+	}
+	
+	if (self.impulse == 14 && vote_time > time && self.voted == 0) //no
+	{
+		vote_no = vote_no + 1;
+		self.voted = 1;
+	}
+	
+	if (self.impulse == 15 && vote_time < time) //dm1
+	{
+		vote_time = time + 30;
+		vote_subj = "dm1";
+		bprint ("Vote to change map to dm1 type yes or no in console\n");
+		vote_yes = vote_yes + 1;
+		self.voted = 1;
+	}
+		
 	if (self.impulse == 30)
 		walljump ();
 		

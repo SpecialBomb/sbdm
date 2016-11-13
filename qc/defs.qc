@@ -67,6 +67,7 @@ float		vote_time;
 string		vote_subj;
 float		vote_yes;
 float		vote_no;
+entity		votemaster;
 
 
 //

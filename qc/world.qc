@@ -336,11 +336,68 @@ void() worldspawn =
 	lightstyle(63, "a");
 };
 
+void() voter =
+local entity	thing;
+{
+	if (vote_time > time && self.lefty == 0)
+	{
+		self.lefty == 1;
+	}
+	if (vote_time < time && self.lefty == 0)
+	{
+		if (vote_yes == vote_no)
+		{
+			bprint("Votes tie! Nothing happens.\n");
+			self.lefty = 0;
+			vote_yes = 0;
+			vote_no = 0;	
+		}
+		
+		if (vote_yes < vote_no)
+		{
+			bprint("Players voted no! Nothing happens.\n");
+			self.lefty = 0;
+			vote_yes = 0;
+			vote_no = 0;
+		}
+		
+		if (vote_yes > vote_no)
+		{
+			self.lefty = 0;
+			vote_yes = 0;
+			vote_no = 0;
+			
+			if (vote_subj == "dm1")
+			{
+				bprint ("Changing level to dm1...\n");
+				changelevel ("maps/dm1.bsp");
+			}
+			else
+			{
+				bprint ("Vote subject doesn't exist!\n");
+			}
+		
+		thing = find (world, classname, "player");
+		while (thing)
+		{
+			thing.voted = 0;
+			thing = find (thing, classname, "player");
+		}
+	}
+}
+
 void() StartFrame =
 {
 	teamplay = cvar("teamplay");
 	skill = cvar("skill");
 	framecount = framecount + 1;
+	if (!votemaster)
+	{
+		votemaster = spawn();
+		votemaster.classname = "votemaster";
+		votemaster.nextthink = time;
+		votemaster.think = voter;
+	}
 };
 
 /*
