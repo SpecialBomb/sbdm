@@ -342,9 +342,11 @@ void() voter =
 	if (vote_time > time && self.lefty == 0)
 	{
 		self.lefty = 1;
+		bprint("vote acknoledged\n");
 	}
 	if (vote_time < time && self.lefty == 1)
 	{
+		bprint("parsing vote\n");
 		if (vote_yes == vote_no)
 		{
 			bprint("Votes tie! Nothing happens.\n");
