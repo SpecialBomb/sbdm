@@ -339,11 +339,21 @@ void() worldspawn =
 void() voter =
 {
 	local entity	thing;
+	local entity	playernt;
+	local float		playercount;
+	
+	playernt = find (world, classname, "player");
+	while (playernt)
+	{
+		playercount + 1;
+		find (playernt, classname, "player");
+	}
+	
 	if (vote_time > time && self.lefty == 0)
 	{
 		self.lefty = 1;
 	}
-	if (vote_time < time && self.lefty == 1)
+	if ( (vote_time < time || (player_yes + player_no == playercount)) && self.lefty == 1)
 	{
 		if (vote_yes == vote_no)
 		{
