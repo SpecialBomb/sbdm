@@ -389,6 +389,31 @@ void() voter =
 				bprint ("Changing level to dm1...\n");
 				changelevel ("dm1");
 			}
+			else if (vote_subj == "dm2")
+			{
+				bprint ("Changing level to dm2...\n");
+				changelevel ("dm2");
+			}
+			else if (vote_subj == "dm3")
+			{
+				bprint ("Changing level to dm3...\n");
+				changelevel ("dm3");
+			}
+			else if (vote_subj == "dm4")
+			{
+				bprint ("Changing level to dm4...\n");
+				changelevel ("dm4");
+			}
+			else if (vote_subj == "dm5")
+			{
+				bprint ("Changing level to dm5...\n");
+				changelevel ("dm5");
+			}
+			else if (vote_subj == "dm6")
+			{
+				bprint ("Changing level to dm6...\n");
+				changelevel ("dm6");
+			}
 			else
 			{
 				bprint ("Vote subject doesn't exist!\n");

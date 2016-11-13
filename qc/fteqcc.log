@@ -73,7 +73,7 @@ weapons.qc:696: warning: old  no references
 weapons.qc:725: warning: hit_z  no references
 weapons.qc:741: warning: rand  no references
 weapons.qc:836: warning: rand  no references
-world.qc:440: warning: e  no references
+world.qc:465: warning: e  no references
 client.qc:318: warning: pos  no references
 client.qc:744: warning: old_self  no references
 client.qc:779: warning: start  no references
@@ -102,14 +102,14 @@ ogre.qc:92: warning: mpuff  no references
 demon.qc:280: warning: vec  no references
 dog.qc:306: warning: vec  no references
 zombie.qc:164: warning: mpuff  no references
- 89820 strofs (of 1000000)
- 21408 numstatements (of 524288)
+ 90724 strofs (of 1000000)
+ 21518 numstatements (of 524288)
   2102 numfunctions (of 16384)
-  4366 numglobaldefs (of 32768)
+  4391 numglobaldefs (of 32768)
    227 numfielddefs (204 unique) (of 2048)
-  4405 numpr_globals (of 65536)
+  4430 numpr_globals (of 65536)
 Writing ../progs.dat
-391308 TOTAL SIZE
+393392 TOTAL SIZE
 Writing ../progs.lno
 225 unique precache_sounds
  95 unique precache_models
@@ -117,10 +117,10 @@ Writing ../progs.lno
 Compile Complete
 
 optres_shortenifnots 124
-optres_overlaptemps 7760
+optres_overlaptemps 7790
 optres_constantarithmatic 21
-optres_nonvec_parms 4026
-optres_assignments 421
+optres_nonvec_parms 4061
+optres_assignments 426
 optres_unreferenced 67
 optres_dupconstdefs 101
 numtemps 119

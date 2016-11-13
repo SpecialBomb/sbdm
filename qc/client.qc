@@ -1216,6 +1216,17 @@ void() ClientConnect =
 	self.motd = time + 5;
 	bprint (self.netname);
 	bprint (" entered the game\n");
+// send aliases here
+	sprint (self, "Sending aliases...");
+	stuffcmd (self, "alias yes \"impulse 13\"\n");
+	stuffcmd (self, "alias no \"impulse 14\"\n");
+	stuffcmd (self, "alias dm1 \"impulse 15\"\n");
+	stuffcmd (self, "alias dm2 \"impulse 16\"\n");
+	stuffcmd (self, "alias dm3 \"impulse 17\"\n");
+	stuffcmd (self, "alias dm4 \"impulse 18\"\n");
+	stuffcmd (self, "alias dm5 \"impulse 19\"\n");
+	stuffcmd (self, "alias dm6 \"impulse 20\"\n");
+	stuffcmd (self, "alias walljump \"impulse 30\"\n");
 // a client connecting during an intermission can cause problems
 	if (intermission_running)
 		ExitIntermission ();

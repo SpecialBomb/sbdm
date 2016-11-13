@@ -1437,6 +1437,41 @@ void() ImpulseCommands =
 		vote_subj = "dm1";
 		bprint ("Vote to change map to dm1 type yes or no in console\n");
 	}
+	
+	if (self.impulse == 16 && vote_time < time) //dm2
+	{
+		vote_time = time + 30;
+		vote_subj = "dm2";
+		bprint ("Vote to change map to dm2 type yes or no in console\n");
+	}
+	
+	if (self.impulse == 17 && vote_time < time) //dm3
+	{
+		vote_time = time + 30;
+		vote_subj = "dm3";
+		bprint ("Vote to change map to dm3 type yes or no in console\n");
+	}
+	
+	if (self.impulse == 18 && vote_time < time) //dm4
+	{
+		vote_time = time + 30;
+		vote_subj = "dm4";
+		bprint ("Vote to change map to dm4 type yes or no in console\n");
+	}
+	
+	if (self.impulse == 19 && vote_time < time) //dm5
+	{
+		vote_time = time + 30;
+		vote_subj = "dm5";
+		bprint ("Vote to change map to dm5 type yes or no in console\n");
+	}
+	
+	if (self.impulse == 20 && vote_time < time) //dm6
+	{
+		vote_time = time + 30;
+		vote_subj = "dm6";
+		bprint ("Vote to change map to dm6 type yes or no in console\n");
+	}
 		
 	if (self.impulse == 30)
 		walljump ();
