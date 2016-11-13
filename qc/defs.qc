@@ -706,3 +706,5 @@ float(entity targ, entity inflictor) CanDamage;
 .float lattacking;
 
 .float motd;
+
+.float voted;
