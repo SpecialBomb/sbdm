@@ -345,7 +345,7 @@ void() voter =
 	playernt = find (world, classname, "player");
 	while (playernt)
 	{
-		playercount + 1;
+		playercount = playercount + 1;
 		find (playernt, classname, "player");
 	}
 	
@@ -353,7 +353,7 @@ void() voter =
 	{
 		self.lefty = 1;
 	}
-	if ( (vote_time < time || (player_yes + player_no == playercount)) && self.lefty == 1)
+	if ( (vote_time < time || (vote_yes + vote_no == playercount)) && self.lefty == 1)
 	{
 		if (vote_yes == vote_no)
 		{
