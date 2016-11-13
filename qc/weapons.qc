@@ -1421,12 +1421,14 @@ void() ImpulseCommands =
 	{
 		vote_yes = vote_yes + 1;
 		self.voted = 1;
+		sprint (self, "Voted yes\n");
 	}
 	
 	if (self.impulse == 14 && vote_time > time && self.voted == 0) //no
 	{
 		vote_no = vote_no + 1;
 		self.voted = 1;
+		sprint (self, "Voted no\n");
 	}
 	
 	if (self.impulse == 15 && vote_time < time) //dm1
@@ -1434,8 +1436,6 @@ void() ImpulseCommands =
 		vote_time = time + 30;
 		vote_subj = "dm1";
 		bprint ("Vote to change map to dm1 type yes or no in console\n");
-		vote_yes = vote_yes + 1;
-		self.voted = 1;
 	}
 		
 	if (self.impulse == 30)

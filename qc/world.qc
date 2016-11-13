@@ -377,12 +377,12 @@ void() voter =
 				bprint ("Vote subject doesn't exist!\n");
 			}
 		
-		thing = find (world, classname, "player");
-		while (thing)
-		{
-			thing.voted = 0;
-			thing = find (thing, classname, "player");
 		}
+	thing = find (world, classname, "player");
+	while (thing)
+	{
+		thing.voted = 0;
+		thing = find (thing, classname, "player");
 	}
 }
 };
