@@ -343,7 +343,7 @@ void() voter =
 	{
 		self.lefty = 1;
 	}
-	if (vote_time < time && self.lefty == 0)
+	if (vote_time < time && self.lefty == 1)
 	{
 		if (vote_yes == vote_no)
 		{
