@@ -64,8 +64,10 @@ entity		msg_entity;				// destination of single entity writes
 
 //vote vars
 float		vote_time;
+string		vote_subj;
 float		vote_yes;
 float		vote_no;
+
 
 //
 // required prog functions
