@@ -959,7 +959,7 @@ void() PlayerPreThink =
 	
 	if (time < self.motd)
 	{
-		centerprint (self, "Welcome to SpecialBomb's Deathmatch Mod!\n\nTo use the walljump, bind impulse 30\n\nThe weapons have been changed, so you may need to get used to them\n");
+		centerprint (self, "Welcome to SpecialBomb's Deathmatch Mod!\n\nTo use the walljump, bind the \"walljump\" alias\n\nThe weapons have been changed, so you may need to get used to them\n\nTo vote for a map, type the map name in console. Type yes or no to vote.");
 	}
 
 	if (self.view_ofs == '0 0 0')
@@ -1217,7 +1217,7 @@ void() ClientConnect =
 	bprint (self.netname);
 	bprint (" entered the game\n");
 // send aliases here
-	sprint (self, "Sending aliases...");
+	sprint (self, "Sending aliases...\n");
 	stuffcmd (self, "alias yes \"impulse 13\"\n");
 	stuffcmd (self, "alias no \"impulse 14\"\n");
 	stuffcmd (self, "alias dm1 \"impulse 15\"\n");

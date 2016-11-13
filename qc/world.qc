@@ -342,11 +342,9 @@ void() voter =
 	if (vote_time > time && self.lefty == 0)
 	{
 		self.lefty = 1;
-		bprint("vote acknoledged\n");
 	}
 	if (vote_time < time && self.lefty == 1)
 	{
-		bprint("parsing vote\n");
 		if (vote_yes == vote_no)
 		{
 			bprint("Votes tie! Nothing happens.\n");
@@ -354,12 +352,7 @@ void() voter =
 			vote_yes = 0;
 			vote_no = 0;
 			
-			thing = find (world, classname, "player");
-			while (thing)
-			{
-				thing.voted = 0;
-				thing = find (thing, classname, "player");
-			}	
+				
 		}
 		
 		if (vote_yes < vote_no)
@@ -368,14 +361,6 @@ void() voter =
 			self.lefty = 0;
 			vote_yes = 0;
 			vote_no = 0;
-			
-			thing = find (world, classname, "player");
-			while (thing)
-			{
-				thing.voted = 0;
-				thing = find (thing, classname, "player");
-			}
-			
 		}
 		
 		if (vote_yes > vote_no)
@@ -418,14 +403,15 @@ void() voter =
 			{
 				bprint ("Vote subject doesn't exist!\n");
 			}
-			thing = find (world, classname, "player");
-			while (thing)
-			{
-				thing.voted = 0;
-				thing = find (thing, classname, "player");
-			}
+			
 		
 		}
+	thing = find (world, classname, "player");
+	while (thing)
+	{
+		thing.voted = 0;
+		thing = find (thing, classname, "player");
+	}
 	
 }
 self.nextthink = time + frametime;

@@ -1435,6 +1435,9 @@ void() ImpulseCommands =
 	{
 		vote_time = time + 30;
 		vote_subj = "dm1";
+		vote_yes = vote_yes + 1;
+		self.voted = 1;
+		sprint (self, "Voted yes\n");
 		bprint ("Vote to change map to dm1 type yes or no in console\n");
 	}
 	
@@ -1442,6 +1445,9 @@ void() ImpulseCommands =
 	{
 		vote_time = time + 30;
 		vote_subj = "dm2";
+		vote_yes = vote_yes + 1;
+		self.voted = 1;
+		sprint (self, "Voted yes\n");
 		bprint ("Vote to change map to dm2 type yes or no in console\n");
 	}
 	
@@ -1449,6 +1455,9 @@ void() ImpulseCommands =
 	{
 		vote_time = time + 30;
 		vote_subj = "dm3";
+		vote_yes = vote_yes + 1;
+		self.voted = 1;
+		sprint (self, "Voted yes\n");
 		bprint ("Vote to change map to dm3 type yes or no in console\n");
 	}
 	
@@ -1456,6 +1465,9 @@ void() ImpulseCommands =
 	{
 		vote_time = time + 30;
 		vote_subj = "dm4";
+		vote_yes = vote_yes + 1;
+		self.voted = 1;
+		sprint (self, "Voted yes\n");
 		bprint ("Vote to change map to dm4 type yes or no in console\n");
 	}
 	
@@ -1463,6 +1475,9 @@ void() ImpulseCommands =
 	{
 		vote_time = time + 30;
 		vote_subj = "dm5";
+		vote_yes = vote_yes + 1;
+		self.voted = 1;
+		sprint (self, "Voted yes\n");
 		bprint ("Vote to change map to dm5 type yes or no in console\n");
 	}
 	
@@ -1470,6 +1485,9 @@ void() ImpulseCommands =
 	{
 		vote_time = time + 30;
 		vote_subj = "dm6";
+		vote_yes = vote_yes + 1;
+		self.voted = 1;
+		sprint (self, "Voted yes\n");
 		bprint ("Vote to change map to dm6 type yes or no in console\n");
 	}
 		
