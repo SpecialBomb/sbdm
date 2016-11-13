@@ -339,6 +339,7 @@ void() worldspawn =
 void() voter =
 {
 	local entity	thing;
+	bprint("I exist!\n");
 	if (vote_time > time && self.lefty == 0)
 	{
 		self.lefty = 1;
