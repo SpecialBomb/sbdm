@@ -415,7 +415,7 @@ void() StartFrame =
 	{
 		votemaster = spawn();
 		votemaster.classname = "votemaster";
-		votemaster.nextthink = -1;
+		votemaster.nextthink = time;
 		votemaster.think = voter;
 	}
 };
