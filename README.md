@@ -45,6 +45,8 @@ It also adds more ways to move, and adds different ways of playing.
 
 +You can look at a player to see their name.
 
++Map voting. Maps dm1 to dm6 are voteable, and uses a yes greater than no system (non voters are not counted).
+
 +Drowning doesn't damage armor. (might not be working)
 
 Other things will be added at some point.
