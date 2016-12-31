@@ -960,7 +960,7 @@ void() PlayerPreThink =
 	if ((time < self.motd) && (time > self.motdnxt))
 	{
 		centerprint (self, "Welcome to SpecialBomb's Deathmatch Mod!\n\nTo use the walljump, bind the \"walljump\" alias\n\nThe weapons have been changed, so you may need to get used to them\n\nTo vote for a map, type the map name in console. Type yes or no to vote.");
-		self.motdnxt = self.motdnxt + 2;
+		self.motdnxt = self.motdnxt + 1;
 	}
 
 	if (self.view_ofs == '0 0 0')
