@@ -1517,8 +1517,9 @@ void () TraceID =
 {
     makevectors (self.v_angle);
     traceline (self.origin, (self.origin + (v_forward * 1000)), FALSE, self);
-    if ((trace_ent.classname == "player"))
+    if ((trace_ent.classname == "player") && (time > self.tidtime))
     {
+		self.tidtime = time + 2;
         centerprint (self, trace_ent.netname);
         self.tidcheck = 1;
     }
