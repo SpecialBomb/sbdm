@@ -703,7 +703,6 @@ float(entity targ, entity inflictor) CanDamage;
 
 .float tidcheck;
 .float tidtime;
-.float tidnext;
 
 .float wjump;
 .float wjcount;
