@@ -957,9 +957,10 @@ void() PlayerPreThink =
 		return;					// the think tics
 	}
 	
-	if (time < self.motd)
+	if ((time < self.motd) && (time > self.motdnxt))
 	{
 		centerprint (self, "Welcome to SpecialBomb's Deathmatch Mod!\n\nTo use the walljump, bind the \"walljump\" alias\n\nThe weapons have been changed, so you may need to get used to them\n\nTo vote for a map, type the map name in console. Type yes or no to vote.");
+		self.motdnxt = self.motdnxt + 2;
 	}
 
 	if (self.view_ofs == '0 0 0')
@@ -1214,6 +1215,7 @@ called when a player connects to a server
 void() ClientConnect =
 {
 	self.motd = time + 6;
+	self.motdnxt = time;
 	bprint (self.netname);
 	bprint (" entered the game\n");
 // send aliases here
