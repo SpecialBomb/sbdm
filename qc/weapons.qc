@@ -1422,6 +1422,8 @@ void() ImpulseCommands =
 		vote_yes = vote_yes + 1;
 		self.voted = 1;
 		sprint (self, "Voted yes\n");
+		bprint (self.netname);
+		bprint (" voted yes\n");
 	}
 	
 	if (self.impulse == 14 && vote_time > time && self.voted == 0) //no
@@ -1429,6 +1431,8 @@ void() ImpulseCommands =
 		vote_no = vote_no + 1;
 		self.voted = 1;
 		sprint (self, "Voted no\n");
+		bprint (self.netname);
+		bprint (" voted no\n");
 	}
 	
 	if (self.impulse == 15 && vote_time < time) //dm1
