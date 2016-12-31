@@ -1519,11 +1519,11 @@ void () TraceID =
     traceline ((self.origin+self.view_ofs), ((self.origin+self.view_ofs) + (v_forward * 1000)), FALSE, self);
     if ((trace_ent.classname == "player") && (time > self.tidtime))
     {
-		self.tidtime = time + 2;
+		self.tidtime = time + 1;
         centerprint (self, trace_ent.netname);
         self.tidcheck = 1;
     }
-    else if (trace_ent.classname != "player" && self.tidcheck == 1)
+    if (trace_ent.classname != "player" && self.tidcheck == 1)
     {
 		centerprint (self, "\n");
 		self.tidcheck = 0;
