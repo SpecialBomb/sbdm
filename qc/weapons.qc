@@ -1443,6 +1443,8 @@ void() ImpulseCommands =
 		self.voted = 1;
 		sprint (self, "Voted yes\n");
 		bprint ("Vote to change map to dm1 type yes or no in console\n");
+		bprint (self.netname);
+		bprint (" voted yes\n");
 	}
 	
 	if (self.impulse == 16 && vote_time < time) //dm2
@@ -1453,6 +1455,8 @@ void() ImpulseCommands =
 		self.voted = 1;
 		sprint (self, "Voted yes\n");
 		bprint ("Vote to change map to dm2 type yes or no in console\n");
+		bprint (self.netname);
+		bprint (" voted yes\n");
 	}
 	
 	if (self.impulse == 17 && vote_time < time) //dm3
@@ -1463,6 +1467,8 @@ void() ImpulseCommands =
 		self.voted = 1;
 		sprint (self, "Voted yes\n");
 		bprint ("Vote to change map to dm3 type yes or no in console\n");
+		bprint (self.netname);
+		bprint (" voted yes\n");
 	}
 	
 	if (self.impulse == 18 && vote_time < time) //dm4
@@ -1473,6 +1479,8 @@ void() ImpulseCommands =
 		self.voted = 1;
 		sprint (self, "Voted yes\n");
 		bprint ("Vote to change map to dm4 type yes or no in console\n");
+		bprint (self.netname);
+		bprint (" voted yes\n");
 	}
 	
 	if (self.impulse == 19 && vote_time < time) //dm5
@@ -1483,6 +1491,8 @@ void() ImpulseCommands =
 		self.voted = 1;
 		sprint (self, "Voted yes\n");
 		bprint ("Vote to change map to dm5 type yes or no in console\n");
+		bprint (self.netname);
+		bprint (" voted yes\n");
 	}
 	
 	if (self.impulse == 20 && vote_time < time) //dm6
@@ -1493,6 +1503,8 @@ void() ImpulseCommands =
 		self.voted = 1;
 		sprint (self, "Voted yes\n");
 		bprint ("Vote to change map to dm6 type yes or no in console\n");
+		bprint (self.netname);
+		bprint (" voted yes\n");
 	}
 		
 	if (self.impulse == 30)
