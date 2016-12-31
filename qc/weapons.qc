@@ -1516,7 +1516,7 @@ void() ImpulseCommands =
 void () TraceID =
 {
     makevectors (self.v_angle);
-    traceline (self.origin, (self.origin + (v_forward * 1000)), FALSE, self);
+    traceline ((self.origin+self.view_ofs), ((self.origin+self.view_ofs) + (v_forward * 1000)), FALSE, self);
     if ((trace_ent.classname == "player") && (time > self.tidtime))
     {
 		self.tidtime = time + 2;
