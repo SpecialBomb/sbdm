@@ -1213,7 +1213,7 @@ called when a player connects to a server
 
 void() ClientConnect =
 {
-	self.motd = time + 5;
+	self.motd = time + 6;
 	bprint (self.netname);
 	bprint (" entered the game\n");
 // send aliases here
