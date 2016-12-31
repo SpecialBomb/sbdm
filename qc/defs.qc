@@ -700,7 +700,10 @@ float(entity targ, entity inflictor) CanDamage;
 
 .entity pusher;
 .float push_time;
+
 .float tidcheck;
+.float tidtime;
+.float tidnext;
 
 .float wjump;
 .float wjcount;
