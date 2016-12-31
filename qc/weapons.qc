@@ -1417,6 +1417,96 @@ void() ImpulseCommands =
 	if (self.impulse == 255)
 		QuadCheat ();
 		
+	if (self.impulse == 13 && vote_time > time && self.voted == 0) //yes
+	{
+		vote_yes = vote_yes + 1;
+		self.voted = 1;
+		sprint (self, "Voted yes\n");
+		bprint (self.netname);
+		bprint (" voted yes\n");
+	}
+	
+	if (self.impulse == 14 && vote_time > time && self.voted == 0) //no
+	{
+		vote_no = vote_no + 1;
+		self.voted = 1;
+		sprint (self, "Voted no\n");
+		bprint (self.netname);
+		bprint (" voted no\n");
+	}
+	
+	if (self.impulse == 15 && vote_time < time) //dm1
+	{
+		vote_time = time + 30;
+		vote_subj = "dm1";
+		vote_yes = vote_yes + 1;
+		self.voted = 1;
+		sprint (self, "Voted yes\n");
+		bprint ("Vote to change map to dm1 type yes or no in console\n");
+		bprint (self.netname);
+		bprint (" voted yes\n");
+	}
+	
+	if (self.impulse == 16 && vote_time < time) //dm2
+	{
+		vote_time = time + 30;
+		vote_subj = "dm2";
+		vote_yes = vote_yes + 1;
+		self.voted = 1;
+		sprint (self, "Voted yes\n");
+		bprint ("Vote to change map to dm2 type yes or no in console\n");
+		bprint (self.netname);
+		bprint (" voted yes\n");
+	}
+	
+	if (self.impulse == 17 && vote_time < time) //dm3
+	{
+		vote_time = time + 30;
+		vote_subj = "dm3";
+		vote_yes = vote_yes + 1;
+		self.voted = 1;
+		sprint (self, "Voted yes\n");
+		bprint ("Vote to change map to dm3 type yes or no in console\n");
+		bprint (self.netname);
+		bprint (" voted yes\n");
+	}
+	
+	if (self.impulse == 18 && vote_time < time) //dm4
+	{
+		vote_time = time + 30;
+		vote_subj = "dm4";
+		vote_yes = vote_yes + 1;
+		self.voted = 1;
+		sprint (self, "Voted yes\n");
+		bprint ("Vote to change map to dm4 type yes or no in console\n");
+		bprint (self.netname);
+		bprint (" voted yes\n");
+	}
+	
+	if (self.impulse == 19 && vote_time < time) //dm5
+	{
+		vote_time = time + 30;
+		vote_subj = "dm5";
+		vote_yes = vote_yes + 1;
+		self.voted = 1;
+		sprint (self, "Voted yes\n");
+		bprint ("Vote to change map to dm5 type yes or no in console\n");
+		bprint (self.netname);
+		bprint (" voted yes\n");
+	}
+	
+	if (self.impulse == 20 && vote_time < time) //dm6
+	{
+		vote_time = time + 30;
+		vote_subj = "dm6";
+		vote_yes = vote_yes + 1;
+		self.voted = 1;
+		sprint (self, "Voted yes\n");
+		bprint ("Vote to change map to dm6 type yes or no in console\n");
+		bprint (self.netname);
+		bprint (" voted yes\n");
+	}
+		
 	if (self.impulse == 30)
 		walljump ();
 		
@@ -1426,16 +1516,18 @@ void() ImpulseCommands =
 void () TraceID =
 {
     makevectors (self.v_angle);
-    traceline (self.origin, (self.origin + (v_forward * 1000)), FALSE, self);
-    if ((trace_ent.classname == "player"))
+    traceline ((self.origin+self.view_ofs), ((self.origin+self.view_ofs) + (v_forward * 1000)), FALSE, self);
+    if ((trace_ent.classname == "player") && (time > self.tidtime))
     {
+		self.tidtime = time + 1;
         centerprint (self, trace_ent.netname);
         self.tidcheck = 1;
     }
-    else if (trace_ent.classname != "player" && self.tidcheck == 1)
+    if (trace_ent.classname != "player" && self.tidcheck == 1)
     {
 		centerprint (self, "\n");
 		self.tidcheck = 0;
+		self.tidtime = time;
     }
 };
 
@@ -1471,6 +1563,11 @@ void() W_WeaponFrame =
 		sound (self, CHAN_WEAPON, "weapons/lstart.wav", 1, ATTN_NORM);
 		self.lcharge = 0;
 		self.attack_finished = time + 0.4;
+	}
+	
+	if (self.button0 == FALSE && deathmatch == 4 && self.weapon == IT_LIGHTNING && self.ammo_cells < 100)
+	{
+		self.ammo_cells = self.ammo_cells + 1;
 	}
 	
 	if (time < self.attack_finished)

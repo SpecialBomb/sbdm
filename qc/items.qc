@@ -35,8 +35,13 @@ plants the object on the floor
 */
 void() PlaceItem =
 {
+	if (deathmatch == 4) {
+		return;
+	}
 	//insta-axe items fix by SpecialBomb
-	if (deathmatch != 3) {
+	if (deathmatch == 3) {
+		return;
+	}
 	local float	oldz;
 
 	self.mdl = self.model;		// so it can be restored on respawn
@@ -53,10 +58,6 @@ void() PlaceItem =
 		dprint ("\n");
 		remove(self);
 		return;
-	}
-	}
-	else {
-	return;
 	}
 	//end fix
 };

@@ -108,6 +108,13 @@ void() DecodeLevelParms =
 	self.ammo_cells = parm7;
 	self.weapon = parm8;
 	self.armortype = parm9 * 0.01;
+	if (deathmatch == 4)
+	{
+		self.ammo_shells = 0;
+		self.ammo_cells = 100;
+		self.items = IT_LIGHTNING;
+		self.weapon = IT_LIGHTNING;
+	}
 };
 
 /*
@@ -577,6 +584,7 @@ void() PutClientInServer =
 	}
 
 	spawn_tdeath (self.origin, self);
+	
 };
 
 
@@ -800,6 +808,9 @@ void() PlayerJump =
 
 	if ( !(self.flags & FL_JUMPRELEASED) )
 		return;		// don't pogo stick
+		
+	if (self.wjcount)
+		return;
 
 	self.flags = self.flags - (self.flags & FL_JUMPRELEASED);
 
@@ -947,6 +958,12 @@ void() PlayerPreThink =
 	{
 		IntermissionThink ();	// otherwise a button could be missed between
 		return;					// the think tics
+	}
+	
+	if ((time < self.motd) && (time > self.motdnxt))
+	{
+		centerprint (self, "Welcome to SpecialBomb's Deathmatch Mod!\n\nTo use the walljump, bind the \"walljump\" alias\n\nThe weapons have been changed, so you may need to get used to them\n\nTo vote for a map, type the map name in console. Type yes or no to vote.");
+		self.motdnxt = self.motdnxt + 1;
 	}
 
 	if (self.view_ofs == '0 0 0')
@@ -1196,18 +1213,25 @@ called when a player connects to a server
 ============
 */
 
-void() motd =
-{
-	if(self.classname != "player")
-		return;
-	centerprint(self, "Welcome to SpecialBomb's Deathmatch!/n");
-};
+
 
 void() ClientConnect =
 {
+	self.motd = time + 6;
+	self.motdnxt = time;
 	bprint (self.netname);
 	bprint (" entered the game\n");
-	motd ();
+// send aliases here
+	sprint (self, "Sending aliases...\n");
+	stuffcmd (self, "alias yes \"impulse 13\"\n");
+	stuffcmd (self, "alias no \"impulse 14\"\n");
+	stuffcmd (self, "alias dm1 \"impulse 15\"\n");
+	stuffcmd (self, "alias dm2 \"impulse 16\"\n");
+	stuffcmd (self, "alias dm3 \"impulse 17\"\n");
+	stuffcmd (self, "alias dm4 \"impulse 18\"\n");
+	stuffcmd (self, "alias dm5 \"impulse 19\"\n");
+	stuffcmd (self, "alias dm6 \"impulse 20\"\n");
+	stuffcmd (self, "alias walljump \"impulse 30\"\n");
 // a client connecting during an intermission can cause problems
 	if (intermission_running)
 		ExitIntermission ();

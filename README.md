@@ -27,6 +27,8 @@ It also adds more ways to move, and adds different ways of playing.
 
 +Instagib axes can be enabled with "deathmatch 3". Disables item pickups, and spawns player with only an axe. The axe will do 1000 damage.
 
++Lightning gun only mode can be enabled with "dethamatch 4". Disables item pickups, and you have infinite ammo.
+
 +Random spawns. (needs improving)
 
 +Grenades aren't random.
@@ -43,10 +45,12 @@ It also adds more ways to move, and adds different ways of playing.
 
 +You can look at a player to see their name.
 
++Map voting. Maps dm1 to dm6 are voteable, and uses a yes greater than no system (non voters are not counted).
+
 +Drowning doesn't damage armor. (might not be working)
 
 Other things will be added at some point.
 
 #Walljumping
 
-To do walljumps, bind a key (perferrably mouse2) to "impulse 30." Using the bound key while your back is facing towards a wall, you will jump in the direction you are looking in. This can be useful for finding combos in maps that let you get around quicker than usual. Practice a bit to get used to it, because nothing will happen if you jump at the wrong angle. You can only walljump 3 times until you have to touch the ground again.
+To do walljumps, bind a key (perferrably mouse2) to "impulse 30." You can also bind "walljump" if you want to use the alias. Using the bound key while your back is facing towards a wall, you will jump in the direction you are looking in. This can be useful for finding combos in maps that let you get around quicker than usual. Practice a bit to get used to it, because nothing will happen if you jump at the wrong angle. You can only walljump 3 times until you have to touch the ground again.

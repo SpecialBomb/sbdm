@@ -62,6 +62,14 @@ float		trace_inwater;
 
 entity		msg_entity;				// destination of single entity writes
 
+//vote vars
+float		vote_time;
+string		vote_subj;
+float		vote_yes;
+float		vote_no;
+entity		votemaster;
+
+
 //
 // required prog functions
 //
@@ -692,10 +700,17 @@ float(entity targ, entity inflictor) CanDamage;
 
 .entity pusher;
 .float push_time;
+
 .float tidcheck;
+.float tidtime;
 
 .float wjump;
 .float wjcount;
 
 .float lcharge;
 .float lattacking;
+
+.float motd;
+.float motdnxt;
+
+.float voted;
