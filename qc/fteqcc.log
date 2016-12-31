@@ -48,7 +48,7 @@ defs.qc:509: warning: dest  no references
 defs.qc:556: warning: waitmax  no references
 defs.qc:557: warning: distance  no references
 defs.qc:558: warning: volume  no references
-defs.qc:709: warning: lattacking  no references
+defs.qc:711: warning: lattacking  no references
 fight.qc:298: warning: chance  no references
 ai.qc:37: warning: current_yaw  no references
 ai.qc:476: warning: mtemp  no references
@@ -104,14 +104,14 @@ ogre.qc:92: warning: mpuff  no references
 demon.qc:280: warning: vec  no references
 dog.qc:306: warning: vec  no references
 zombie.qc:164: warning: mpuff  no references
- 90812 strofs (of 1000000)
- 21563 numstatements (of 524288)
+ 90828 strofs (of 1000000)
+ 21569 numstatements (of 524288)
   2102 numfunctions (of 16384)
-  4392 numglobaldefs (of 32768)
-   228 numfielddefs (205 unique) (of 2048)
-  4433 numpr_globals (of 65536)
+  4393 numglobaldefs (of 32768)
+   229 numfielddefs (206 unique) (of 2048)
+  4434 numpr_globals (of 65536)
 Writing ../progs.dat
-393868 TOTAL SIZE
+393952 TOTAL SIZE
 Writing ../progs.lno
 225 unique precache_sounds
  95 unique precache_models
@@ -119,7 +119,7 @@ Writing ../progs.lno
 Compile Complete
 
 optres_shortenifnots 124
-optres_overlaptemps 7815
+optres_overlaptemps 7820
 optres_constantarithmatic 21
 optres_nonvec_parms 4075
 optres_assignments 440
