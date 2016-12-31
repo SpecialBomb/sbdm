@@ -808,6 +808,9 @@ void() PlayerJump =
 
 	if ( !(self.flags & FL_JUMPRELEASED) )
 		return;		// don't pogo stick
+		
+	if (self.wjcount)
+		return;
 
 	self.flags = self.flags - (self.flags & FL_JUMPRELEASED);
 
