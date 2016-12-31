@@ -1527,6 +1527,7 @@ void () TraceID =
     {
 		centerprint (self, "\n");
 		self.tidcheck = 0;
+		self.tidtime = time;
     }
 };
 
