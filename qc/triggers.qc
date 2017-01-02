@@ -414,7 +414,7 @@ local vector	org;
 		other.teleport_time = time + 0.7;
 		if (other.flags & FL_ONGROUND)
 			other.flags = other.flags - FL_ONGROUND;
-		other.velocity = (v_forward * other.velocity_x) + (v_forward * other.velocity_y);
+		other.velocity = other.velocity * v_forward;
 		
 	}
 	other.flags = other.flags - other.flags & FL_ONGROUND;
