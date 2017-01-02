@@ -728,8 +728,21 @@ void() spike_hurt =
 {
 if (other.takedamage)
 	{
-		spawn_touchblood (9);
-		T_Damage (other, self, self.owner, 9);
+		local entity thing;
+		local float tdmg;
+		tdmg = 9;
+		thing = findradius(self.origin, 1);
+		while(thing)
+		{
+			if (thing.classname == "stuck_spike")
+			{
+				remove(thing);
+				tdmg = tdmg + 9;
+			}
+			thing = thing.chain;
+		}
+		spawn_touchblood (tdmg);
+		T_Damage (other, self, self.owner, tdmg);
 		remove(self);
 	}
 };
@@ -797,21 +810,8 @@ local float rand;
 // hit something that bleeds
 	if (other.takedamage)
 	{
-		local entity thing;
-		local float tdmg;
-		tdmg = 9;
-		thing = findradius(self.origin, 100);
-		while(thing)
-		{
-			if (thing.classname == "stuck_spike")
-			{
-				remove(thing);
-				tdmg = tdmg + 9;
-			}
-			thing = thing.chain;
-		}
-		spawn_touchblood (tdmg);
-		T_Damage (other, self, self.owner, tdmg);
+		spawn_touchblood (9);
+		T_Damage (other, self, self.owner, 9);
 		remove(self);
 	}
 	else
