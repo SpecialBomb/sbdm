@@ -800,7 +800,7 @@ local float rand;
 		local entity thing;
 		local float tdmg;
 		tdmg = 9;
-		thing = findradius(self.origin, 10);
+		thing = findradius(self.origin, 100);
 		while(thing)
 		{
 			if (thing.classname == "stuck_spike")
