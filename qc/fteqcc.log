@@ -8,9 +8,9 @@ compiling combat.qc
 compiling items.qc
 compiling weapons.qc
 in function spike_touch (line 631),
-weapons.qc:780: warning: rand duplicate definition ignored
-weapons.qc:741:    rand  is defined here
-weapons.qc:781: warning: Implicit conversion
+weapons.qc:793: warning: rand duplicate definition ignored
+weapons.qc:754:    rand  is defined here
+weapons.qc:794: warning: Implicit conversion
 compiling world.qc
 compiling client.qc
 compiling dropping.qc
@@ -71,7 +71,7 @@ weapons.qc:585: warning: mpuff  no references
 weapons.qc:673: warning: old  no references
 weapons.qc:696: warning: old  no references
 weapons.qc:725: warning: hit_z  no references
-weapons.qc:741: warning: rand  no references
+weapons.qc:754: warning: rand  no references
 weapons.qc:849: warning: rand  no references
 world.qc:342: warning: playernt  no references
 world.qc:343: warning: playercount  no references
