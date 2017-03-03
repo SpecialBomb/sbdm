@@ -514,7 +514,7 @@ void() W_FireLightning =
 			sound (self, CHAN_WEAPON, "weapons/lhit.wav", 1, ATTN_NORM);
 			self.t_width = time + 0.6;
 		}
-		self.punchangle_x = -2;
+		//self.punchangle_x = -2;
 	}
 
 	if (self.ammo_cells > 0 && self.lcharge < 25)

@@ -105,13 +105,13 @@ demon.qc:280: warning: vec  no references
 dog.qc:306: warning: vec  no references
 zombie.qc:164: warning: mpuff  no references
  90840 strofs (of 1000000)
- 21593 numstatements (of 524288)
+ 21591 numstatements (of 524288)
   2102 numfunctions (of 16384)
   4395 numglobaldefs (of 32768)
    229 numfielddefs (206 unique) (of 2048)
   4439 numpr_globals (of 65536)
 Writing ../progs.dat
-394192 TOTAL SIZE
+394176 TOTAL SIZE
 Writing ../progs.lno
 225 unique precache_sounds
  95 unique precache_models
@@ -119,7 +119,7 @@ Writing ../progs.lno
 Compile Complete
 
 optres_shortenifnots 124
-optres_overlaptemps 7844
+optres_overlaptemps 7843
 optres_constantarithmatic 21
 optres_nonvec_parms 4077
 optres_assignments 444
