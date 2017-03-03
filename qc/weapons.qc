@@ -527,22 +527,23 @@ void() W_FireLightning =
 
 void() Lshoot =
 {
-	local	vector		org;
-	org = self.origin + '0 0 16';
+	local	vector		src;
+	//org = self.origin + '0 0 16';
+	src = self.origin+self.view_ofs;
 	
-	traceline (org, org + v_forward*2000, TRUE, self);
+	traceline (src, src + v_forward*2000, TRUE, self);
 
 	WriteByte (MSG_BROADCAST, SVC_TEMPENTITY);
 	WriteByte (MSG_BROADCAST, TE_LIGHTNING2);
 	WriteEntity (MSG_BROADCAST, self);
-	WriteCoord (MSG_BROADCAST, org_x);
-	WriteCoord (MSG_BROADCAST, org_y);
-	WriteCoord (MSG_BROADCAST, org_z);
+	WriteCoord (MSG_BROADCAST, src_x);
+	WriteCoord (MSG_BROADCAST, src_y);
+	WriteCoord (MSG_BROADCAST, src_z);
 	WriteCoord (MSG_BROADCAST, trace_endpos_x);
 	WriteCoord (MSG_BROADCAST, trace_endpos_y);
 	WriteCoord (MSG_BROADCAST, trace_endpos_z);
 
-	LightningDamage (self.origin, trace_endpos + v_forward*4, self, self.lcharge * (20/3));
+	LightningDamage (src, trace_endpos + v_forward*4, self, self.lcharge * (20/3));
 };
 
 //=============================================================================
