@@ -326,7 +326,7 @@ void() W_FireSuperShotgun =
 	else {
 		self.velocity = (-dir*150)+self.velocity;
 	}
-	FireBullets (15, dir, '0.16 0.16 0', 10);
+	FireBullets (15, dir, '0.16 0.16 0', (20/3));
 	}
 };
 
