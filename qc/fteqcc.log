@@ -120,7 +120,7 @@ Compile Complete
 
 optres_shortenifnots 124
 optres_overlaptemps 7843
-optres_constantarithmatic 21
+optres_constantarithmatic 22
 optres_nonvec_parms 4077
 optres_assignments 444
 optres_unreferenced 69
