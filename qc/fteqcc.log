@@ -7,10 +7,10 @@ compiling ai.qc
 compiling combat.qc
 compiling items.qc
 compiling weapons.qc
-in function spike_touch (line 641),
-weapons.qc:803: warning: rand duplicate definition ignored
-weapons.qc:764:    rand  is defined here
-weapons.qc:804: warning: Implicit conversion
+in function spike_touch (line 637),
+weapons.qc:799: warning: rand duplicate definition ignored
+weapons.qc:760:    rand  is defined here
+weapons.qc:800: warning: Implicit conversion
 compiling world.qc
 compiling client.qc
 compiling dropping.qc
@@ -67,12 +67,12 @@ items.qc:1088: warning: stemp  no references
 items.qc:1089: warning: best  no references
 weapons.qc:103: warning: mpuff  no references
 weapons.qc:406: warning: mpuff  no references
-weapons.qc:595: warning: mpuff  no references
-weapons.qc:683: warning: old  no references
-weapons.qc:706: warning: old  no references
-weapons.qc:735: warning: hit_z  no references
-weapons.qc:764: warning: rand  no references
-weapons.qc:859: warning: rand  no references
+weapons.qc:591: warning: mpuff  no references
+weapons.qc:679: warning: old  no references
+weapons.qc:702: warning: old  no references
+weapons.qc:731: warning: hit_z  no references
+weapons.qc:760: warning: rand  no references
+weapons.qc:855: warning: rand  no references
 world.qc:342: warning: playernt  no references
 world.qc:343: warning: playercount  no references
 world.qc:455: warning: e  no references
@@ -105,13 +105,13 @@ demon.qc:280: warning: vec  no references
 dog.qc:306: warning: vec  no references
 zombie.qc:164: warning: mpuff  no references
  90840 strofs (of 1000000)
- 21525 numstatements (of 524288)
+ 21518 numstatements (of 524288)
   2102 numfunctions (of 16384)
   4395 numglobaldefs (of 32768)
    229 numfielddefs (206 unique) (of 2048)
   4439 numpr_globals (of 65536)
 Writing ../progs.dat
-393648 TOTAL SIZE
+393592 TOTAL SIZE
 Writing ../progs.lno
 225 unique precache_sounds
  95 unique precache_models
@@ -119,7 +119,7 @@ Writing ../progs.lno
 Compile Complete
 
 optres_shortenifnots 123
-optres_overlaptemps 7794
+optres_overlaptemps 7790
 optres_constantarithmatic 21
 optres_nonvec_parms 4072
 optres_assignments 444

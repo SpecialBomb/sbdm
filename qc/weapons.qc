@@ -509,7 +509,7 @@ void() Lshoot =
 	WriteCoord (MSG_BROADCAST, trace_endpos_y);
 	WriteCoord (MSG_BROADCAST, trace_endpos_z);
 
-	LightningDamage (src, trace_endpos + v_forward*4, self, 100);
+	LightningDamage (src, trace_endpos + v_forward*4, self, 80);
 };
 
 void() W_FireLightning =
@@ -543,14 +543,10 @@ void() W_FireLightning =
 	//	self.lcharge = self.lcharge + 1;
 	//}
 	Lshoot();
-	self.attack_finished = time + 2;
+	self.attack_finished = time + 1.5;
 	self.currentammo = self.ammo_cells = self.ammo_cells - 10;
 	SuperDamageSound();
 	sound (self, CHAN_WEAPON, "weapons/lstart.wav", 1, ATTN_NORM);
-	if (self.ammo_cells < 10)
-	{
-		self.currentammo = self.ammo_cells = 0;
-	}
 
 };
 
@@ -1087,7 +1083,7 @@ void() W_Attack =
 	{
 		player_rocket1();
 		W_FireLightning();
-		self.attack_finished = time + 2;
+		self.attack_finished = time + 1.5;
 	}
 };
 
