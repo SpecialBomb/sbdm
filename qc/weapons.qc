@@ -1085,7 +1085,8 @@ void() W_Attack =
 	}
 	else if (self.weapon == IT_LIGHTNING)
 	{
-		player_light1();
+		player_rocket1();
+		W_FireLightning();
 		self.attack_finished = time + 2;
 	}
 };
