@@ -491,40 +491,6 @@ void(vector p1, vector p2, entity from, float damage) LightningDamage =
 	}
 };
 
-
-void() W_FireLightning =
-{
-	local	float		cells;
-
-
-// explode if under water
-	if (self.waterlevel > 1)
-	{
-		cells = self.ammo_cells;
-		self.ammo_cells = 0;
-		W_SetCurrentAmmo ();
-		T_RadiusDamage (self, self, 35*cells, world);
-		return;
-	}
-
-	if (self.lcharge > 0)
-	{
-		if (self.t_width < time && self.lcharge > 0)
-		{
-			sound (self, CHAN_WEAPON, "weapons/lhit.wav", 1, ATTN_NORM);
-			self.t_width = time + 0.6;
-		}
-		//self.punchangle_x = -2;
-	}
-
-	if (self.ammo_cells > 0 && self.lcharge < 25)
-	{
-		self.currentammo = self.ammo_cells = self.ammo_cells - 1;
-		self.lcharge = self.lcharge + 1;
-	}
-
-};
-
 void() Lshoot =
 {
 	local	vector		src;
@@ -543,8 +509,50 @@ void() Lshoot =
 	WriteCoord (MSG_BROADCAST, trace_endpos_y);
 	WriteCoord (MSG_BROADCAST, trace_endpos_z);
 
-	LightningDamage (src, trace_endpos + v_forward*4, self, self.lcharge * (20/3));
+	LightningDamage (src, trace_endpos + v_forward*4, self, 100);
 };
+
+void() W_FireLightning =
+{
+	local	float		cells;
+
+
+// explode if under water
+	if (self.waterlevel > 1)
+	{
+		cells = self.ammo_cells;
+		self.ammo_cells = 0;
+		W_SetCurrentAmmo ();
+		T_RadiusDamage (self, self, 35*cells, world);
+		return;
+	}
+
+	//if (self.lcharge > 0)
+	//{
+	//	if (self.t_width < time && self.lcharge > 0)
+	//	{
+	//		sound (self, CHAN_WEAPON, "weapons/lhit.wav", 1, ATTN_NORM);
+	//		self.t_width = time + 0.6;
+	//	}
+	//	//self.punchangle_x = -2;
+	//}
+
+	//if (self.ammo_cells > 0 && self.lcharge < 25)
+	//{
+	//	self.currentammo = self.ammo_cells = self.ammo_cells - 1;
+	//	self.lcharge = self.lcharge + 1;
+	//}
+	Lshoot();
+	self.currentammo = self.ammo_cells = self.ammo_cells - 10;
+	SuperDamageSound();
+	sound (self, CHAN_WEAPON, "weapons/lstart.wav", 1, ATTN_NORM);
+	if (self.ammo_cells < 10)
+	{
+		self.currentammo = self.ammo_cells = 0;
+	}
+
+};
+
 
 //=============================================================================
 
@@ -890,10 +898,10 @@ PLAYER WEAPON USE
 
 void() W_SetCurrentAmmo =
 {
-	if (!(self.weapon == IT_LIGHTNING))
-	{
-		player_run (); // get out of any weapon firing states
-	}		
+	//if (!(self.weapon == IT_LIGHTNING))
+	//{
+	player_run (); // get out of any weapon firing states
+	//}		
 
 	self.items = self.items - ( self.items & (IT_SHELLS | IT_NAILS | IT_ROCKETS | IT_CELLS) );
 	
@@ -989,8 +997,8 @@ float() W_CheckNoAmmo =
 	if (self.weapon == IT_AXE)
 		return TRUE;
 		
-	if (self.weapon == IT_LIGHTNING)
-		return TRUE;
+	//if (self.weapon == IT_LIGHTNING)
+	//	return TRUE;
 	
 	self.weapon = W_BestWeapon ();
 	
@@ -1077,7 +1085,7 @@ void() W_Attack =
 	else if (self.weapon == IT_LIGHTNING)
 	{
 		player_light1();
-		self.attack_finished = time + 0.1;
+		self.attack_finished = time + 2;
 	}
 };
 
@@ -1137,7 +1145,7 @@ void() W_ChangeWeapon =
 	else if (self.impulse == 8)
 	{
 		fl = IT_LIGHTNING;
-		if (self.ammo_cells < 1)
+		if (self.ammo_cells < 10)
 			am = 1;
 	}
 
@@ -1254,7 +1262,7 @@ void() CycleWeaponCommand =
 		else if (self.weapon == IT_ROCKET_LAUNCHER)
 		{
 			self.weapon = IT_LIGHTNING;
-			if (self.ammo_cells < 1)
+			if (self.ammo_cells < 10)
 				am = 1;
 		}
 	
@@ -1570,16 +1578,16 @@ void() W_WeaponFrame =
 	if (self.impulse == 30)
 		ImpulseCommands ();
 		
-	if (self.button0 == FALSE && self.weapon == IT_LIGHTNING && self.lcharge > 0)
-	{
-		Lshoot ();
-		SuperDamageSound();
-		sound (self, CHAN_WEAPON, "weapons/lstart.wav", 1, ATTN_NORM);
-		self.lcharge = 0;
-		self.attack_finished = time + 0.4;
-	}
+	//if (self.button0 == FALSE && self.weapon == IT_LIGHTNING && self.lcharge > 0)
+	//{
+	//	Lshoot ();
+	//	SuperDamageSound();
+	//	sound (self, CHAN_WEAPON, "weapons/lstart.wav", 1, ATTN_NORM);
+	//	self.lcharge = 0;
+	//	self.attack_finished = time + 0.4;
+	//}
 	
-	if (self.button0 == FALSE && deathmatch == 4 && self.weapon == IT_LIGHTNING && self.ammo_cells < 100)
+	if (self.button0 == FALSE && deathmatch == 4 && self.weapon == IT_LIGHTNING && self.ammo_cells < 10)
 	{
 		self.ammo_cells = self.ammo_cells + 1;
 	}
