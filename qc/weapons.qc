@@ -543,6 +543,7 @@ void() W_FireLightning =
 	//	self.lcharge = self.lcharge + 1;
 	//}
 	Lshoot();
+	self.attack_finished = time + 2;
 	self.currentammo = self.ammo_cells = self.ammo_cells - 10;
 	SuperDamageSound();
 	sound (self, CHAN_WEAPON, "weapons/lstart.wav", 1, ATTN_NORM);
