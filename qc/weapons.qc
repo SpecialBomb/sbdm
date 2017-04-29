@@ -1585,7 +1585,7 @@ void() W_WeaponFrame =
 	//	self.attack_finished = time + 0.4;
 	//}
 	
-	if (time == self.attack_finished)
+	if (time == self.attack_finished && self.weapon == IT_LIGHTNING)
 	{
 		sound (self, CHAN_WEAPON, "weapons/lhit.wav", 1, ATTN_NORM);
 	}
