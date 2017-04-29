@@ -1585,6 +1585,11 @@ void() W_WeaponFrame =
 	//	self.attack_finished = time + 0.4;
 	//}
 	
+	if (time == self.attack_finished)
+	{
+		sound (self, CHAN_WEAPON, "weapons/lhit.wav", 1, ATTN_NORM);
+	}
+	
 	if (self.button0 == FALSE && deathmatch == 4 && self.weapon == IT_LIGHTNING && self.ammo_cells < 10)
 	{
 		self.ammo_cells = self.ammo_cells + 1;
