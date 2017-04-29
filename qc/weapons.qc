@@ -1585,14 +1585,15 @@ void() W_WeaponFrame =
 	//	self.attack_finished = time + 0.4;
 	//}
 	
-	if (time == self.attack_finished && self.weapon == IT_LIGHTNING)
+	if (time == self.attack_finished && self.weapon == IT_LIGHTNING && self.ammo_cells > 0)
 	{
 		sound (self, CHAN_WEAPON, "weapons/lhit.wav", 1, ATTN_NORM);
+		stuffcmd(self, "bf\n");
 	}
 	
 	if (self.button0 == FALSE && deathmatch == 4 && self.weapon == IT_LIGHTNING && self.ammo_cells < 10)
 	{
-		self.ammo_cells = self.ammo_cells + 1;
+		self.ammo_cells = 10;
 	}
 	
 	if (time < self.attack_finished)
