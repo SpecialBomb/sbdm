@@ -1305,12 +1305,23 @@ void(entity targ, entity attacker) ClientObituary =
 				attacker.frags = attacker.frags - 1;
 				bprint (targ.netname);
 				
+				//if killed self with recent attacker
+				if (targ.push_time > time)
+				{
+				
+					bprint (" finished himself off for ");
+					bprint (targ.pusher.netname);
+					bprint ("\n");
+					targ.pusher.frags = targ.pusher.frags + 1;
+					return;
+				}
+				
 				if (targ.weapon == 64 && targ.waterlevel > 1)
 				{
 					bprint (" discharges into the water.\n");
 					return;
 				}
-				if (targ.weapon == IT_GRENADE_LAUNCHER)
+				if (targ.deathtype == "progs/v_rock.mdl")
 					bprint (" tries to put the pin back in\n");
 				else
 					bprint (" becomes bored with life\n");

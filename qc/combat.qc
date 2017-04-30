@@ -144,7 +144,7 @@ void(entity targ, entity inflictor, entity attacker, float damage) T_Damage=
 	}
 	
 	// pushtime and push entity gets set here
-	if (targ.flags & FL_CLIENT && attacker.flags & FL_CLIENT)
+	if (targ.flags & FL_CLIENT && attacker.flags & FL_CLIENT && targ != attacker)
 	{
 		targ.pusher = attacker;
 		
