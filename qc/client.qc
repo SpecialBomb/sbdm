@@ -1052,7 +1052,7 @@ void() CheckPowerups =
 		}
 		
 	// use the eyes
-		self.frame = 0;
+		//self.frame = 0;
 		self.modelindex = modelindex_eyes;
 	}
 	else
