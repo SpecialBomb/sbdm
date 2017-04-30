@@ -279,7 +279,7 @@ void() W_FireShotgun =
 
 	sound (self, CHAN_WEAPON, "weapons/guncock.wav", 1, ATTN_NORM);	
 
-	self.punchangle_x = -2;
+	//self.punchangle_x = -2;
 	
 	self.currentammo = self.ammo_shells = self.ammo_shells - 1;
 	dir = aim (self, 100000);
@@ -310,7 +310,7 @@ void() W_FireSuperShotgun =
 		
 	sound (self ,CHAN_WEAPON, "weapons/shotgn2.wav", 1, ATTN_NORM);	
 
-	self.punchangle_x = -4;
+	//self.punchangle_x = -4;
 	
 	self.currentammo = self.ammo_shells = self.ammo_shells - 2;
 	dir = aim (self, 100000);
@@ -409,7 +409,7 @@ void() W_FireRocket =
 	
 	sound (self, CHAN_WEAPON, "weapons/sgun1.wav", 1, ATTN_NORM);
 
-	self.punchangle_x = -2;
+	//self.punchangle_x = -2;
 
 	missile = spawn ();
 	missile.owner = self;
@@ -594,7 +594,7 @@ void() W_FireGrenade =
 	
 	sound (self, CHAN_WEAPON, "weapons/grenade.wav", 1, ATTN_NORM);
 
-	self.punchangle_x = -2;
+	//self.punchangle_x = -2;
 
 	missile = spawn ();
 	missile.owner = self;
@@ -693,7 +693,7 @@ void() W_FireSuperSpikes =
 	{
 	FireBullets(3, dir, '0.01 0.01 0.0', 6);
 	}		
-	self.punchangle_x = -2;
+	//self.punchangle_x = -2;
 };
 
 void(float ox) W_FireSpikes =
@@ -723,7 +723,7 @@ void(float ox) W_FireSpikes =
 	dir = aim (self, 1000);
 	launch_spike (self.origin + '0 0 16' + v_right*ox, dir);
 
-	self.punchangle_x = -2;
+	//self.punchangle_x = -2;
 };
 
 
