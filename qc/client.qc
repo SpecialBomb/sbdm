@@ -417,6 +417,7 @@ void() ClientKill =
 	set_suicide_frame ();
 	self.modelindex = modelindex_player;
 	self.frags = self.frags - 2;	// extra penalty
+	stuffcmd (self, "v_cshift 0 0 0 0");
 	respawn ();
 };
 
@@ -1259,6 +1260,7 @@ void() ClientDisconnect =
 	bprint (" left the game with ");
 	bprint (ftos(self.frags));
 	bprint (" frags\n");
+	stuffcmd (self, "v_cshift 0 0 0 0");
 	sound (self, CHAN_BODY, "player/tornoff2.wav", 1, ATTN_NONE);
 	set_suicide_frame ();
 };
