@@ -17,7 +17,9 @@ It also adds more ways to move, and adds different ways of playing.
 
 +The Super Nailgun no longer shoots nails, but rather acts like the Doom Chaingun.
 
-+The lightning gun now acts very differently. You hold down you attack button to charge it, and you let go to fire. The more ammo and the longer you charge for, it will do more damage. It will use a max of 25 cells.
++The lightning gun is now like a railgun. It does 80 damage per bolt, and uses 10 cells per shot. It takes 1.5 seconds inbetween shots.
+
++All weapons have no recoil when you shoot them.
 
 #Gameplay Changes
 
@@ -37,7 +39,9 @@ It also adds more ways to move, and adds different ways of playing.
 
 +Players won't keep weapons, ammo, health, and armor when changing levels.
 
-+If someone were to hit you, and you fall into water, slime, or lava and die within 3 seconds, a frag will go to the attacker. (Essentially, you push someone into lava, you get a frag).
++If someone were to suicide with a recent attacker, the recent attacker will get the frag.
+
++The invisibility ring doesn't make your weapons invisible.
 
 +Walljumping! (see below)
 
