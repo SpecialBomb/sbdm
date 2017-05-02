@@ -1024,6 +1024,7 @@ void() CheckPowerups =
 		{
 			sound (self, CHAN_AUTO, "items/inv3.wav", 0.5, ATTN_IDLE);
 			self.invisible_sound = time + ((random() * 3) + 1);
+			stuffcmd (self, "v_cshift 256 256 256 64");
 		}
 
 
@@ -1049,6 +1050,7 @@ void() CheckPowerups =
 			self.items = self.items - IT_INVISIBILITY;
 			self.invisible_finished = 0;
 			self.invisible_time = 0;
+			stuffcmd (self, "v_cshift 0 0 0 0");
 		}
 		
 	// use the eyes
