@@ -772,7 +772,7 @@ if (other.takedamage)
 		}
 		spawn_touchblood (tdmg);
 		T_Damage (other, self, self.owner, tdmg);
-		self.owner.nails = self.owner.nails - 1;
+		//self.owner.nails = self.owner.nails - 1;
 		remove(self);
 	}
 };
