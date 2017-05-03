@@ -645,6 +645,13 @@ launch_spike
 Used for both the player and the ogre
 ===============
 */
+
+void() delete_spike =
+{
+	self.owner.nails = self.owner.nails - 1;
+	remove(self);
+}
+
 void(vector org, vector dir) launch_spike =
 {
 	newmis = spawn ();
@@ -655,14 +662,23 @@ void(vector org, vector dir) launch_spike =
 	newmis.weaponmodel = self.weaponmodel;
 	newmis.touch = spike_touch;
 	newmis.classname = "spike";
-	newmis.think = SUB_Remove;
+	newmis.think = delete_spike;
 	if (!deathmatch)
 	{
+		newmis.think = SUB_Remove;
 		newmis.movetype = MOVETYPE_FLYMISSILE;
 		newmis.nextthink = time + 6;
 	}
 	else
 	{
+		if (self.classname == "player")
+		{
+			newmis.think = delete_spike;
+		}
+		else
+		{
+			newmis.think = SUB_Remove;
+		}
 		newmis.movetype = MOVETYPE_TOSS;
 		newmis.nextthink = time + 60;
 	}
@@ -720,6 +736,7 @@ void(float ox) W_FireSpikes =
 	sound (self, CHAN_WEAPON, "weapons/rocket1i.wav", 1, ATTN_NORM);
 	self.attack_finished = time + 0.2;
 	self.currentammo = self.ammo_nails = self.ammo_nails - 1;
+	self.nails = self.nails + 1;
 	dir = aim (self, 1000);
 	launch_spike (self.origin + '0 0 16' + v_right*ox, dir);
 
@@ -742,6 +759,7 @@ if (other.takedamage)
 		{
 			if (thing.classname == "stuck_spike")
 			{
+				self.owner.nails = self.owner.nails - 1;
 				remove(thing);
 				tdmg = tdmg + 9;
 			}
@@ -749,6 +767,7 @@ if (other.takedamage)
 		}
 		spawn_touchblood (tdmg);
 		T_Damage (other, self, self.owner, tdmg);
+		self.owner.nails = self.owner.nails - 1;
 		remove(self);
 	}
 };
@@ -806,10 +825,7 @@ local float rand;
 	if (pointcontents(self.origin) == CONTENT_SKY)
 	{
 		remove(self);
-		return;
-	}
-	if (other.classname == self.classname) {
-		remove(self);
+		self.owner.nails = self.owner.nails - 1;
 		return;
 	}
 	
@@ -819,6 +835,7 @@ local float rand;
 		spawn_touchblood (9);
 		T_Damage (other, self, self.owner, 9);
 		remove(self);
+		self.owner.nails = self.owner.nails - 1;
 	}
 	else
 	{
@@ -978,7 +995,7 @@ float() W_BestWeapon =
 		return IT_SUPER_NAILGUN;
 	if(self.ammo_shells >= 2 && (it & IT_SUPER_SHOTGUN) )
 		return IT_SUPER_SHOTGUN;
-	if(self.ammo_nails >= 1 && (it & IT_NAILGUN) )
+	if(self.ammo_nails >= 1 && (it & IT_NAILGUN) && (self.nails < 30))
 		return IT_NAILGUN;
 	if(self.ammo_shells >= 1 && (it & IT_SHOTGUN) )
 		return IT_SHOTGUN;
@@ -1061,7 +1078,10 @@ void() W_Attack =
 	}
 	else if (self.weapon == IT_NAILGUN)
 	{
-		player_nail1 ();
+		if (self.nails < 30)
+		{
+			player_nail1 ();
+		}
 	}
 	else if (self.weapon == IT_SUPER_NAILGUN)
 	{

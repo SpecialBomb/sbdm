@@ -8,9 +8,9 @@ compiling combat.qc
 compiling items.qc
 compiling weapons.qc
 in function spike_touch (line 637),
-weapons.qc:799: warning: rand duplicate definition ignored
-weapons.qc:760:    rand  is defined here
-weapons.qc:800: warning: Implicit conversion
+weapons.qc:818: warning: rand duplicate definition ignored
+weapons.qc:779:    rand  is defined here
+weapons.qc:819: warning: Implicit conversion
 compiling world.qc
 compiling client.qc
 compiling dropping.qc
@@ -68,11 +68,11 @@ items.qc:1089: warning: best  no references
 weapons.qc:103: warning: mpuff  no references
 weapons.qc:406: warning: mpuff  no references
 weapons.qc:591: warning: mpuff  no references
-weapons.qc:679: warning: old  no references
-weapons.qc:702: warning: old  no references
-weapons.qc:731: warning: hit_z  no references
-weapons.qc:760: warning: rand  no references
-weapons.qc:855: warning: rand  no references
+weapons.qc:695: warning: old  no references
+weapons.qc:718: warning: old  no references
+weapons.qc:748: warning: hit_z  no references
+weapons.qc:779: warning: rand  no references
+weapons.qc:872: warning: rand  no references
 world.qc:342: warning: playernt  no references
 world.qc:343: warning: playercount  no references
 world.qc:455: warning: e  no references
@@ -104,14 +104,14 @@ ogre.qc:92: warning: mpuff  no references
 demon.qc:280: warning: vec  no references
 dog.qc:306: warning: vec  no references
 zombie.qc:164: warning: mpuff  no references
- 90900 strofs (of 1000000)
- 21556 numstatements (of 524288)
-  2102 numfunctions (of 16384)
-  4397 numglobaldefs (of 32768)
-   229 numfielddefs (206 unique) (of 2048)
-  4441 numpr_globals (of 65536)
+ 90940 strofs (of 1000000)
+ 21602 numstatements (of 524288)
+  2103 numfunctions (of 16384)
+  4399 numglobaldefs (of 32768)
+   230 numfielddefs (207 unique) (of 2048)
+  4443 numpr_globals (of 65536)
 Writing ../progs.dat
-393980 TOTAL SIZE
+394456 TOTAL SIZE
 Writing ../progs.lno
 225 unique precache_sounds
  95 unique precache_models
@@ -119,7 +119,7 @@ Writing ../progs.lno
 Compile Complete
 
 optres_shortenifnots 123
-optres_overlaptemps 7801
+optres_overlaptemps 7836
 optres_constantarithmatic 21
 optres_nonvec_parms 4092
 optres_assignments 445
