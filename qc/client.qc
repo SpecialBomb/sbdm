@@ -1267,7 +1267,7 @@ void() ClientDisconnect =
 	set_suicide_frame ();
 	while (1)
 	{
-		nail = find (world, classname, "stuck_spike");
+		nail = find (self, classname, "stuck_spike");
 		if (nail.owner == self)
 		{
 			remove(nail);
