@@ -238,6 +238,19 @@ void(entity targ, entity inflictor, entity attacker, float damage) T_Damage=
 	self = oldself;
 };
 
+
+/*
+count_spike
+This is to allow the count_spike function to be called after spikes are deleted by an explosion.
+*/
+void(entity e) count_spike =
+{
+	if (e.classname == "player")
+	{
+		centerprint (e, ftos(e.nails));
+	}
+};
+
 /*
 ============
 T_RadiusDamage
@@ -280,6 +293,8 @@ void(entity inflictor, entity attacker, float damage, entity ignore) T_RadiusDam
 				if (random() >= 0.5 && CanDamage (head, inflictor))
 				{
 					remove(head);
+					head.owner.nails = head.owner.nails - 1;
+					count_spike(head.owner);
 				}
 			}
 		}

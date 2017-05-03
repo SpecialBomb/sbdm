@@ -8,9 +8,9 @@ compiling combat.qc
 compiling items.qc
 compiling weapons.qc
 in function spike_touch (line 637),
-weapons.qc:837: warning: rand duplicate definition ignored
-weapons.qc:798:    rand  is defined here
-weapons.qc:838: warning: Implicit conversion
+weapons.qc:831: warning: rand duplicate definition ignored
+weapons.qc:792:    rand  is defined here
+weapons.qc:832: warning: Implicit conversion
 compiling world.qc
 compiling client.qc
 compiling dropping.qc
@@ -68,11 +68,11 @@ items.qc:1089: warning: best  no references
 weapons.qc:103: warning: mpuff  no references
 weapons.qc:406: warning: mpuff  no references
 weapons.qc:591: warning: mpuff  no references
-weapons.qc:707: warning: old  no references
-weapons.qc:730: warning: old  no references
-weapons.qc:766: warning: hit_z  no references
-weapons.qc:798: warning: rand  no references
-weapons.qc:893: warning: rand  no references
+weapons.qc:701: warning: old  no references
+weapons.qc:724: warning: old  no references
+weapons.qc:760: warning: hit_z  no references
+weapons.qc:792: warning: rand  no references
+weapons.qc:887: warning: rand  no references
 world.qc:342: warning: playernt  no references
 world.qc:343: warning: playercount  no references
 world.qc:455: warning: e  no references
@@ -105,13 +105,13 @@ demon.qc:280: warning: vec  no references
 dog.qc:306: warning: vec  no references
 zombie.qc:164: warning: mpuff  no references
  90972 strofs (of 1000000)
- 21637 numstatements (of 524288)
+ 21645 numstatements (of 524288)
   2104 numfunctions (of 16384)
   4402 numglobaldefs (of 32768)
    230 numfielddefs (207 unique) (of 2048)
   4446 numpr_globals (of 65536)
 Writing ../progs.dat
-394840 TOTAL SIZE
+394904 TOTAL SIZE
 Writing ../progs.lno
 225 unique precache_sounds
  95 unique precache_models
@@ -119,10 +119,10 @@ Writing ../progs.lno
 Compile Complete
 
 optres_shortenifnots 124
-optres_overlaptemps 7847
+optres_overlaptemps 7853
 optres_constantarithmatic 21
-optres_nonvec_parms 4104
-optres_assignments 450
+optres_nonvec_parms 4105
+optres_assignments 451
 optres_unreferenced 69
 optres_dupconstdefs 101
 numtemps 122
