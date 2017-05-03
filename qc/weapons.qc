@@ -732,6 +732,11 @@ void(float ox) W_FireSpikes =
 		W_SetCurrentAmmo ();
 		return;
 	}
+	
+	if (self.nails < 30)
+	{
+		return;
+	}
 
 	sound (self, CHAN_WEAPON, "weapons/rocket1i.wav", 1, ATTN_NORM);
 	self.attack_finished = time + 0.2;
@@ -1078,10 +1083,7 @@ void() W_Attack =
 	}
 	else if (self.weapon == IT_NAILGUN)
 	{
-		if (self.nails < 30)
-		{
-			player_nail1 ();
-		}
+		player_nail1 ();
 	}
 	else if (self.weapon == IT_SUPER_NAILGUN)
 	{
