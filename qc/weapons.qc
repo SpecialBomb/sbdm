@@ -656,8 +656,11 @@ void(entity e) count_spike =
 
 void() delete_spike =
 {
-	self.owner.nails = self.owner.nails - 1;
-	count_spike(self.owner);
+	if (self.owner.classname == "player")
+	{
+		self.owner.nails = self.owner.nails - 1;
+		count_spike(self.owner);
+	}
 	remove(self);
 };
 
