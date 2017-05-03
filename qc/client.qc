@@ -1265,15 +1265,15 @@ void() ClientDisconnect =
 	stuffcmd (self, "v_cshift 0 0 0 0");
 	sound (self, CHAN_BODY, "player/tornoff2.wav", 1, ATTN_NONE);
 	set_suicide_frame ();
-	nail = self;
-	while (nail)
+	
+	for (nail = world; (nail = find (nail, classname, "stuck_spike")); )
 	{
-		nail = find (self, classname, "stuck_spike");
 		if (nail.owner == self)
 		{
 			remove(nail);
 		}
 	}
+	
 };
 
 /*
