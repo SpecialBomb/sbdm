@@ -648,9 +648,10 @@ Used for both the player and the ogre
 
 void(entity e) count_spike =
 {
-	//centerprint (e, "Spikes: ");
-	centerprint (e, ftos(e.nails));
-	//centerprint (e, "\n");
+	if (e.classname == "player")
+	{
+		centerprint (e, ftos(e.nails));
+	}
 };
 
 void() delete_spike =
