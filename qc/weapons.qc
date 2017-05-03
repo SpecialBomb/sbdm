@@ -646,11 +646,19 @@ Used for both the player and the ogre
 ===============
 */
 
+void(entity e) count_spike =
+{
+	centerprint (e, "Spikes: ");
+	centerprint (e, ftos(e.nails));
+	centerprint (e, "\n");
+};
+
 void() delete_spike =
 {
 	self.owner.nails = self.owner.nails - 1;
+	count_spike(self.owner);
 	remove(self);
-}
+};
 
 void(vector org, vector dir) launch_spike =
 {
@@ -742,6 +750,7 @@ void(float ox) W_FireSpikes =
 	self.attack_finished = time + 0.2;
 	self.currentammo = self.ammo_nails = self.ammo_nails - 1;
 	self.nails = self.nails + 1;
+	count_spike(self);
 	dir = aim (self, 1000);
 	launch_spike (self.origin + '0 0 16' + v_right*ox, dir);
 
@@ -773,6 +782,7 @@ if (other.takedamage)
 		spawn_touchblood (tdmg);
 		T_Damage (other, self, self.owner, tdmg);
 		//self.owner.nails = self.owner.nails - 1;
+		count_spike(self.owner);
 		remove(self);
 	}
 };
@@ -831,6 +841,7 @@ local float rand;
 	{
 		remove(self);
 		self.owner.nails = self.owner.nails - 1;
+		count_spike(self.owner);
 		return;
 	}
 	
@@ -841,6 +852,7 @@ local float rand;
 		T_Damage (other, self, self.owner, 9);
 		remove(self);
 		self.owner.nails = self.owner.nails - 1;
+		count_spike(self.owner);
 	}
 	else
 	{
@@ -1000,7 +1012,7 @@ float() W_BestWeapon =
 		return IT_SUPER_NAILGUN;
 	if(self.ammo_shells >= 2 && (it & IT_SUPER_SHOTGUN) )
 		return IT_SUPER_SHOTGUN;
-	if(self.ammo_nails >= 1 && (it & IT_NAILGUN) && (self.nails < 30))
+	if(self.ammo_nails >= 1 && (it & IT_NAILGUN) && (!(self.nails < 30)))
 		return IT_NAILGUN;
 	if(self.ammo_shells >= 1 && (it & IT_SHOTGUN) )
 		return IT_SHOTGUN;
