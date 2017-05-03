@@ -733,7 +733,7 @@ void(float ox) W_FireSpikes =
 		return;
 	}
 	
-	if (self.nails < 30)
+	if (!(self.nails < 30))
 	{
 		return;
 	}
