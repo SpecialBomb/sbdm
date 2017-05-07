@@ -508,8 +508,15 @@ void() Lshoot =
 	WriteCoord (MSG_BROADCAST, trace_endpos_x);
 	WriteCoord (MSG_BROADCAST, trace_endpos_y);
 	WriteCoord (MSG_BROADCAST, trace_endpos_z);
-
-	LightningDamage (src, trace_endpos + v_forward*4, self, 80);
+	
+	if (deathmatch == 4)
+	{
+		LightningDamage (src, trace_endpos + v_forward*4, self, 1000);
+	}
+	else
+	{
+		LightningDamage (src, trace_endpos + v_forward*4, self, 100);
+	}
 };
 
 void() W_FireLightning =
