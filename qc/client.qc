@@ -1234,6 +1234,7 @@ void() ClientConnect =
 	stuffcmd (self, "alias dm4 \"impulse 18\"\n");
 	stuffcmd (self, "alias dm5 \"impulse 19\"\n");
 	stuffcmd (self, "alias dm6 \"impulse 20\"\n");
+	stuffcmd (self, "alias spikes \"impulse 21\"\n");
 	stuffcmd (self, "alias walljump \"impulse 30\"\n");
 	self.nails = 0;
 // a client connecting during an intermission can cause problems
