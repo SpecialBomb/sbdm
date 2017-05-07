@@ -1558,6 +1558,9 @@ void() ImpulseCommands =
 		bprint (self.netname);
 		bprint (" voted yes\n");
 	}
+	
+	if (self.impulse == 21) //spikes
+		count_spike(self);
 		
 	if (self.impulse == 30)
 		walljump ();
