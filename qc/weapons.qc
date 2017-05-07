@@ -1562,6 +1562,20 @@ void() ImpulseCommands =
 	if (self.impulse == 21) //spikes
 		count_spike(self);
 		
+	local	entity	nail;	
+	if (self.impulse == 22) //dspikes
+	{
+		for (nail = world; (nail = find (nail, classname, "stuck_spike")); )
+		{
+			if (nail.owner == self)
+			{
+				remove(nail);
+				self.nails = self.nails - 1;
+			}
+		}
+		count_spike(self);
+	}
+		
 	if (self.impulse == 30)
 		walljump ();
 		
