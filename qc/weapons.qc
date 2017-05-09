@@ -1033,8 +1033,8 @@ float() W_CheckNoAmmo =
 	if (self.weapon == IT_AXE)
 		return TRUE;
 		
-	//if (self.weapon == IT_LIGHTNING)
-	//	return TRUE;
+	if (deathmatch == 4)
+		return TRUE;
 	
 	self.weapon = W_BestWeapon ();
 	
