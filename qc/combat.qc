@@ -190,13 +190,19 @@ void(entity targ, entity inflictor, entity attacker, float damage) T_Damage=
 // do the damage
 	targ.health = targ.health - take;
           
-          // Cobalt Obit problem fix
-          if ((attacker.flags & FL_CLIENT) && (targ.flags & FL_CLIENT))
+    // Cobalt Obit problem fix
+    if ((attacker.flags & FL_CLIENT) && (targ.flags & FL_CLIENT))
 	{
-	if (inflictor == attacker)
-	targ.deathtype = attacker.weaponmodel;
-	else if (inflictor != world)
-	targ.deathtype = inflictor.owner.weaponmodel;
+		if (inflictor == attacker)
+			targ.deathtype = attacker.weaponmodel;
+		else if (inflictor != world)
+		{
+			targ.deathtype = inflictor.weaponmodel;
+			if ((inflictor.weaponmodel != "progs/v_rock.mdl") || (inflictor.weaponmodel != "progs/v_rock2.mdl"))
+			{
+				targ.deathtype = "progs/v_light.mdl";
+			}
+		}
 	}
           
           
