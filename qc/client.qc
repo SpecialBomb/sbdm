@@ -1413,7 +1413,7 @@ void(entity targ, entity attacker) ClientObituary =
 						deathstring2 = "'s rocket\n" ;
 					}
 				}
-				if (targ.deathtype == "progs/v_light.mdl")
+				if (attacker.weapon == IT_LIGHTNING)
 				{
 					deathstring = " accepts ";
 					if (attacker.waterlevel > 1)

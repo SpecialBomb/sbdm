@@ -196,13 +196,7 @@ void(entity targ, entity inflictor, entity attacker, float damage) T_Damage=
 		if (inflictor == attacker)
 			targ.deathtype = attacker.weaponmodel;
 		else if (inflictor != world)
-		{
 			targ.deathtype = inflictor.weaponmodel;
-			if ((inflictor.weaponmodel != "progs/v_rock.mdl") || (inflictor.weaponmodel != "progs/v_rock2.mdl"))
-			{
-				targ.deathtype = "progs/v_light.mdl";
-			}
-		}
 	}
           
           
