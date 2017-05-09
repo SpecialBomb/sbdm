@@ -1299,7 +1299,7 @@ void() CycleWeaponCommand =
 		else if (self.weapon == IT_ROCKET_LAUNCHER)
 		{
 			self.weapon = IT_LIGHTNING;
-			if (self.ammo_cells < 10)
+			if (self.ammo_cells < 10 && deathmatch != 4)
 				am = 1;
 		}
 	
@@ -1373,7 +1373,7 @@ void() CycleWeaponReverseCommand =
 		else if (self.weapon == IT_AXE)
 		{
 			self.weapon = IT_LIGHTNING;
-			if (self.ammo_cells < 10)
+			if (self.ammo_cells < 10 && deathmatch != 4)
 				am = 1;
 		}
 	
