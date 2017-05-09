@@ -1364,6 +1364,14 @@ void(entity targ, entity attacker) ClientObituary =
 				attacker.frags = attacker.frags + 1;
 
 				rnum = attacker.weapon;
+				if (attacker.weapon == IT_LIGHTNING)
+				{
+					deathstring = " accepts ";
+					if (attacker.waterlevel > 1)
+						deathstring2 = "'s discharge\n";
+					else
+						deathstring2 = "'s shaft\n";
+				}
 				if (targ.deathtype == "progs/v_axe.mdl")
 				{
 					deathstring = " was ax-murdered by ";
@@ -1412,14 +1420,6 @@ void(entity targ, entity attacker) ClientObituary =
 						deathstring = " was gibbed by ";
 						deathstring2 = "'s rocket\n" ;
 					}
-				}
-				if (attacker.weapon == IT_LIGHTNING)
-				{
-					deathstring = " accepts ";
-					if (attacker.waterlevel > 1)
-						deathstring2 = "'s discharge\n";
-					else
-						deathstring2 = "'s shaft\n";
 				}
 				bprint (targ.netname);
 				bprint (deathstring);
