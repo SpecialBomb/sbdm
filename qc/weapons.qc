@@ -551,7 +551,8 @@ void() W_FireLightning =
 	//}
 	Lshoot();
 	self.attack_finished = time + 1.5;
-	self.currentammo = self.ammo_cells = self.ammo_cells - 10;
+	if (deathmatch != 4)
+		self.currentammo = self.ammo_cells = self.ammo_cells - 10;
 	SuperDamageSound();
 	sound (self, CHAN_WEAPON, "weapons/lstart.wav", 1, ATTN_NORM);
 
