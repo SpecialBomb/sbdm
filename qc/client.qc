@@ -1236,6 +1236,9 @@ void() ClientConnect =
 	stuffcmd (self, "alias dm6 \"impulse 20\"\n");
 	stuffcmd (self, "alias spikes \"impulse 21\"\n");
 	stuffcmd (self, "alias dspikes \"impulse 22\"\n");
+	stuffcmd (self, "alias vote_deathmatch \"impulse 23\"\n");
+	stuffcmd (self, "alias vote_instaaxe \"impulse 24\"\n");
+	stuffcmd (self, "alias vote_instagib \"impulse 25\"\n");
 	stuffcmd (self, "alias walljump \"impulse 30\"\n");
 	self.nails = 0;
 // a client connecting during an intermission can cause problems
