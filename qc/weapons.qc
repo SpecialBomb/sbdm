@@ -1498,7 +1498,7 @@ void() ImpulseCommands =
 	if (self.impulse == 15 && vote_time < time) //dm1
 	{
 		vote_time = time + 30;
-		vote_subj = "dm1";
+		vote_subj = "changelevel dm1";
 		vote_yes = vote_yes + 1;
 		self.voted = 1;
 		sprint (self, "Voted yes\n");
@@ -1510,7 +1510,7 @@ void() ImpulseCommands =
 	if (self.impulse == 16 && vote_time < time) //dm2
 	{
 		vote_time = time + 30;
-		vote_subj = "dm2";
+		vote_subj = "changelevel dm2";
 		vote_yes = vote_yes + 1;
 		self.voted = 1;
 		sprint (self, "Voted yes\n");
@@ -1522,7 +1522,7 @@ void() ImpulseCommands =
 	if (self.impulse == 17 && vote_time < time) //dm3
 	{
 		vote_time = time + 30;
-		vote_subj = "dm3";
+		vote_subj = "changelevel dm3";
 		vote_yes = vote_yes + 1;
 		self.voted = 1;
 		sprint (self, "Voted yes\n");
@@ -1534,7 +1534,7 @@ void() ImpulseCommands =
 	if (self.impulse == 18 && vote_time < time) //dm4
 	{
 		vote_time = time + 30;
-		vote_subj = "dm4";
+		vote_subj = "changelevel dm4";
 		vote_yes = vote_yes + 1;
 		self.voted = 1;
 		sprint (self, "Voted yes\n");
@@ -1546,7 +1546,7 @@ void() ImpulseCommands =
 	if (self.impulse == 19 && vote_time < time) //dm5
 	{
 		vote_time = time + 30;
-		vote_subj = "dm5";
+		vote_subj = "changelevel dm5";
 		vote_yes = vote_yes + 1;
 		self.voted = 1;
 		sprint (self, "Voted yes\n");
@@ -1558,11 +1558,47 @@ void() ImpulseCommands =
 	if (self.impulse == 20 && vote_time < time) //dm6
 	{
 		vote_time = time + 30;
-		vote_subj = "dm6";
+		vote_subj = "changelevel dm6";
 		vote_yes = vote_yes + 1;
 		self.voted = 1;
 		sprint (self, "Voted yes\n");
 		bprint ("Vote to change map to dm6 type yes or no in console\n");
+		bprint (self.netname);
+		bprint (" voted yes\n");
+	}
+	
+	if (self.impulse == 23 && vote_time < time) //vote_deathmatch
+	{
+		vote_time = time + 30;
+		vote_subj = "deathmatch 1; restart";
+		vote_yes = vote_yes + 1;
+		self.voted = 1;
+		sprint (self, "Voted yes\n");
+		bprint ("Vote to change gamemode to deathmatch type yes or no in console\n");
+		bprint (self.netname);
+		bprint (" voted yes\n");
+	}
+	
+	if (self.impulse == 24 && vote_time < time) //vote_instaaxe
+	{
+		vote_time = time + 30;
+		vote_subj = "deathmatch 3; restart";
+		vote_yes = vote_yes + 1;
+		self.voted = 1;
+		sprint (self, "Voted yes\n");
+		bprint ("Vote to change gamemode to instagib axes type yes or no in console\n");
+		bprint (self.netname);
+		bprint (" voted yes\n");
+	}
+	
+	if (self.impulse == 25 && vote_time < time) //vote_instagib
+	{
+		vote_time = time + 30;
+		vote_subj = "deathmatch 4; restart";
+		vote_yes = vote_yes + 1;
+		self.voted = 1;
+		sprint (self, "Voted yes\n");
+		bprint ("Vote to change gamemode to instagib type yes or no in console\n");
 		bprint (self.netname);
 		bprint (" voted yes\n");
 	}
