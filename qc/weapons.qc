@@ -515,7 +515,7 @@ void() Lshoot =
 	}
 	else
 	{
-		LightningDamage (src, trace_endpos + v_forward*4, self, 100);
+		LightningDamage (src, trace_endpos + v_forward*4, self, 80);
 	}
 };
 
