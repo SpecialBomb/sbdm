@@ -347,7 +347,31 @@ void() voter =
 	{
 		self.lefty = 1;
 	}
-	if ( vote_time < time && self.lefty == 1)
+	
+	if (vote_time > time && self.lefty == 1)
+	{
+		playercount = 0;
+		for (playernt = world; (playernt = find (playernt, classname, "player")); )
+		{
+			playercount = playercount + 1;
+		}
+		
+		if (playercount == 0)
+		{
+			bprint("There are no more players, ending vote");
+			self.lefty = 0;
+			vote_yes = 0;
+			vote_no = 0;
+			vote_time = time;
+		}
+		
+		if (playercount > 0 && playercount == (vote_yes + vote_no))
+		{
+			vote_time = time;
+		}
+	}
+	
+	if (vote_time < time && self.lefty == 1)
 	{
 		if (vote_yes == vote_no)
 		{
@@ -355,8 +379,6 @@ void() voter =
 			self.lefty = 0;
 			vote_yes = 0;
 			vote_no = 0;
-			
-				
 		}
 		
 		if (vote_yes < vote_no)
@@ -377,15 +399,15 @@ void() voter =
 		
 		}
 	
-	thing = find (world, classname, "player");
-	while (thing)
-	{
-		thing.voted = 0;
-		thing = find (thing, classname, "player");
-	}
+		thing = find (world, classname, "player");
+		while (thing)
+		{
+			thing.voted = 0;
+			thing = find (thing, classname, "player");
+		}
 	
-}
-self.nextthink = time + frametime;
+	}
+	self.nextthink = time + frametime;
 };
 
 void() StartFrame =
