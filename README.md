@@ -21,7 +21,7 @@ It also adds more ways to move, and adds different ways of playing.
 
 +The Super Nailgun no longer shoots nails, but rather acts like the Doom Chaingun (does 18 damage)
 
-+The lightning gun is now like a railgun. It does 100 damage per bolt, and uses 10 cells per shot. It takes 1.5 seconds inbetween shots.
++The lightning gun is now like a railgun. It does 80 damage per bolt, and uses 10 cells per shot. It takes 1.5 seconds inbetween shots.
 
 +All weapons have no recoil when you shoot them.
 
@@ -55,6 +55,8 @@ It also adds more ways to move, and adds different ways of playing.
 
 +Map voting. Maps dm1 to dm6 are voteable, and uses a yes greater than no system (non voters are not counted).
 
++You can vote for gamemodes deathmatch, instagib, and insta axes (see aliases below).
+
 +Drowning doesn't damage armor. (might not be working)
 
 Other things will be added at some point.
@@ -86,3 +88,9 @@ dm4 - Starts a vote to change map to dm4 (impulse 18)
 dm5 - Starts a vote to change map to dm5 (impulse 19)
 
 dm6 - Starts a vote to change map to dm6 (impulse 20)
+
+vote_deathmatch - Starts a vote for changing the mode to deathmatch and restarting the server (impulse 23)
+
+vote_instaaxes - Starts a vote for changing the mode to insta axes and restarting the server (impulse 24)
+
+vote_instagib - Starts a vote for changing the mode to instagib and restarting the server (impulse 25)
