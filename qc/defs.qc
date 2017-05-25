@@ -62,12 +62,7 @@ float		trace_inwater;
 
 entity		msg_entity;				// destination of single entity writes
 
-//vote vars
-float		vote_time;
-string		vote_subj;
-float		vote_yes;
-float		vote_no;
-entity		votemaster;
+
 
 
 //
@@ -416,6 +411,13 @@ entity	damage_attacker;	// set by T_Damage
 float	framecount;
 
 float		skill;
+
+//vote vars
+float		vote_time;
+string		vote_subj;
+float		vote_yes;
+float		vote_no;
+entity		votemaster;
 
 //================================================
 
