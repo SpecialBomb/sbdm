@@ -39,16 +39,16 @@ compiling shalrath.qc
 compiling enforcer.qc
 compiling oldone.qc
 oldone.qc:29: warning: Duplicate macro defined (shake12)
-Warning: progs CRC not recognised from quake nor clones
+Recognised progs as NetQuake server gamecode
 Progs should run on any Quake executor
-defs.qc:409: warning: empty_float  no references
-defs.qc:425: warning: wad  no references
-defs.qc:436: warning: light_lev  no references
-defs.qc:509: warning: dest  no references
-defs.qc:556: warning: waitmax  no references
-defs.qc:557: warning: distance  no references
-defs.qc:558: warning: volume  no references
-defs.qc:711: warning: lattacking  no references
+defs.qc:404: warning: empty_float  no references
+defs.qc:427: warning: wad  no references
+defs.qc:438: warning: light_lev  no references
+defs.qc:511: warning: dest  no references
+defs.qc:558: warning: waitmax  no references
+defs.qc:559: warning: distance  no references
+defs.qc:560: warning: volume  no references
+defs.qc:713: warning: lattacking  no references
 fight.qc:298: warning: chance  no references
 ai.qc:37: warning: current_yaw  no references
 ai.qc:476: warning: mtemp  no references
