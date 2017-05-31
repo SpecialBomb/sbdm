@@ -964,7 +964,27 @@ void() PlayerPreThink =
 	if ((time < self.motd) && (time > self.motdnxt))
 	{
 		centerprint (self, "Welcome to SpecialBomb's Deathmatch Mod!\n\nTo use the walljump, bind the \"walljump\" alias\n\nThe weapons have been changed, so you may need to get used to them\n\nTo vote for a map, type the map name in console. Type yes or no to vote.");
+		if ((self.motd - self.motdnxt) == 6)
+		{
+			// send aliases here
+			sprint (self, "Sending aliases...\n");
+			stuffcmd (self, "alias yes \"impulse 13\"\n");
+			stuffcmd (self, "alias no \"impulse 14\"\n");
+			stuffcmd (self, "alias dm1 \"impulse 15\"\n");
+			stuffcmd (self, "alias dm2 \"impulse 16\"\n");
+			stuffcmd (self, "alias dm3 \"impulse 17\"\n");
+			stuffcmd (self, "alias dm4 \"impulse 18\"\n");
+			stuffcmd (self, "alias dm5 \"impulse 19\"\n");
+			stuffcmd (self, "alias dm6 \"impulse 20\"\n");
+			stuffcmd (self, "alias spikes \"impulse 21\"\n");
+			stuffcmd (self, "alias dspikes \"impulse 22\"\n");
+			stuffcmd (self, "alias vote_deathmatch \"impulse 23\"\n");
+			stuffcmd (self, "alias vote_instaaxe \"impulse 24\"\n");
+			stuffcmd (self, "alias vote_instagib \"impulse 25\"\n");
+			stuffcmd (self, "alias walljump \"impulse 30\"\n");
+		}
 		self.motdnxt = self.motdnxt + 1;
+		
 	}
 
 	if (self.view_ofs == '0 0 0')
@@ -1224,22 +1244,6 @@ void() ClientConnect =
 	self.motdnxt = time;
 	bprint (self.netname);
 	bprint (" entered the game\n");
-// send aliases here
-	sprint (self, "Sending aliases...\n");
-	stuffcmd (self, "alias yes \"impulse 13\"\n");
-	stuffcmd (self, "alias no \"impulse 14\"\n");
-	stuffcmd (self, "alias dm1 \"impulse 15\"\n");
-	stuffcmd (self, "alias dm2 \"impulse 16\"\n");
-	stuffcmd (self, "alias dm3 \"impulse 17\"\n");
-	stuffcmd (self, "alias dm4 \"impulse 18\"\n");
-	stuffcmd (self, "alias dm5 \"impulse 19\"\n");
-	stuffcmd (self, "alias dm6 \"impulse 20\"\n");
-	stuffcmd (self, "alias spikes \"impulse 21\"\n");
-	stuffcmd (self, "alias dspikes \"impulse 22\"\n");
-	stuffcmd (self, "alias vote_deathmatch \"impulse 23\"\n");
-	stuffcmd (self, "alias vote_instaaxe \"impulse 24\"\n");
-	stuffcmd (self, "alias vote_instagib \"impulse 25\"\n");
-	stuffcmd (self, "alias walljump \"impulse 30\"\n");
 	self.nails = 0;
 // a client connecting during an intermission can cause problems
 	if (intermission_running)
