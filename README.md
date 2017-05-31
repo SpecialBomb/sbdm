@@ -1,3 +1,14 @@
+# NOTE
+
+If you are serving sbdm on a server, I strongly reccomend the following settings for the intended experience:
+
+***ABSOLUTLEY RECCOMENDED*** Set ticrate to 72 frames per second, or in inverse notation for some servers, 0.0138888889. I would automatically do this in the mod, but every engine parses the ticrate variable differently
+If the engine you are using supports it, turn on jumping up steps (ex. sv_jumpstep)
+
+These settings are for mainly for movement, and will not affect anything else but the walljump.
+
+The server I reccomend using is darkplaces as these settings are on by default, but other servers will work. Just make sure the settings above are met as closely as possible, and the mod will work as intended.
+
 # sbdm
 
 sbdm, or SpecialBomb's Death Match, is a mod that is aimed at making all of the weapons useful in their own way.
