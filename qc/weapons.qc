@@ -749,6 +749,7 @@ void(float ox) W_FireSpikes =
 	
 	if (!(self.nails < 30))
 	{
+		sound (self, CHAN_WEAPON, "weapons/tink1.wav", 1, ATTN_NORM);
 		return;
 	}
 
