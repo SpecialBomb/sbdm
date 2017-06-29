@@ -144,7 +144,7 @@ void(entity targ, entity inflictor, entity attacker, float damage) T_Damage=
 	}
 	
 	// pushtime and push entity gets set here
-	if (targ.flags & FL_CLIENT && attacker.flags & FL_CLIENT)
+	if (targ.flags & FL_CLIENT && attacker.flags & FL_CLIENT && targ != attacker)
 	{
 		targ.pusher = attacker;
 		
@@ -190,13 +190,13 @@ void(entity targ, entity inflictor, entity attacker, float damage) T_Damage=
 // do the damage
 	targ.health = targ.health - take;
           
-          // Cobalt Obit problem fix
-          if ((attacker.flags & FL_CLIENT) && (targ.flags & FL_CLIENT))
+    // Cobalt Obit problem fix
+    if ((attacker.flags & FL_CLIENT) && (targ.flags & FL_CLIENT))
 	{
-	if (inflictor == attacker)
-	targ.deathtype = attacker.weaponmodel;
-	else if (inflictor != world)
-	targ.deathtype = inflictor.weaponmodel;
+		if (inflictor == attacker)
+			targ.deathtype = attacker.weaponmodel;
+		else if (inflictor != world)
+			targ.deathtype = inflictor.weaponmodel;
 	}
           
           
@@ -236,6 +236,19 @@ void(entity targ, entity inflictor, entity attacker, float damage) T_Damage=
 	}
 
 	self = oldself;
+};
+
+
+/*
+count_spike
+This is to allow the count_spike function to be called after spikes are deleted by an explosion.
+*/
+void(entity e) count_spike =
+{
+	if (e.classname == "player")
+	{
+		centerprint (e, ftos(e.nails));
+	}
 };
 
 /*
@@ -280,6 +293,8 @@ void(entity inflictor, entity attacker, float damage, entity ignore) T_RadiusDam
 				if (random() >= 0.5 && CanDamage (head, inflictor))
 				{
 					remove(head);
+					head.owner.nails = head.owner.nails - 1;
+					count_spike(head.owner);
 				}
 			}
 		}

@@ -62,12 +62,7 @@ float		trace_inwater;
 
 entity		msg_entity;				// destination of single entity writes
 
-//vote vars
-float		vote_time;
-string		vote_subj;
-float		vote_yes;
-float		vote_no;
-entity		votemaster;
+
 
 
 //
@@ -313,7 +308,7 @@ float	IT_SUPERHEALTH			= 65536;
 float	IT_KEY1					= 131072;
 float	IT_KEY2					= 262144;
 
-float	IT_INVISIBILITY			= 524288;
+float	IT_INVISIBILITY			= 8388608;
 float	IT_INVULNERABILITY		= 1048576;
 float	IT_SUIT					= 2097152;
 float	IT_QUAD					= 4194304;
@@ -416,6 +411,13 @@ entity	damage_attacker;	// set by T_Damage
 float	framecount;
 
 float		skill;
+
+//vote vars
+float		vote_time;
+string		vote_subj;
+float		vote_yes;
+float		vote_no;
+entity		votemaster;
 
 //================================================
 
@@ -714,3 +716,5 @@ float(entity targ, entity inflictor) CanDamage;
 .float motdnxt;
 
 .float voted;
+
+.float nails;

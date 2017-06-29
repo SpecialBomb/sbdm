@@ -417,6 +417,7 @@ void() ClientKill =
 	set_suicide_frame ();
 	self.modelindex = modelindex_player;
 	self.frags = self.frags - 2;	// extra penalty
+	stuffcmd (self, "v_cshift 0 0 0 0");
 	respawn ();
 };
 
@@ -963,7 +964,24 @@ void() PlayerPreThink =
 	if ((time < self.motd) && (time > self.motdnxt))
 	{
 		centerprint (self, "Welcome to SpecialBomb's Deathmatch Mod!\n\nTo use the walljump, bind the \"walljump\" alias\n\nThe weapons have been changed, so you may need to get used to them\n\nTo vote for a map, type the map name in console. Type yes or no to vote.");
+		// send aliases here
+		sprint (self, "Sending aliases...\n");
+		stuffcmd (self, "alias yes \"impulse 13\"\n");
+		stuffcmd (self, "alias no \"impulse 14\"\n");
+		stuffcmd (self, "alias dm1 \"impulse 15\"\n");
+		stuffcmd (self, "alias dm2 \"impulse 16\"\n");
+		stuffcmd (self, "alias dm3 \"impulse 17\"\n");
+		stuffcmd (self, "alias dm4 \"impulse 18\"\n");
+		stuffcmd (self, "alias dm5 \"impulse 19\"\n");
+		stuffcmd (self, "alias dm6 \"impulse 20\"\n");
+		stuffcmd (self, "alias spikes \"impulse 21\"\n");
+		stuffcmd (self, "alias dspikes \"impulse 22\"\n");
+		stuffcmd (self, "alias vote_deathmatch \"impulse 23\"\n");
+		stuffcmd (self, "alias vote_instaaxe \"impulse 24\"\n");
+		stuffcmd (self, "alias vote_instagib \"impulse 25\"\n");
+		stuffcmd (self, "alias walljump \"impulse 30\"\n");
 		self.motdnxt = self.motdnxt + 1;
+		
 	}
 
 	if (self.view_ofs == '0 0 0')
@@ -997,7 +1015,7 @@ void() PlayerPreThink =
 	if (time < self.pausetime)
 		self.velocity = '0 0 0';
 
-	if(time > self.attack_finished && self.currentammo == 0 && self.weapon != IT_AXE && self.weapon != IT_LIGHTNING)
+	if(time > self.attack_finished && self.currentammo == 0 && self.weapon != IT_AXE)
 	{
 		self.weapon = W_BestWeapon ();
 		W_SetCurrentAmmo ();
@@ -1024,6 +1042,7 @@ void() CheckPowerups =
 		{
 			sound (self, CHAN_AUTO, "items/inv3.wav", 0.5, ATTN_IDLE);
 			self.invisible_sound = time + ((random() * 3) + 1);
+			stuffcmd (self, "v_cshift 256 256 256 64");
 		}
 
 
@@ -1049,6 +1068,7 @@ void() CheckPowerups =
 			self.items = self.items - IT_INVISIBILITY;
 			self.invisible_finished = 0;
 			self.invisible_time = 0;
+			stuffcmd (self, "v_cshift 0 0 0 0");
 		}
 		
 	// use the eyes
@@ -1221,17 +1241,7 @@ void() ClientConnect =
 	self.motdnxt = time;
 	bprint (self.netname);
 	bprint (" entered the game\n");
-// send aliases here
-	sprint (self, "Sending aliases...\n");
-	stuffcmd (self, "alias yes \"impulse 13\"\n");
-	stuffcmd (self, "alias no \"impulse 14\"\n");
-	stuffcmd (self, "alias dm1 \"impulse 15\"\n");
-	stuffcmd (self, "alias dm2 \"impulse 16\"\n");
-	stuffcmd (self, "alias dm3 \"impulse 17\"\n");
-	stuffcmd (self, "alias dm4 \"impulse 18\"\n");
-	stuffcmd (self, "alias dm5 \"impulse 19\"\n");
-	stuffcmd (self, "alias dm6 \"impulse 20\"\n");
-	stuffcmd (self, "alias walljump \"impulse 30\"\n");
+	self.nails = 0;
 // a client connecting during an intermission can cause problems
 	if (intermission_running)
 		ExitIntermission ();
@@ -1247,6 +1257,7 @@ called when a player disconnects from a server
 */
 void() ClientDisconnect =
 {
+	local entity nail;
 	if (gameover)
 		return;
 	// if the level end trigger has been activated, just return
@@ -1257,8 +1268,18 @@ void() ClientDisconnect =
 	bprint (" left the game with ");
 	bprint (ftos(self.frags));
 	bprint (" frags\n");
+	stuffcmd (self, "v_cshift 0 0 0 0");
 	sound (self, CHAN_BODY, "player/tornoff2.wav", 1, ATTN_NONE);
 	set_suicide_frame ();
+	
+	for (nail = world; (nail = find (nail, classname, "stuck_spike")); )
+	{
+		if (nail.owner == self)
+		{
+			remove(nail);
+		}
+	}
+	
 };
 
 /*
@@ -1305,12 +1326,23 @@ void(entity targ, entity attacker) ClientObituary =
 				attacker.frags = attacker.frags - 1;
 				bprint (targ.netname);
 				
+				//if killed self with recent attacker
+				if (targ.push_time > time)
+				{
+				
+					bprint (" finished himself off for ");
+					bprint (targ.pusher.netname);
+					bprint ("\n");
+					targ.pusher.frags = targ.pusher.frags + 1;
+					return;
+				}
+				
 				if (targ.weapon == 64 && targ.waterlevel > 1)
 				{
 					bprint (" discharges into the water.\n");
 					return;
 				}
-				if (targ.weapon == IT_GRENADE_LAUNCHER)
+				if (targ.deathtype == "progs/v_rock.mdl")
 					bprint (" tries to put the pin back in\n");
 				else
 					bprint (" becomes bored with life\n");
@@ -1336,6 +1368,14 @@ void(entity targ, entity attacker) ClientObituary =
 				attacker.frags = attacker.frags + 1;
 
 				rnum = attacker.weapon;
+				if (attacker.weapon == IT_LIGHTNING)
+				{
+					deathstring = " accepts ";
+					if (attacker.waterlevel > 1)
+						deathstring2 = "'s discharge\n";
+					else
+						deathstring2 = "'s shaft\n";
+				}
 				if (targ.deathtype == "progs/v_axe.mdl")
 				{
 					deathstring = " was ax-murdered by ";
@@ -1384,14 +1424,6 @@ void(entity targ, entity attacker) ClientObituary =
 						deathstring = " was gibbed by ";
 						deathstring2 = "'s rocket\n" ;
 					}
-				}
-				if (targ.deathtype == "progs/v_light.mdl")
-				{
-					deathstring = " accepts ";
-					if (attacker.waterlevel > 1)
-						deathstring2 = "'s discharge\n";
-					else
-						deathstring2 = "'s shaft\n";
 				}
 				bprint (targ.netname);
 				bprint (deathstring);

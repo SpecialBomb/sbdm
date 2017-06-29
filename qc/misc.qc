@@ -308,6 +308,66 @@ float SPAWNFLAG_LASER = 2;
 
 void(vector org, vector vec) LaunchLaser;
 
+void() spike_traptouch =
+{
+local float rand;
+	if (other == self.owner)
+		return;
+
+	if (other.solid == SOLID_TRIGGER)
+		return;	// trigger field, do nothing
+
+	if (pointcontents(self.origin) == CONTENT_SKY)
+	{
+		remove(self);
+		return;
+	}
+	
+// hit something that bleeds
+	if (other.takedamage)
+	{
+		spawn_touchblood (9);
+		T_Damage (other, self, self.owner, 9);
+	}
+	else
+	{
+		WriteByte (MSG_BROADCAST, SVC_TEMPENTITY);
+		
+		if (self.classname == "wizspike")
+			WriteByte (MSG_BROADCAST, TE_WIZSPIKE);
+		else if (self.classname == "knightspike")
+			WriteByte (MSG_BROADCAST, TE_KNIGHTSPIKE);
+		else
+			WriteByte (MSG_BROADCAST, TE_SPIKE);
+		WriteCoord (MSG_BROADCAST, self.origin_x);
+		WriteCoord (MSG_BROADCAST, self.origin_y);
+		WriteCoord (MSG_BROADCAST, self.origin_z);
+	}
+
+	remove(self);
+
+};
+
+void(vector org, vector dir) launch_trapspike =
+{
+	newmis = spawn ();
+	newmis.owner = self;
+	newmis.movetype = MOVETYPE_FLYMISSILE;
+	newmis.solid = SOLID_BBOX;
+
+	newmis.angles = vectoangles(dir);
+	
+	newmis.touch = spike_traptouch;
+	newmis.classname = "spike";
+	newmis.think = SUB_Remove;
+	newmis.nextthink = time + 6;
+	setmodel (newmis, "progs/spike.mdl");
+	setsize (newmis, VEC_ORIGIN, VEC_ORIGIN);		
+	setorigin (newmis, org);
+
+	newmis.velocity = dir * 1000;
+};
+
 void() spikeshooter_use =
 {
 	if (self.spawnflags & SPAWNFLAG_LASER)
@@ -318,7 +378,7 @@ void() spikeshooter_use =
 	else
 	{
 		sound (self, CHAN_VOICE, "weapons/spike2.wav", 1, ATTN_NORM);
-		launch_spike (self.origin, self.movedir);
+		launch_trapspike (self.origin, self.movedir);
 		newmis.velocity = self.movedir * 500;
 		if (self.spawnflags & SPAWNFLAG_SUPERSPIKE)
 			newmis.touch = superspike_touch;

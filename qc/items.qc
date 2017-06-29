@@ -463,7 +463,7 @@ void() weapon_touch =
 			return;
 		hadammo = other.ammo_rockets;			
 		new = IT_LIGHTNING;
-		other.ammo_cells = other.ammo_cells + 15;
+		other.ammo_cells = other.ammo_cells + 20;
 	}
 	else
 		objerror ("weapon_touch: unknown classname");
@@ -780,13 +780,13 @@ void() item_cells =
 	{
 		precache_model ("maps/b_batt1.bsp");
 		setmodel (self, "maps/b_batt1.bsp");
-		self.aflag = 24;
+		self.aflag = 20;
 	}
 	else
 	{
 		precache_model ("maps/b_batt0.bsp");
 		setmodel (self, "maps/b_batt0.bsp");
-		self.aflag = 12;
+		self.aflag = 10;
 	}
 	self.weapon = 4;
 	self.netname = "cells";

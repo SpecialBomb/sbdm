@@ -201,11 +201,11 @@ void() player_nail2   =[$nailatt2, player_nail1  ]
 
 void() player_light1   =[$light1, player_light2  ] 
 {
-	if (self.lcharge > 0)
-	{
-		self.effects = self.effects | EF_MUZZLEFLASH;
-		self.weaponframe = self.weaponframe + 1;
-	}
+	//if (self.lcharge > 0)
+	//{
+	//	self.effects = self.effects | EF_MUZZLEFLASH;
+	//	self.weaponframe = self.weaponframe + 1;
+	//}
 	if (!self.button0)
 		{player_run ();return;}
 	
@@ -213,15 +213,15 @@ void() player_light1   =[$light1, player_light2  ]
 		self.weaponframe = 1;
 	
 	W_FireLightning();
-	self.attack_finished = time + 0.2;
+	self.attack_finished = time + 1;
 };
 void() player_light2   =[$light2, player_light1  ]
 {
-	if (self.lcharge > 0)
-	{
-		self.effects = self.effects | EF_MUZZLEFLASH;
-		self.weaponframe = self.weaponframe + 1;
-	}
+	//if (self.lcharge > 0)
+	//{
+	//	self.effects = self.effects | EF_MUZZLEFLASH;
+	//	self.weaponframe = self.weaponframe + 1;
+	//}
 	if (!self.button0)
 		{player_run ();return;}
 	
@@ -229,7 +229,7 @@ void() player_light2   =[$light2, player_light1  ]
 		self.weaponframe = 1;
 	
 	W_FireLightning();
-	self.attack_finished = time + 0.2;
+	self.attack_finished = time + 1;
 };
 
 //============================================================================
@@ -549,8 +549,9 @@ void() PlayerDie =
 	self.radsuit_finished = 0;
 	self.effects = 0;	// 1998-07-23 Glowing corpse of players which had quad/pentagram until respawn fix by Maddes
 	self.modelindex = modelindex_player;	// don't use eyes
+	stuffcmd (self, "v_cshift 0 0 0 0");//clear ring effect
 
-	if (deathmatch || coop)
+	if ((deathmatch || coop) && deathmatch != 3 && deathmatch != 4)
 		DropBackpack();
 	
 	self.weaponmodel="";

@@ -346,8 +346,37 @@ void() voter =
 	if (vote_time > time && self.lefty == 0)
 	{
 		self.lefty = 1;
+		
+		for (playernt = world; (playernt = find (playernt, classname, "player")); )
+		{
+			stuffcmd (playernt, "bf 0 0 255\n");
+		}
 	}
-	if ( vote_time < time && self.lefty == 1)
+	
+	if (vote_time > time && self.lefty == 1)
+	{
+		playercount = 0;
+		for (playernt = world; (playernt = find (playernt, classname, "player")); )
+		{
+			playercount = playercount + 1;
+		}
+		
+		if (playercount == 0)
+		{
+			bprint("There are no more players, ending vote");
+			self.lefty = 0;
+			vote_yes = 0;
+			vote_no = 0;
+			vote_time = time;
+		}
+		
+		if (playercount > 0 && playercount == (vote_yes + vote_no))
+		{
+			vote_time = time;
+		}
+	}
+	
+	if (vote_time < time && self.lefty == 1)
 	{
 		if (vote_yes == vote_no)
 		{
@@ -355,8 +384,6 @@ void() voter =
 			self.lefty = 0;
 			vote_yes = 0;
 			vote_no = 0;
-			
-				
 		}
 		
 		if (vote_yes < vote_no)
@@ -373,52 +400,19 @@ void() voter =
 			vote_yes = 0;
 			vote_no = 0;
 			
-			if (vote_subj == "dm1")
-			{
-				bprint ("Changing level to dm1...\n");
-				changelevel ("dm1");
-			}
-			else if (vote_subj == "dm2")
-			{
-				bprint ("Changing level to dm2...\n");
-				changelevel ("dm2");
-			}
-			else if (vote_subj == "dm3")
-			{
-				bprint ("Changing level to dm3...\n");
-				changelevel ("dm3");
-			}
-			else if (vote_subj == "dm4")
-			{
-				bprint ("Changing level to dm4...\n");
-				changelevel ("dm4");
-			}
-			else if (vote_subj == "dm5")
-			{
-				bprint ("Changing level to dm5...\n");
-				changelevel ("dm5");
-			}
-			else if (vote_subj == "dm6")
-			{
-				bprint ("Changing level to dm6...\n");
-				changelevel ("dm6");
-			}
-			else
-			{
-				bprint ("Vote subject doesn't exist!\n");
-			}
-			
+			localcmd(vote_subj);
 		
 		}
-	thing = find (world, classname, "player");
-	while (thing)
-	{
-		thing.voted = 0;
-		thing = find (thing, classname, "player");
-	}
 	
-}
-self.nextthink = time + frametime;
+		thing = find (world, classname, "player");
+		while (thing)
+		{
+			thing.voted = 0;
+			thing = find (thing, classname, "player");
+		}
+	
+	}
+	self.nextthink = time + frametime;
 };
 
 void() StartFrame =

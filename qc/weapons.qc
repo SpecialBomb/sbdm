@@ -279,7 +279,7 @@ void() W_FireShotgun =
 
 	sound (self, CHAN_WEAPON, "weapons/guncock.wav", 1, ATTN_NORM);	
 
-	self.punchangle_x = -2;
+	//self.punchangle_x = -2;
 	
 	self.currentammo = self.ammo_shells = self.ammo_shells - 1;
 	dir = aim (self, 100000);
@@ -310,7 +310,7 @@ void() W_FireSuperShotgun =
 		
 	sound (self ,CHAN_WEAPON, "weapons/shotgn2.wav", 1, ATTN_NORM);	
 
-	self.punchangle_x = -4;
+	//self.punchangle_x = -4;
 	
 	self.currentammo = self.ammo_shells = self.ammo_shells - 2;
 	dir = aim (self, 100000);
@@ -326,7 +326,7 @@ void() W_FireSuperShotgun =
 	else {
 		self.velocity = (-dir*150)+self.velocity;
 	}
-	FireBullets (15, dir, '0.16 0.16 0', 10);
+	FireBullets (15, dir, '0.16 0.16 0', (20/3));
 	}
 };
 
@@ -409,7 +409,7 @@ void() W_FireRocket =
 	
 	sound (self, CHAN_WEAPON, "weapons/sgun1.wav", 1, ATTN_NORM);
 
-	self.punchangle_x = -2;
+	//self.punchangle_x = -2;
 
 	missile = spawn ();
 	missile.owner = self;
@@ -491,6 +491,33 @@ void(vector p1, vector p2, entity from, float damage) LightningDamage =
 	}
 };
 
+void() Lshoot =
+{
+	local	vector		src;
+	//org = self.origin + '0 0 16';
+	src = self.origin+self.view_ofs;
+	
+	traceline (src, src + v_forward*2000, TRUE, self);
+
+	WriteByte (MSG_BROADCAST, SVC_TEMPENTITY);
+	WriteByte (MSG_BROADCAST, TE_LIGHTNING2);
+	WriteEntity (MSG_BROADCAST, self);
+	WriteCoord (MSG_BROADCAST, src_x);
+	WriteCoord (MSG_BROADCAST, src_y);
+	WriteCoord (MSG_BROADCAST, src_z);
+	WriteCoord (MSG_BROADCAST, trace_endpos_x);
+	WriteCoord (MSG_BROADCAST, trace_endpos_y);
+	WriteCoord (MSG_BROADCAST, trace_endpos_z);
+	
+	if (deathmatch == 4)
+	{
+		LightningDamage (src, trace_endpos + v_forward*4, self, 1000);
+	}
+	else
+	{
+		LightningDamage (src, trace_endpos + v_forward*4, self, 80);
+	}
+};
 
 void() W_FireLightning =
 {
@@ -507,43 +534,30 @@ void() W_FireLightning =
 		return;
 	}
 
-	if (self.lcharge > 0)
-	{
-		if (self.t_width < time && self.lcharge > 0)
-		{
-			sound (self, CHAN_WEAPON, "weapons/lhit.wav", 1, ATTN_NORM);
-			self.t_width = time + 0.6;
-		}
-		self.punchangle_x = -2;
-	}
+	//if (self.lcharge > 0)
+	//{
+	//	if (self.t_width < time && self.lcharge > 0)
+	//	{
+	//		sound (self, CHAN_WEAPON, "weapons/lhit.wav", 1, ATTN_NORM);
+	//		self.t_width = time + 0.6;
+	//	}
+	//	//self.punchangle_x = -2;
+	//}
 
-	if (self.ammo_cells > 0 && self.lcharge < 25)
-	{
-		self.currentammo = self.ammo_cells = self.ammo_cells - 1;
-		self.lcharge = self.lcharge + 1;
-	}
+	//if (self.ammo_cells > 0 && self.lcharge < 25)
+	//{
+	//	self.currentammo = self.ammo_cells = self.ammo_cells - 1;
+	//	self.lcharge = self.lcharge + 1;
+	//}
+	Lshoot();
+	self.attack_finished = time + 1.5;
+	if (deathmatch != 4)
+		self.currentammo = self.ammo_cells = self.ammo_cells - 10;
+	SuperDamageSound();
+	sound (self, CHAN_WEAPON, "weapons/lstart.wav", 1, ATTN_NORM);
 
 };
 
-void() Lshoot =
-{
-	local	vector		org;
-	org = self.origin + '0 0 16';
-	
-	traceline (org, org + v_forward*2000, TRUE, self);
-
-	WriteByte (MSG_BROADCAST, SVC_TEMPENTITY);
-	WriteByte (MSG_BROADCAST, TE_LIGHTNING2);
-	WriteEntity (MSG_BROADCAST, self);
-	WriteCoord (MSG_BROADCAST, org_x);
-	WriteCoord (MSG_BROADCAST, org_y);
-	WriteCoord (MSG_BROADCAST, org_z);
-	WriteCoord (MSG_BROADCAST, trace_endpos_x);
-	WriteCoord (MSG_BROADCAST, trace_endpos_y);
-	WriteCoord (MSG_BROADCAST, trace_endpos_z);
-
-	LightningDamage (self.origin, trace_endpos + v_forward*4, self, self.lcharge * (20/3));
-};
 
 //=============================================================================
 
@@ -588,7 +602,7 @@ void() W_FireGrenade =
 	
 	sound (self, CHAN_WEAPON, "weapons/grenade.wav", 1, ATTN_NORM);
 
-	self.punchangle_x = -2;
+	//self.punchangle_x = -2;
 
 	missile = spawn ();
 	missile.owner = self;
@@ -639,6 +653,19 @@ launch_spike
 Used for both the player and the ogre
 ===============
 */
+
+
+
+void() delete_spike =
+{
+	if (self.owner.classname == "player")
+	{
+		self.owner.nails = self.owner.nails - 1;
+		count_spike(self.owner);
+	}
+	remove(self);
+};
+
 void(vector org, vector dir) launch_spike =
 {
 	newmis = spawn ();
@@ -649,14 +676,23 @@ void(vector org, vector dir) launch_spike =
 	newmis.weaponmodel = self.weaponmodel;
 	newmis.touch = spike_touch;
 	newmis.classname = "spike";
-	newmis.think = SUB_Remove;
+	newmis.think = delete_spike;
 	if (!deathmatch)
 	{
+		newmis.think = SUB_Remove;
 		newmis.movetype = MOVETYPE_FLYMISSILE;
 		newmis.nextthink = time + 6;
 	}
 	else
 	{
+		if (self.classname == "player")
+		{
+			newmis.think = delete_spike;
+		}
+		else
+		{
+			newmis.think = SUB_Remove;
+		}
 		newmis.movetype = MOVETYPE_TOSS;
 		newmis.nextthink = time + 60;
 	}
@@ -687,7 +723,7 @@ void() W_FireSuperSpikes =
 	{
 	FireBullets(3, dir, '0.01 0.01 0.0', 6);
 	}		
-	self.punchangle_x = -2;
+	//self.punchangle_x = -2;
 };
 
 void(float ox) W_FireSpikes =
@@ -710,14 +746,22 @@ void(float ox) W_FireSpikes =
 		W_SetCurrentAmmo ();
 		return;
 	}
+	
+	if (!(self.nails < 30))
+	{
+		sound (self, CHAN_WEAPON, "weapons/tink1.wav", 1, ATTN_NORM);
+		return;
+	}
 
 	sound (self, CHAN_WEAPON, "weapons/rocket1i.wav", 1, ATTN_NORM);
 	self.attack_finished = time + 0.2;
 	self.currentammo = self.ammo_nails = self.ammo_nails - 1;
+	self.nails = self.nails + 1;
+	count_spike(self);
 	dir = aim (self, 1000);
 	launch_spike (self.origin + '0 0 16' + v_right*ox, dir);
 
-	self.punchangle_x = -2;
+	//self.punchangle_x = -2;
 };
 
 
@@ -728,8 +772,24 @@ void() spike_hurt =
 {
 if (other.takedamage)
 	{
-		spawn_touchblood (9);
-		T_Damage (other, self, self.owner, 9);
+		local entity thing;
+		local float tdmg;
+		tdmg = 9;
+		thing = findradius(self.origin, 1);
+		while(thing)
+		{
+			if (thing.classname == "stuck_spike")
+			{
+				self.owner.nails = self.owner.nails - 1;
+				remove(thing);
+				tdmg = tdmg + 9;
+			}
+			thing = thing.chain;
+		}
+		spawn_touchblood (tdmg);
+		T_Damage (other, self, self.owner, tdmg);
+		//self.owner.nails = self.owner.nails - 1;
+		count_spike(self.owner);
 		remove(self);
 	}
 };
@@ -787,10 +847,8 @@ local float rand;
 	if (pointcontents(self.origin) == CONTENT_SKY)
 	{
 		remove(self);
-		return;
-	}
-	if (other.classname == self.classname) {
-		remove(self);
+		self.owner.nails = self.owner.nails - 1;
+		count_spike(self.owner);
 		return;
 	}
 	
@@ -800,6 +858,8 @@ local float rand;
 		spawn_touchblood (9);
 		T_Damage (other, self, self.owner, 9);
 		remove(self);
+		self.owner.nails = self.owner.nails - 1;
+		count_spike(self.owner);
 	}
 	else
 	{
@@ -876,10 +936,10 @@ PLAYER WEAPON USE
 
 void() W_SetCurrentAmmo =
 {
-	if (!(self.weapon == IT_LIGHTNING))
-	{
-		player_run (); // get out of any weapon firing states
-	}		
+	//if (!(self.weapon == IT_LIGHTNING))
+	//{
+	player_run (); // get out of any weapon firing states
+	//}		
 
 	self.items = self.items - ( self.items & (IT_SHELLS | IT_NAILS | IT_ROCKETS | IT_CELLS) );
 	
@@ -959,7 +1019,7 @@ float() W_BestWeapon =
 		return IT_SUPER_NAILGUN;
 	if(self.ammo_shells >= 2 && (it & IT_SUPER_SHOTGUN) )
 		return IT_SUPER_SHOTGUN;
-	if(self.ammo_nails >= 1 && (it & IT_NAILGUN) )
+	if(self.ammo_nails >= 1 && (it & IT_NAILGUN) && (self.nails < 30))
 		return IT_NAILGUN;
 	if(self.ammo_shells >= 1 && (it & IT_SHOTGUN) )
 		return IT_SHOTGUN;
@@ -975,7 +1035,7 @@ float() W_CheckNoAmmo =
 	if (self.weapon == IT_AXE)
 		return TRUE;
 		
-	if (self.weapon == IT_LIGHTNING)
+	if (deathmatch == 4)
 		return TRUE;
 	
 	self.weapon = W_BestWeapon ();
@@ -1062,8 +1122,9 @@ void() W_Attack =
 	}
 	else if (self.weapon == IT_LIGHTNING)
 	{
-		player_light1();
-		self.attack_finished = time + 0.1;
+		player_rocket1();
+		W_FireLightning();
+		self.attack_finished = time + 1.5;
 	}
 };
 
@@ -1099,7 +1160,7 @@ void() W_ChangeWeapon =
 	else if (self.impulse == 4)
 	{
 		fl = IT_NAILGUN;
-		if (self.ammo_nails < 1)
+		if (self.ammo_nails < 1 || self.nails > 29)
 			am = 1;
 	}
 	else if (self.impulse == 5)
@@ -1123,7 +1184,7 @@ void() W_ChangeWeapon =
 	else if (self.impulse == 8)
 	{
 		fl = IT_LIGHTNING;
-		if (self.ammo_cells < 1)
+		if (self.ammo_cells < 10)
 			am = 1;
 	}
 
@@ -1216,7 +1277,7 @@ void() CycleWeaponCommand =
 		else if (self.weapon == IT_SUPER_SHOTGUN)
 		{
 			self.weapon = IT_NAILGUN;
-			if (self.ammo_nails < 1)
+			if (self.ammo_nails < 1 || self.nails > 29)
 				am = 1;
 		}
 		else if (self.weapon == IT_NAILGUN)
@@ -1240,7 +1301,7 @@ void() CycleWeaponCommand =
 		else if (self.weapon == IT_ROCKET_LAUNCHER)
 		{
 			self.weapon = IT_LIGHTNING;
-			if (self.ammo_cells < 1)
+			if (self.ammo_cells < 10 && deathmatch != 4)
 				am = 1;
 		}
 	
@@ -1292,7 +1353,7 @@ void() CycleWeaponReverseCommand =
 		else if (self.weapon == IT_SUPER_NAILGUN)
 		{
 			self.weapon = IT_NAILGUN;
-			if (self.ammo_nails < 1)
+			if (self.ammo_nails < 1 || self.nails > 29)
 				am = 1;
 		}
 		else if (self.weapon == IT_NAILGUN)
@@ -1314,7 +1375,7 @@ void() CycleWeaponReverseCommand =
 		else if (self.weapon == IT_AXE)
 		{
 			self.weapon = IT_LIGHTNING;
-			if (self.ammo_cells < 1)
+			if (self.ammo_cells < 10 && deathmatch != 4)
 				am = 1;
 		}
 	
@@ -1438,7 +1499,7 @@ void() ImpulseCommands =
 	if (self.impulse == 15 && vote_time < time) //dm1
 	{
 		vote_time = time + 30;
-		vote_subj = "dm1";
+		vote_subj = "changelevel dm1";
 		vote_yes = vote_yes + 1;
 		self.voted = 1;
 		sprint (self, "Voted yes\n");
@@ -1450,7 +1511,7 @@ void() ImpulseCommands =
 	if (self.impulse == 16 && vote_time < time) //dm2
 	{
 		vote_time = time + 30;
-		vote_subj = "dm2";
+		vote_subj = "changelevel dm2";
 		vote_yes = vote_yes + 1;
 		self.voted = 1;
 		sprint (self, "Voted yes\n");
@@ -1462,7 +1523,7 @@ void() ImpulseCommands =
 	if (self.impulse == 17 && vote_time < time) //dm3
 	{
 		vote_time = time + 30;
-		vote_subj = "dm3";
+		vote_subj = "changelevel dm3";
 		vote_yes = vote_yes + 1;
 		self.voted = 1;
 		sprint (self, "Voted yes\n");
@@ -1474,7 +1535,7 @@ void() ImpulseCommands =
 	if (self.impulse == 18 && vote_time < time) //dm4
 	{
 		vote_time = time + 30;
-		vote_subj = "dm4";
+		vote_subj = "changelevel dm4";
 		vote_yes = vote_yes + 1;
 		self.voted = 1;
 		sprint (self, "Voted yes\n");
@@ -1486,7 +1547,7 @@ void() ImpulseCommands =
 	if (self.impulse == 19 && vote_time < time) //dm5
 	{
 		vote_time = time + 30;
-		vote_subj = "dm5";
+		vote_subj = "changelevel dm5";
 		vote_yes = vote_yes + 1;
 		self.voted = 1;
 		sprint (self, "Voted yes\n");
@@ -1498,13 +1559,66 @@ void() ImpulseCommands =
 	if (self.impulse == 20 && vote_time < time) //dm6
 	{
 		vote_time = time + 30;
-		vote_subj = "dm6";
+		vote_subj = "changelevel dm6";
 		vote_yes = vote_yes + 1;
 		self.voted = 1;
 		sprint (self, "Voted yes\n");
 		bprint ("Vote to change map to dm6 type yes or no in console\n");
 		bprint (self.netname);
 		bprint (" voted yes\n");
+	}
+	
+	if (self.impulse == 23 && vote_time < time) //vote_deathmatch
+	{
+		vote_time = time + 30;
+		vote_subj = "deathmatch 1; restart";
+		vote_yes = vote_yes + 1;
+		self.voted = 1;
+		sprint (self, "Voted yes\n");
+		bprint ("Vote to change gamemode to deathmatch type yes or no in console\n");
+		bprint (self.netname);
+		bprint (" voted yes\n");
+	}
+	
+	if (self.impulse == 24 && vote_time < time) //vote_instaaxe
+	{
+		vote_time = time + 30;
+		vote_subj = "deathmatch 3; restart";
+		vote_yes = vote_yes + 1;
+		self.voted = 1;
+		sprint (self, "Voted yes\n");
+		bprint ("Vote to change gamemode to instagib axes type yes or no in console\n");
+		bprint (self.netname);
+		bprint (" voted yes\n");
+	}
+	
+	if (self.impulse == 25 && vote_time < time) //vote_instagib
+	{
+		vote_time = time + 30;
+		vote_subj = "deathmatch 4; restart";
+		vote_yes = vote_yes + 1;
+		self.voted = 1;
+		sprint (self, "Voted yes\n");
+		bprint ("Vote to change gamemode to instagib type yes or no in console\n");
+		bprint (self.netname);
+		bprint (" voted yes\n");
+	}
+	
+	if (self.impulse == 21) //spikes
+		count_spike(self);
+		
+	local	entity	nail;	
+	if (self.impulse == 22) //dspikes
+	{
+		for (nail = world; (nail = find (nail, classname, "stuck_spike")); )
+		{
+			if (nail.owner == self)
+			{
+				remove(nail);
+				self.nails = self.nails - 1;
+			}
+		}
+		count_spike(self);
 	}
 		
 	if (self.impulse == 30)
@@ -1556,18 +1670,24 @@ void() W_WeaponFrame =
 	if (self.impulse == 30)
 		ImpulseCommands ();
 		
-	if (self.button0 == FALSE && self.weapon == IT_LIGHTNING && self.lcharge > 0)
+	//if (self.button0 == FALSE && self.weapon == IT_LIGHTNING && self.lcharge > 0)
+	//{
+	//	Lshoot ();
+	//	SuperDamageSound();
+	//	sound (self, CHAN_WEAPON, "weapons/lstart.wav", 1, ATTN_NORM);
+	//	self.lcharge = 0;
+	//	self.attack_finished = time + 0.4;
+	//}
+	
+	if (time == self.attack_finished && self.weapon == IT_LIGHTNING && self.ammo_cells > 0)
 	{
-		Lshoot ();
-		SuperDamageSound();
-		sound (self, CHAN_WEAPON, "weapons/lstart.wav", 1, ATTN_NORM);
-		self.lcharge = 0;
-		self.attack_finished = time + 0.4;
+		sound (self, CHAN_WEAPON, "weapons/lhit.wav", 1, ATTN_NORM);
+		stuffcmd(self, "bf\n");
 	}
 	
-	if (self.button0 == FALSE && deathmatch == 4 && self.weapon == IT_LIGHTNING && self.ammo_cells < 100)
+	if (self.button0 == FALSE && deathmatch == 4 && self.weapon == IT_LIGHTNING && self.ammo_cells < 10)
 	{
-		self.ammo_cells = self.ammo_cells + 1;
+		self.ammo_cells = 10;
 	}
 	
 	if (time < self.attack_finished)
