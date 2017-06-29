@@ -96,20 +96,21 @@ triggers.qc:2: warning: otemp  no references
 triggers.qc:2: warning: old  no references
 triggers.qc:224: warning: junk  no references
 plats.qc:150: warning: t  no references
-misc.qc:460: warning: vtmp1  no references
-misc.qc:460: warning: modi  no references
+misc.qc:313: warning: rand  no references
+misc.qc:520: warning: vtmp1  no references
+misc.qc:520: warning: modi  no references
 ogre.qc:92: warning: mpuff  no references
 demon.qc:280: warning: vec  no references
 dog.qc:306: warning: vec  no references
 zombie.qc:164: warning: mpuff  no references
- 91392 strofs (of 1000000)
- 21755 numstatements (of 524288)
-  2104 numfunctions (of 16384)
-  4410 numglobaldefs (of 32768)
+ 91504 strofs (of 1000000)
+ 21851 numstatements (of 524288)
+  2106 numfunctions (of 16384)
+  4420 numglobaldefs (of 32768)
    230 numfielddefs (207 unique) (of 2048)
-  4452 numpr_globals (of 65536)
+  4464 numpr_globals (of 65536)
 Writing ../progs.dat
-396292 TOTAL SIZE
+397372 TOTAL SIZE
 Writing ../progs.lno
 225 unique precache_sounds
  95 unique precache_models
@@ -117,11 +118,11 @@ Writing ../progs.lno
 Compile Complete
 
 optres_shortenifnots 124
-optres_overlaptemps 7908
+optres_overlaptemps 7942
 optres_constantarithmatic 21
-optres_nonvec_parms 4130
-optres_assignments 461
-optres_unreferenced 67
+optres_nonvec_parms 4155
+optres_assignments 462
+optres_unreferenced 68
 optres_dupconstdefs 101
-numtemps 122
-65 warnings
+numtemps 125
+66 warnings
