@@ -346,6 +346,11 @@ void() voter =
 	if (vote_time > time && self.lefty == 0)
 	{
 		self.lefty = 1;
+		
+		for (playernt = world; (playernt = find (playernt, classname, "player")); )
+		{
+			stuffcmd (playernt, "bf 0 0 255\n");
+		}
 	}
 	
 	if (vote_time > time && self.lefty == 1)
