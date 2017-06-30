@@ -106,7 +106,7 @@ float	rnd;
 	}
 	else if (rnd == 3)
 	{
-		dmesg1 = " torn apart by ";
+		dmesg1 = " was torn apart by ";
 		dmesg2 = "\n";
 	}
 	else if (rnd == 4)
