@@ -105,14 +105,14 @@ ogre.qc:92: warning: mpuff  no references
 demon.qc:280: warning: vec  no references
 dog.qc:306: warning: vec  no references
 zombie.qc:164: warning: mpuff  no references
- 93252 strofs (of 1000000)
+ 93256 strofs (of 1000000)
  22136 numstatements (of 524288)
   2114 numfunctions (of 16384)
   4494 numglobaldefs (of 32768)
    230 numfielddefs (207 unique) (of 2048)
   4539 numpr_globals (of 65536)
 Writing ../progs.dat
-402580 TOTAL SIZE
+402584 TOTAL SIZE
 Writing ../progs.lno
 225 unique precache_sounds
  95 unique precache_models

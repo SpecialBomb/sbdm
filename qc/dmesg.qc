@@ -96,7 +96,7 @@ float	rnd;
 	
 	if (rnd == 1)
 	{
-		dmesg1 = " was chopped up ";
+		dmesg1 = " was chopped up by ";
 		dmesg2 = "'s axe\n";
 	}
 	else if (rnd == 2)
@@ -287,7 +287,7 @@ float	rnd;
 	}
 	else if (rnd == 4)
 	{
-		dmesg1 = " thrown about by ";
+		dmesg1 = " was thrown about by ";
 		dmesg2 = "'s rocket\n";
 	}
 	else if (rnd == 5)
