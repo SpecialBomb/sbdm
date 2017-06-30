@@ -419,6 +419,10 @@ float		vote_yes;
 float		vote_no;
 entity		votemaster;
 
+//deathmessage vars
+string dmesg1;
+string dmesg2;
+
 //================================================
 
 //

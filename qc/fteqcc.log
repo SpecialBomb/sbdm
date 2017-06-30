@@ -12,6 +12,7 @@ weapons.qc:840: warning: rand duplicate definition ignored
 weapons.qc:801:    rand  is defined here
 weapons.qc:841: warning: Implicit conversion
 compiling world.qc
+compiling dmesg.qc
 compiling client.qc
 compiling dropping.qc
 compiling player.qc
@@ -42,13 +43,13 @@ oldone.qc:29: warning: Duplicate macro defined (shake12)
 Recognised progs as NetQuake server gamecode
 Progs should run on any Quake executor
 defs.qc:404: warning: empty_float  no references
-defs.qc:427: warning: wad  no references
-defs.qc:438: warning: light_lev  no references
-defs.qc:511: warning: dest  no references
-defs.qc:558: warning: waitmax  no references
-defs.qc:559: warning: distance  no references
-defs.qc:560: warning: volume  no references
-defs.qc:713: warning: lattacking  no references
+defs.qc:431: warning: wad  no references
+defs.qc:442: warning: light_lev  no references
+defs.qc:515: warning: dest  no references
+defs.qc:562: warning: waitmax  no references
+defs.qc:563: warning: distance  no references
+defs.qc:564: warning: volume  no references
+defs.qc:717: warning: lattacking  no references
 fight.qc:298: warning: chance  no references
 ai.qc:37: warning: current_yaw  no references
 ai.qc:476: warning: mtemp  no references
@@ -84,6 +85,7 @@ client.qc:956: warning: r  no references
 client.qc:1192: warning: mspeed  no references
 client.qc:1192: warning: aspeed  no references
 client.qc:1193: warning: r  no references
+client.qc:1295: warning: deathstring2  no references
 monsters.qc:51: warning: ent  no references
 monsters.qc:51: warning: otemp  no references
 monsters.qc:51: warning: stemp  no references
@@ -103,14 +105,14 @@ ogre.qc:92: warning: mpuff  no references
 demon.qc:280: warning: vec  no references
 dog.qc:306: warning: vec  no references
 zombie.qc:164: warning: mpuff  no references
- 91524 strofs (of 1000000)
- 21867 numstatements (of 524288)
-  2106 numfunctions (of 16384)
-  4421 numglobaldefs (of 32768)
+ 93248 strofs (of 1000000)
+ 22136 numstatements (of 524288)
+  2114 numfunctions (of 16384)
+  4494 numglobaldefs (of 32768)
    230 numfielddefs (207 unique) (of 2048)
-  4465 numpr_globals (of 65536)
+  4539 numpr_globals (of 65536)
 Writing ../progs.dat
-397532 TOTAL SIZE
+402576 TOTAL SIZE
 Writing ../progs.lno
 225 unique precache_sounds
  95 unique precache_models
@@ -118,11 +120,11 @@ Writing ../progs.lno
 Compile Complete
 
 optres_shortenifnots 124
-optres_overlaptemps 7948
+optres_overlaptemps 8004
 optres_constantarithmatic 21
-optres_nonvec_parms 4162
-optres_assignments 462
-optres_unreferenced 68
+optres_nonvec_parms 4170
+optres_assignments 478
+optres_unreferenced 69
 optres_dupconstdefs 101
 numtemps 125
-66 warnings
+67 warnings

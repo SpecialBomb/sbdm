@@ -8,6 +8,7 @@ combat.qc
 items.qc
 weapons.qc
 world.qc
+dmesg.qc
 client.qc
 dropping.qc
 player.qc

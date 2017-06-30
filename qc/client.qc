@@ -1370,65 +1370,40 @@ void(entity targ, entity attacker) ClientObituary =
 				rnum = attacker.weapon;
 				if (attacker.weapon == IT_LIGHTNING)
 				{
-					deathstring = " accepts ";
-					if (attacker.waterlevel > 1)
-						deathstring2 = "'s discharge\n";
-					else
-						deathstring2 = "'s shaft\n";
+					lg_dmesg();
 				}
 				if (targ.deathtype == "progs/v_axe.mdl")
 				{
-					deathstring = " was ax-murdered by ";
-					deathstring2 = "\n";
-					if (targ.health < -40 )
-					{
-						deathstring = " was chopped to ground beef by ";
-					}
+					axe_dmesg();
 				}
 				if (targ.deathtype == "progs/v_shot.mdl")
 				{
-					deathstring = " was holepunched by ";
-					deathstring2 = "'s slug\n";
+					shot_dmesg();
 				}
 				if (targ.deathtype == "progs/v_shot2.mdl")
 				{
-					deathstring = " ate 2 loads of ";
-					deathstring2 = "'s buckshot\n";
+					shot2_dmesg();
 				}
 				if (targ.deathtype == "progs/v_nail.mdl")
 				{
-					deathstring = " was spiked by ";
-					deathstring2 = "\n";
+					nail_dmesg();
 				}
 				if (targ.deathtype == "progs/v_nail2.mdl")
 				{
-					deathstring = " was punctured by ";
-					deathstring2 = "\n";
+					nail2_dmesg();
 				}
 				if (targ.deathtype == "progs/v_rock.mdl")
 				{
-					deathstring = " eats ";
-					deathstring2 = "'s pineapple\n";
-					if (targ.health < -40)
-					{
-						deathstring = " was gibbed by ";
-						deathstring2 = "'s grenade\n";
-					}
+					gl_dmesg();
 				}
 				if (targ.deathtype == "progs/v_rock2.mdl")
 				{
-					deathstring = " rides ";
-					deathstring2 = "'s rocket\n";
-					if (targ.health < -40)
-					{
-						deathstring = " was gibbed by ";
-						deathstring2 = "'s rocket\n" ;
-					}
+					rl_dmesg();
 				}
 				bprint (targ.netname);
-				bprint (deathstring);
+				bprint (dmesg1);
 				bprint (attacker.netname);
-				bprint (deathstring2);
+				bprint (dmesg2);
 			}
 			return;
 		}
