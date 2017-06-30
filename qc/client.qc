@@ -1454,26 +1454,66 @@ void(entity targ, entity attacker) ClientObituary =
 			// tricks and traps
 			if (attacker.classname == "explo_box")
 			{
+				if (targ.push_time > time)
+				{	
+					bprint (" finished himself off for ");
+					bprint (targ.pusher.netname);
+					bprint ("\n");
+					targ.pusher.frags = targ.pusher.frags + 1;
+					return;
+				}
 				bprint (" blew up\n");
 				return;
 			}
 			if (attacker.solid == SOLID_BSP && attacker != world)
 			{	
+				if (targ.push_time > time)
+				{	
+					bprint (" finished himself off for ");
+					bprint (targ.pusher.netname);
+					bprint ("\n");
+					targ.pusher.frags = targ.pusher.frags + 1;
+					return;
+				}
 				bprint (" was squished\n");
 				return;
 			}
 			if (attacker.classname == "trap_shooter" || attacker.classname == "trap_spikeshooter")
 			{
+				if (targ.push_time > time)
+				{	
+					bprint (" finished himself off for ");
+					bprint (targ.pusher.netname);
+					bprint ("\n");
+					targ.pusher.frags = targ.pusher.frags + 1;
+					return;
+				}
 				bprint (" was spiked\n");
 				return;
 			}
 			if (attacker.classname == "fireball")
 			{
+				if (targ.push_time > time)
+				{	
+					bprint (" finished himself off for ");
+					bprint (targ.pusher.netname);
+					bprint ("\n");
+					targ.pusher.frags = targ.pusher.frags + 1;
+					return;
+				}
 				bprint (" ate a lavaball\n");
 				return;
 			}
 			if (attacker.classname == "trigger_changelevel")
 			{
+				if (targ.push_time > time)
+				{	
+					bprint (" finished himself off for ");
+					bprint (targ.pusher.netname);
+					bprint ("\n");
+					targ.pusher.frags = targ.pusher.frags + 1;
+					return;
+				}
 				bprint (" tried to leave\n");
 				return;
 			}
@@ -1526,6 +1566,17 @@ void(entity targ, entity attacker) ClientObituary =
 			if (targ.deathtype == "falling")
 			{
 				targ.deathtype = "";
+				
+				if (targ.push_time > time)
+				{
+				
+					bprint (" finished himself off for ");
+					bprint (targ.pusher.netname);
+					bprint ("\n");
+					targ.pusher.frags = targ.pusher.frags + 1;
+					return;
+				}
+				
 				bprint (" fell to his death\n");
 				return;
 			}
