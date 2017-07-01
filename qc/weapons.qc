@@ -863,6 +863,14 @@ local float rand;
 	}
 	else
 	{
+		if (other.classname == "plat" || other.classname == "door" || other.classname == "train")
+		{
+			remove(self);
+			self.owner.nails = self.owner.nails - 1;
+			count_spike(self.owner);
+			return;
+		}
+		
 		self.classname = "stuck_spike";
 		self.movetype = MOVETYPE_NONE;
 		self.touch = spike_hurt;
