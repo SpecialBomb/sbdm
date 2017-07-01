@@ -1471,6 +1471,9 @@ void() walljump =
 
 void() ImpulseCommands =
 {
+	if (!self.deadflag)
+	{
+	
 	if (self.impulse >= 1 && self.impulse <= 8)
 		W_ChangeWeapon ();
 
@@ -1485,6 +1488,8 @@ void() ImpulseCommands =
 
 	if (self.impulse == 255)
 		QuadCheat ();
+		
+	}
 		
 	if (self.impulse == 13 && vote_time > time && self.voted == 0) //yes
 	{
@@ -1629,7 +1634,7 @@ void() ImpulseCommands =
 		count_spike(self);
 	}
 		
-	if (self.impulse == 30)
+	if (self.impulse == 30 && !self.deadflag)
 		walljump ();
 		
 	self.impulse = 0;
@@ -1665,6 +1670,10 @@ Called every frame so impulse events can be handled as well as possible
 
 void() W_WeaponFrame =
 {
+
+	if (!self.deadflag)
+	{
+	
 	if ((self.flags & FL_CLIENT))
 	{
 		TraceID ();
@@ -1687,7 +1696,7 @@ void() W_WeaponFrame =
 	//	self.attack_finished = time + 0.4;
 	//}
 	
-	if (time == self.attack_finished && self.weapon == IT_LIGHTNING && self.ammo_cells > 0)
+	if (time == self.attack_finished && self.weapon == IT_LIGHTNING && self.ammo_cells > 0 && self.health > 0)
 	{
 		sound (self, CHAN_WEAPON, "weapons/lhit.wav", 1, ATTN_NORM);
 		stuffcmd(self, "bf\n");
@@ -1701,11 +1710,13 @@ void() W_WeaponFrame =
 	if (time < self.attack_finished)
 		return;
 
+	}
+	
 	if (self.impulse)
 		ImpulseCommands ();
 	
 // check for attack
-	if (self.button0)
+	if (self.button0 && !self.deadflag)
 	{
 		SuperDamageSound ();
 		W_Attack ();

@@ -1194,12 +1194,15 @@ void() PlayerPostThink =
 
 	if (self.view_ofs == '0 0 0')
 		return;		// intermission or finale
+		
+	// do weapon stuff
+
+	W_WeaponFrame ();
+	
 	if (self.deadflag)
 		return;
 		
-// do weapon stuff
 
-	W_WeaponFrame ();
 
 // check to see if player landed and play landing sound	
 	if ((self.jump_flag < -300) && (self.flags & FL_ONGROUND) && (self.health > 0))
