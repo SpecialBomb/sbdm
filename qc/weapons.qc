@@ -1621,6 +1621,18 @@ void() ImpulseCommands =
 		bprint (" voted yes\n");
 	}
 	
+	if (self.impulse == 26 && vote_time < time) //vote_practice
+	{
+		vote_time = time + 30;
+		vote_subj = "deathmatch 5; restart";
+		vote_yes = vote_yes + 1;
+		self.voted = 1;
+		sprint (self, "Voted yes\n");
+		bprint ("Vote to change gamemode to walljump practice type yes or no in console\n");
+		bprint (self.netname);
+		bprint (" voted yes\n");
+	}
+	
 	if (self.impulse == 21) //spikes
 		count_spike(self);
 		

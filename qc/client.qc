@@ -974,6 +974,7 @@ void() PlayerPreThink =
 		stuffcmd (self, "alias vote_deathmatch \"impulse 23\"\n");
 		stuffcmd (self, "alias vote_instaaxe \"impulse 24\"\n");
 		stuffcmd (self, "alias vote_instagib \"impulse 25\"\n");
+		stuffcmd (self, "alias vote_practice \"impulse 26\"\n");
 		stuffcmd (self, "alias walljump \"impulse 30\"\n");
 		self.motdnxt = self.motdnxt + 1;
 		

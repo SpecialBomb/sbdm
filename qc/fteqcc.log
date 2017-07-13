@@ -82,10 +82,10 @@ client.qc:775: warning: end  no references
 client.qc:950: warning: mspeed  no references
 client.qc:950: warning: aspeed  no references
 client.qc:951: warning: r  no references
-client.qc:1187: warning: mspeed  no references
-client.qc:1187: warning: aspeed  no references
-client.qc:1188: warning: r  no references
-client.qc:1293: warning: deathstring2  no references
+client.qc:1188: warning: mspeed  no references
+client.qc:1188: warning: aspeed  no references
+client.qc:1189: warning: r  no references
+client.qc:1294: warning: deathstring2  no references
 monsters.qc:51: warning: ent  no references
 monsters.qc:51: warning: otemp  no references
 monsters.qc:51: warning: stemp  no references
@@ -105,14 +105,14 @@ ogre.qc:92: warning: mpuff  no references
 demon.qc:280: warning: vec  no references
 dog.qc:306: warning: vec  no references
 zombie.qc:164: warning: mpuff  no references
- 93288 strofs (of 1000000)
- 22292 numstatements (of 524288)
+ 93444 strofs (of 1000000)
+ 22314 numstatements (of 524288)
   2114 numfunctions (of 16384)
-  4496 numglobaldefs (of 32768)
+  4499 numglobaldefs (of 32768)
    231 numfielddefs (208 unique) (of 2048)
-  4541 numpr_globals (of 65536)
+  4544 numpr_globals (of 65536)
 Writing ../progs.dat
-403896 TOTAL SIZE
+404264 TOTAL SIZE
 Writing ../progs.lno
 225 unique precache_sounds
  95 unique precache_models
@@ -120,10 +120,10 @@ Writing ../progs.lno
 Compile Complete
 
 optres_shortenifnots 126
-optres_overlaptemps 8104
+optres_overlaptemps 8112
 optres_constantarithmatic 21
-optres_nonvec_parms 4190
-optres_assignments 485
+optres_nonvec_parms 4197
+optres_assignments 488
 optres_unreferenced 69
 optres_dupconstdefs 101
 numtemps 125
