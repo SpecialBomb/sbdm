@@ -115,6 +115,8 @@ void() DecodeLevelParms =
 		self.items = IT_LIGHTNING;
 		self.weapon = IT_LIGHTNING;
 	}
+	if (deathmatch == 5)
+		self.weapon = IT_AXE;
 };
 
 /*
