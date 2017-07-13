@@ -80,7 +80,7 @@ void() SetNewParms =
 	}
 	if (deathmatch == 5)
 	{
-		parm1 = IT_AXE | IT_SUPER_SHOTGUN;
+		parm1 = IT_SUPER_SHOTGUN;
 		parm4 = 100;
 	}
 };
@@ -116,7 +116,7 @@ void() DecodeLevelParms =
 		self.weapon = IT_LIGHTNING;
 	}
 	if (deathmatch == 5)
-		self.weapon = IT_AXE;
+		self.weapon = IT_SUPER_SHOTGUN;
 };
 
 /*
