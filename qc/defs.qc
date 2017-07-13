@@ -722,3 +722,5 @@ float(entity targ, entity inflictor) CanDamage;
 .float voted;
 
 .float nails;
+
+.float deadtime;
