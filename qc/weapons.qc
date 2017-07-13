@@ -312,7 +312,8 @@ void() W_FireSuperShotgun =
 
 	//self.punchangle_x = -4;
 	
-	self.currentammo = self.ammo_shells = self.ammo_shells - 2;
+	if (deathmatch != 5)
+		self.currentammo = self.ammo_shells = self.ammo_shells - 2;
 	dir = aim (self, 100000);
 	if (!deathmatch)
 	{
@@ -326,7 +327,8 @@ void() W_FireSuperShotgun =
 	else {
 		self.velocity = (-dir*150)+self.velocity;
 	}
-	FireBullets (15, dir, '0.16 0.16 0', (20/3));
+	if (deathmatch != 5)
+		FireBullets (15, dir, '0.16 0.16 0', (20/3));
 	}
 };
 

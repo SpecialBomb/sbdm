@@ -73,10 +73,15 @@ void() SetNewParms =
 	parm8 = 1;
 	parm9 = 0;
 	//insta-axe remove shotgun fix by SpecialBomb
-	if (deathmatch == 3 || deathmatch == 5)
+	if (deathmatch == 3)
 	{
 		parm1 = IT_AXE;
 		parm4 = 0;
+	}
+	if (deathmatch == 5)
+	{
+		parm1 = IT_AXE | IT_SUPER_SHOTGUN;
+		parm4 = 100;
 	}
 };
 
