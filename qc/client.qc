@@ -63,26 +63,21 @@ void() SetChangeParms =
 
 void() SetNewParms =
 {
-	//insta-axe remove shotgun fix by SpecialBomb
-	if (deathmatch != 3 || deathmatch != 5)
-	{
-		parm1 = IT_SHOTGUN | IT_AXE;
-		parm4 = 25;
-	}
-	else
-	{
-		parm1 = IT_AXE;
-		parm4 = 0;
-	}
+	parm1 = IT_SHOTGUN | IT_AXE;
 	parm2 = 100;
 	parm3 = 0;
-	//parm4 = 25;
-	//end fix
+	parm4 = 25;
 	parm5 = 0;
 	parm6 = 0;
 	parm7 = 0;
 	parm8 = 1;
 	parm9 = 0;
+	//insta-axe remove shotgun fix by SpecialBomb
+	if (deathmatch == 3 || deathmatch == 5)
+	{
+		parm1 = IT_AXE;
+		parm4 = 0;
+	}
 };
 
 void() DecodeLevelParms =
