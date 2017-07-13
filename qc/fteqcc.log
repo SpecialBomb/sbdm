@@ -75,17 +75,17 @@ weapons.qc:769: warning: hit_z  no references
 weapons.qc:801: warning: rand  no references
 weapons.qc:904: warning: rand  no references
 world.qc:449: warning: e  no references
-client.qc:318: warning: pos  no references
-client.qc:745: warning: old_self  no references
-client.qc:780: warning: start  no references
-client.qc:780: warning: end  no references
-client.qc:955: warning: mspeed  no references
-client.qc:955: warning: aspeed  no references
-client.qc:956: warning: r  no references
-client.qc:1192: warning: mspeed  no references
-client.qc:1192: warning: aspeed  no references
-client.qc:1193: warning: r  no references
-client.qc:1298: warning: deathstring2  no references
+client.qc:324: warning: pos  no references
+client.qc:751: warning: old_self  no references
+client.qc:786: warning: start  no references
+client.qc:786: warning: end  no references
+client.qc:961: warning: mspeed  no references
+client.qc:961: warning: aspeed  no references
+client.qc:962: warning: r  no references
+client.qc:1198: warning: mspeed  no references
+client.qc:1198: warning: aspeed  no references
+client.qc:1199: warning: r  no references
+client.qc:1304: warning: deathstring2  no references
 monsters.qc:51: warning: ent  no references
 monsters.qc:51: warning: otemp  no references
 monsters.qc:51: warning: stemp  no references
@@ -106,13 +106,13 @@ demon.qc:280: warning: vec  no references
 dog.qc:306: warning: vec  no references
 zombie.qc:164: warning: mpuff  no references
  93276 strofs (of 1000000)
- 22283 numstatements (of 524288)
+ 22291 numstatements (of 524288)
   2114 numfunctions (of 16384)
   4495 numglobaldefs (of 32768)
    231 numfielddefs (208 unique) (of 2048)
   4540 numpr_globals (of 65536)
 Writing ../progs.dat
-403800 TOTAL SIZE
+403864 TOTAL SIZE
 Writing ../progs.lno
 225 unique precache_sounds
  95 unique precache_models
@@ -120,7 +120,7 @@ Writing ../progs.lno
 Compile Complete
 
 optres_shortenifnots 126
-optres_overlaptemps 8096
+optres_overlaptemps 8100
 optres_constantarithmatic 21
 optres_nonvec_parms 4190
 optres_assignments 485
