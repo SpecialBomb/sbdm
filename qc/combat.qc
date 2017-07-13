@@ -106,7 +106,7 @@ void(entity targ, entity inflictor, entity attacker, float damage) T_Damage=
 	local	float	save;
 	local	float	take;
 
-	if (!targ.takedamage)
+	if (!targ.takedamage || deathmatch == 5)
 		return;
 
 // used by buttons and triggers to set activator for target firing
