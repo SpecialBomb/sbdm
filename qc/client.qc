@@ -118,8 +118,8 @@ void() DecodeLevelParms =
 	if (deathmatch == 5)
 	{
 		self.ammo_shells = 0;
-		self.items = 0;
-		self.weapon = 0;
+		self.items = IT_AXE;
+		self.weapon = IT_AXE;
 	}
 };
 
