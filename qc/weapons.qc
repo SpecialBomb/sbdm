@@ -955,6 +955,8 @@ void() W_SetCurrentAmmo =
 	{
 		self.currentammo = 0;
 		self.weaponmodel = "progs/v_axe.mdl";
+		if (deathmatch == 5)
+			self.weaponmodel = "";
 		self.weaponframe = 0;
 	}
 	else if (self.weapon == IT_SHOTGUN)
@@ -1084,6 +1086,8 @@ void() W_Attack =
 
 	if (self.weapon == IT_AXE)
 	{
+		if (deathmatch == 5)
+			return;
 		sound (self, CHAN_WEAPON, "weapons/ax1.wav", 1, ATTN_NORM);
 		r = random();
 		if (r < 0.25)

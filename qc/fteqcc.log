@@ -59,13 +59,13 @@ ai.qc:681: warning: direct  no references
 ai.qc:681: warning: ang_rint  no references
 ai.qc:681: warning: ang_floor  no references
 ai.qc:681: warning: ang_ceil  no references
-items.qc:160: warning: amount  no references
-items.qc:879: warning: stemp  no references
-items.qc:880: warning: best  no references
-items.qc:1015: warning: stemp  no references
-items.qc:1016: warning: best  no references
-items.qc:1088: warning: stemp  no references
-items.qc:1089: warning: best  no references
+items.qc:157: warning: amount  no references
+items.qc:876: warning: stemp  no references
+items.qc:877: warning: best  no references
+items.qc:1012: warning: stemp  no references
+items.qc:1013: warning: best  no references
+items.qc:1085: warning: stemp  no references
+items.qc:1086: warning: best  no references
 weapons.qc:103: warning: mpuff  no references
 weapons.qc:406: warning: mpuff  no references
 weapons.qc:599: warning: mpuff  no references
@@ -105,14 +105,14 @@ ogre.qc:92: warning: mpuff  no references
 demon.qc:280: warning: vec  no references
 dog.qc:306: warning: vec  no references
 zombie.qc:164: warning: mpuff  no references
- 93276 strofs (of 1000000)
- 22284 numstatements (of 524288)
+ 93288 strofs (of 1000000)
+ 22292 numstatements (of 524288)
   2114 numfunctions (of 16384)
-  4495 numglobaldefs (of 32768)
+  4496 numglobaldefs (of 32768)
    231 numfielddefs (208 unique) (of 2048)
-  4540 numpr_globals (of 65536)
+  4541 numpr_globals (of 65536)
 Writing ../progs.dat
-403808 TOTAL SIZE
+403896 TOTAL SIZE
 Writing ../progs.lno
 225 unique precache_sounds
  95 unique precache_models
@@ -120,7 +120,7 @@ Writing ../progs.lno
 Compile Complete
 
 optres_shortenifnots 126
-optres_overlaptemps 8098
+optres_overlaptemps 8104
 optres_constantarithmatic 21
 optres_nonvec_parms 4190
 optres_assignments 485
