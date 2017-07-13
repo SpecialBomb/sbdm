@@ -64,7 +64,7 @@ void() SetChangeParms =
 void() SetNewParms =
 {
 	//insta-axe remove shotgun fix by SpecialBomb
-	if (deathmatch != 3)
+	if (deathmatch != 3 || deathmatch != 5)
 	{
 		parm1 = IT_SHOTGUN | IT_AXE;
 		parm4 = 25;
@@ -114,12 +114,6 @@ void() DecodeLevelParms =
 		self.ammo_cells = 100;
 		self.items = IT_LIGHTNING;
 		self.weapon = IT_LIGHTNING;
-	}
-	if (deathmatch == 5)
-	{
-		self.ammo_shells = 0;
-		self.items = IT_AXE;
-		self.weapon = IT_AXE;
 	}
 };
 
