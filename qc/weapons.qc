@@ -327,7 +327,7 @@ void() W_FireSuperShotgun =
 	else {
 		self.velocity = (-dir*150)+self.velocity;
 	}
-	if (deathmatch != 5)
+	//if (deathmatch != 5)
 		FireBullets (15, dir, '0.16 0.16 0', (20/3));
 	}
 };
@@ -407,7 +407,8 @@ void() W_FireRocket =
 {
 	local	entity missile, mpuff;
 	
-	self.currentammo = self.ammo_rockets = self.ammo_rockets - 1;
+	if (deathmatch != 5)
+		self.currentammo = self.ammo_rockets = self.ammo_rockets - 1;
 	
 	sound (self, CHAN_WEAPON, "weapons/sgun1.wav", 1, ATTN_NORM);
 
@@ -600,7 +601,8 @@ void() W_FireGrenade =
 {
 	local	entity missile, mpuff;
 	
-	self.currentammo = self.ammo_rockets = self.ammo_rockets - 1;
+	if (deathmatch != 5)
+		self.currentammo = self.ammo_rockets = self.ammo_rockets - 1;
 	
 	sound (self, CHAN_WEAPON, "weapons/grenade.wav", 1, ATTN_NORM);
 

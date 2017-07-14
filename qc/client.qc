@@ -843,7 +843,7 @@ void() WaterMove =
 	if (self.health < 0)
 		return;
 
-	if (self.waterlevel != 3)
+	if (self.waterlevel != 3 && deathmatch != 5)
 	{
 		if (self.air_finished < time)
 			sound (self, CHAN_VOICE, "player/gasp2.wav", 1, ATTN_NORM);
@@ -852,7 +852,7 @@ void() WaterMove =
 		self.air_finished = time + 12;
 		self.dmg = 2;
 	}
-	else if (self.air_finished < time)
+	else if (self.air_finished < time && deathmatch != 5)
 	{	// drown!
 		if (self.pain_finished < time)
 		{
@@ -875,7 +875,7 @@ void() WaterMove =
 		return;
 	}
 
-	if (self.watertype == CONTENT_LAVA)
+	if (self.watertype == CONTENT_LAVA && deathmatch != 5)
 	{	// do damage
 		if (self.dmgtime < time)
 		{
@@ -887,7 +887,7 @@ void() WaterMove =
 			T_Damage (self, world, world, 10*self.waterlevel);
 		}
 	}
-	else if (self.watertype == CONTENT_SLIME)
+	else if (self.watertype == CONTENT_SLIME && deathmatch != 5)
 	{	// do damage
 		if (self.dmgtime < time && self.radsuit_finished < time)
 		{
