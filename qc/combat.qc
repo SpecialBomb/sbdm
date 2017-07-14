@@ -106,7 +106,7 @@ void(entity targ, entity inflictor, entity attacker, float damage) T_Damage=
 	local	float	save;
 	local	float	take;
 
-	if (!targ.takedamage || deathmatch == 5)
+	if (!targ.takedamage)
 		return;
 
 // used by buttons and triggers to set activator for target firing
@@ -144,7 +144,7 @@ void(entity targ, entity inflictor, entity attacker, float damage) T_Damage=
 	}
 	
 	// pushtime and push entity gets set here
-	if (targ.flags & FL_CLIENT && attacker.flags & FL_CLIENT && targ != attacker)
+	if (targ.flags & FL_CLIENT && attacker.flags & FL_CLIENT && targ != attacker && deathmatch != 5)
 	{
 		targ.pusher = attacker;
 		
@@ -161,6 +161,8 @@ void(entity targ, entity inflictor, entity attacker, float damage) T_Damage=
 // figure momentum add
 	if ( (inflictor != world) && (targ.movetype == MOVETYPE_WALK) && (inflictor.classname != "stuck_spike") )
 	{
+		if (deathmatch == 5 && targ != attacker)
+			return;
 		dir = targ.origin - (inflictor.absmin + inflictor.absmax) * 0.5;
 		dir = normalize(dir);
 		targ.velocity = targ.velocity + dir*damage*8;
@@ -188,6 +190,10 @@ void(entity targ, entity inflictor, entity attacker, float damage) T_Damage=
 		return;
 		
 // do the damage
+
+	if (targ.flags & FL_CLIENT && deathmatch == 5)
+		return;
+	
 	targ.health = targ.health - take;
           
     // Cobalt Obit problem fix

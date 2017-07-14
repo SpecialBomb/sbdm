@@ -75,17 +75,17 @@ weapons.qc:771: warning: hit_z  no references
 weapons.qc:803: warning: rand  no references
 weapons.qc:906: warning: rand  no references
 world.qc:449: warning: e  no references
-client.qc:320: warning: pos  no references
-client.qc:747: warning: old_self  no references
-client.qc:782: warning: start  no references
-client.qc:782: warning: end  no references
-client.qc:957: warning: mspeed  no references
-client.qc:957: warning: aspeed  no references
-client.qc:958: warning: r  no references
-client.qc:1195: warning: mspeed  no references
-client.qc:1195: warning: aspeed  no references
-client.qc:1196: warning: r  no references
-client.qc:1301: warning: deathstring2  no references
+client.qc:321: warning: pos  no references
+client.qc:748: warning: old_self  no references
+client.qc:783: warning: start  no references
+client.qc:783: warning: end  no references
+client.qc:958: warning: mspeed  no references
+client.qc:958: warning: aspeed  no references
+client.qc:959: warning: r  no references
+client.qc:1196: warning: mspeed  no references
+client.qc:1196: warning: aspeed  no references
+client.qc:1197: warning: r  no references
+client.qc:1302: warning: deathstring2  no references
 monsters.qc:51: warning: ent  no references
 monsters.qc:51: warning: otemp  no references
 monsters.qc:51: warning: stemp  no references
@@ -106,22 +106,22 @@ demon.qc:280: warning: vec  no references
 dog.qc:306: warning: vec  no references
 zombie.qc:164: warning: mpuff  no references
  93444 strofs (of 1000000)
- 22326 numstatements (of 524288)
+ 22338 numstatements (of 524288)
   2114 numfunctions (of 16384)
   4499 numglobaldefs (of 32768)
    231 numfielddefs (208 unique) (of 2048)
   4544 numpr_globals (of 65536)
 Writing ../progs.dat
-404360 TOTAL SIZE
+404456 TOTAL SIZE
 Writing ../progs.lno
 225 unique precache_sounds
  95 unique precache_models
 104 unique precache_files
 Compile Complete
 
-optres_shortenifnots 125
-optres_overlaptemps 8116
-optres_constantarithmatic 21
+optres_shortenifnots 126
+optres_overlaptemps 8124
+optres_constantarithmatic 23
 optres_nonvec_parms 4197
 optres_assignments 488
 optres_unreferenced 69

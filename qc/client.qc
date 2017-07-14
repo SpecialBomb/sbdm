@@ -80,8 +80,9 @@ void() SetNewParms =
 	}
 	if (deathmatch == 5)
 	{
-		parm1 = IT_SUPER_SHOTGUN;
+		parm1 = IT_SUPER_SHOTGUN | IT_ROCKET_LAUNCHER | IT_GRENADE_LAUNCHER;
 		parm4 = 100;
+		parm6 = 100;
 	}
 };
 
