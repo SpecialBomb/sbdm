@@ -435,7 +435,8 @@ void() W_FireRocket =
           missile.weaponmodel = self.weaponmodel;
 	setmodel (missile, "progs/missile.mdl");
 	setsize (missile, '0 0 0', '0 0 0');		
-	setorigin (missile, self.origin + v_forward*8 + '0 0 16');
+	setorigin (missile, self.origin + self.view_ofs + v_forward*8);
+	//setorigin (missile, self.origin + v_forward*8 + '0 0 16');
 };
 
 /*
