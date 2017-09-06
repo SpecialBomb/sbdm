@@ -419,6 +419,10 @@ float		vote_yes;
 float		vote_no;
 entity		votemaster;
 
+//deathmessage vars
+string dmesg1;
+string dmesg2;
+
 //================================================
 
 //
@@ -718,3 +722,5 @@ float(entity targ, entity inflictor) CanDamage;
 .float voted;
 
 .float nails;
+
+.float deadtime;

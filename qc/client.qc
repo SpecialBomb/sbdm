@@ -63,26 +63,27 @@ void() SetChangeParms =
 
 void() SetNewParms =
 {
-	//insta-axe remove shotgun fix by SpecialBomb
-	if (deathmatch != 3)
-	{
-		parm1 = IT_SHOTGUN | IT_AXE;
-		parm4 = 25;
-	}
-	else
-	{
-		parm1 = IT_AXE;
-		parm4 = 0;
-	}
+	parm1 = IT_SHOTGUN | IT_AXE;
 	parm2 = 100;
 	parm3 = 0;
-	//parm4 = 25;
-	//end fix
+	parm4 = 25;
 	parm5 = 0;
 	parm6 = 0;
 	parm7 = 0;
 	parm8 = 1;
 	parm9 = 0;
+	//insta-axe remove shotgun fix by SpecialBomb
+	if (deathmatch == 3)
+	{
+		parm1 = IT_AXE;
+		parm4 = 0;
+	}
+	if (deathmatch == 5)
+	{
+		parm1 = IT_SUPER_SHOTGUN | IT_ROCKET_LAUNCHER | IT_GRENADE_LAUNCHER;
+		parm4 = 100;
+		parm6 = 100;
+	}
 };
 
 void() DecodeLevelParms =
@@ -115,6 +116,8 @@ void() DecodeLevelParms =
 		self.items = IT_LIGHTNING;
 		self.weapon = IT_LIGHTNING;
 	}
+	if (deathmatch == 5)
+		self.weapon = IT_SUPER_SHOTGUN;
 };
 
 /*
@@ -758,14 +761,14 @@ void() PlayerDeathThink =
 // wait for all buttons released
 	if (self.deadflag == DEAD_DEAD)
 	{
-		if (self.button2 || self.button1 || self.button0)
+		if ((self.button2 || self.button1 || self.button0) && (self.deadtime < time))
 			return;
 		self.deadflag = DEAD_RESPAWNABLE;
 		return;
 	}
 
 // wait for any button down
-	if (!self.button2 && !self.button1 && !self.button0)
+	if (!self.button2 && !self.button1 && !self.button0 && !(self.deadtime < time))
 		return;
 
 	self.button0 = 0;
@@ -840,7 +843,7 @@ void() WaterMove =
 	if (self.health < 0)
 		return;
 
-	if (self.waterlevel != 3)
+	if (self.waterlevel != 3 && deathmatch != 5)
 	{
 		if (self.air_finished < time)
 			sound (self, CHAN_VOICE, "player/gasp2.wav", 1, ATTN_NORM);
@@ -849,7 +852,7 @@ void() WaterMove =
 		self.air_finished = time + 12;
 		self.dmg = 2;
 	}
-	else if (self.air_finished < time)
+	else if (self.air_finished < time && deathmatch != 5)
 	{	// drown!
 		if (self.pain_finished < time)
 		{
@@ -872,7 +875,7 @@ void() WaterMove =
 		return;
 	}
 
-	if (self.watertype == CONTENT_LAVA)
+	if (self.watertype == CONTENT_LAVA && deathmatch != 5)
 	{	// do damage
 		if (self.dmgtime < time)
 		{
@@ -884,7 +887,7 @@ void() WaterMove =
 			T_Damage (self, world, world, 10*self.waterlevel);
 		}
 	}
-	else if (self.watertype == CONTENT_SLIME)
+	else if (self.watertype == CONTENT_SLIME && deathmatch != 5)
 	{	// do damage
 		if (self.dmgtime < time && self.radsuit_finished < time)
 		{
@@ -979,6 +982,7 @@ void() PlayerPreThink =
 		stuffcmd (self, "alias vote_deathmatch \"impulse 23\"\n");
 		stuffcmd (self, "alias vote_instaaxe \"impulse 24\"\n");
 		stuffcmd (self, "alias vote_instagib \"impulse 25\"\n");
+		stuffcmd (self, "alias vote_practice \"impulse 26\"\n");
 		stuffcmd (self, "alias walljump \"impulse 30\"\n");
 		self.motdnxt = self.motdnxt + 1;
 		
@@ -1194,12 +1198,15 @@ void() PlayerPostThink =
 
 	if (self.view_ofs == '0 0 0')
 		return;		// intermission or finale
+		
+	// do weapon stuff
+
+	W_WeaponFrame ();
+	
 	if (self.deadflag)
 		return;
 		
-// do weapon stuff
 
-	W_WeaponFrame ();
 
 // check to see if player landed and play landing sound	
 	if ((self.jump_flag < -300) && (self.flags & FL_ONGROUND) && (self.health > 0))
@@ -1370,65 +1377,40 @@ void(entity targ, entity attacker) ClientObituary =
 				rnum = attacker.weapon;
 				if (attacker.weapon == IT_LIGHTNING)
 				{
-					deathstring = " accepts ";
-					if (attacker.waterlevel > 1)
-						deathstring2 = "'s discharge\n";
-					else
-						deathstring2 = "'s shaft\n";
+					lg_dmesg();
 				}
 				if (targ.deathtype == "progs/v_axe.mdl")
 				{
-					deathstring = " was ax-murdered by ";
-					deathstring2 = "\n";
-					if (targ.health < -40 )
-					{
-						deathstring = " was chopped to ground beef by ";
-					}
+					axe_dmesg();
 				}
 				if (targ.deathtype == "progs/v_shot.mdl")
 				{
-					deathstring = " was holepunched by ";
-					deathstring2 = "'s slug\n";
+					shot_dmesg();
 				}
 				if (targ.deathtype == "progs/v_shot2.mdl")
 				{
-					deathstring = " ate 2 loads of ";
-					deathstring2 = "'s buckshot\n";
+					shot2_dmesg();
 				}
 				if (targ.deathtype == "progs/v_nail.mdl")
 				{
-					deathstring = " was spiked by ";
-					deathstring2 = "\n";
+					nail_dmesg();
 				}
 				if (targ.deathtype == "progs/v_nail2.mdl")
 				{
-					deathstring = " was punctured by ";
-					deathstring2 = "\n";
+					nail2_dmesg();
 				}
 				if (targ.deathtype == "progs/v_rock.mdl")
 				{
-					deathstring = " eats ";
-					deathstring2 = "'s pineapple\n";
-					if (targ.health < -40)
-					{
-						deathstring = " was gibbed by ";
-						deathstring2 = "'s grenade\n";
-					}
+					gl_dmesg();
 				}
 				if (targ.deathtype == "progs/v_rock2.mdl")
 				{
-					deathstring = " rides ";
-					deathstring2 = "'s rocket\n";
-					if (targ.health < -40)
-					{
-						deathstring = " was gibbed by ";
-						deathstring2 = "'s rocket\n" ;
-					}
+					rl_dmesg();
 				}
 				bprint (targ.netname);
-				bprint (deathstring);
+				bprint (dmesg1);
 				bprint (attacker.netname);
-				bprint (deathstring2);
+				bprint (dmesg2);
 			}
 			return;
 		}
@@ -1479,26 +1461,66 @@ void(entity targ, entity attacker) ClientObituary =
 			// tricks and traps
 			if (attacker.classname == "explo_box")
 			{
+				if (targ.push_time > time)
+				{	
+					bprint (" finished himself off for ");
+					bprint (targ.pusher.netname);
+					bprint ("\n");
+					targ.pusher.frags = targ.pusher.frags + 1;
+					return;
+				}
 				bprint (" blew up\n");
 				return;
 			}
 			if (attacker.solid == SOLID_BSP && attacker != world)
 			{	
+				if (targ.push_time > time)
+				{	
+					bprint (" finished himself off for ");
+					bprint (targ.pusher.netname);
+					bprint ("\n");
+					targ.pusher.frags = targ.pusher.frags + 1;
+					return;
+				}
 				bprint (" was squished\n");
 				return;
 			}
 			if (attacker.classname == "trap_shooter" || attacker.classname == "trap_spikeshooter")
 			{
+				if (targ.push_time > time)
+				{	
+					bprint (" finished himself off for ");
+					bprint (targ.pusher.netname);
+					bprint ("\n");
+					targ.pusher.frags = targ.pusher.frags + 1;
+					return;
+				}
 				bprint (" was spiked\n");
 				return;
 			}
 			if (attacker.classname == "fireball")
 			{
+				if (targ.push_time > time)
+				{	
+					bprint (" finished himself off for ");
+					bprint (targ.pusher.netname);
+					bprint ("\n");
+					targ.pusher.frags = targ.pusher.frags + 1;
+					return;
+				}
 				bprint (" ate a lavaball\n");
 				return;
 			}
 			if (attacker.classname == "trigger_changelevel")
 			{
+				if (targ.push_time > time)
+				{	
+					bprint (" finished himself off for ");
+					bprint (targ.pusher.netname);
+					bprint ("\n");
+					targ.pusher.frags = targ.pusher.frags + 1;
+					return;
+				}
 				bprint (" tried to leave\n");
 				return;
 			}
@@ -1551,6 +1573,17 @@ void(entity targ, entity attacker) ClientObituary =
 			if (targ.deathtype == "falling")
 			{
 				targ.deathtype = "";
+				
+				if (targ.push_time > time)
+				{
+				
+					bprint (" finished himself off for ");
+					bprint (targ.pusher.netname);
+					bprint ("\n");
+					targ.pusher.frags = targ.pusher.frags + 1;
+					return;
+				}
+				
 				bprint (" fell to his death\n");
 				return;
 			}

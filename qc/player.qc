@@ -260,7 +260,7 @@ local float		rs;
 // water pain sounds
 	if (self.watertype == CONTENT_WATER && self.waterlevel == 3)
 	{
-		DeathBubbles(1);
+//		DeathBubbles(1);
 		if (random() > 0.5)
 			sound (self, CHAN_VOICE, "player/drown1.wav", 1, ATTN_NORM);
 		else
@@ -272,8 +272,8 @@ local float		rs;
 	if (self.watertype == CONTENT_SLIME)
 	{
 // FIX ME	put in some steam here
-		if (self.waterlevel == 3)
-			DeathBubbles(1);
+//		if (self.waterlevel == 3)
+//			DeathBubbles(1);
 		if (random() > 0.5)
 			sound (self, CHAN_VOICE, "player/lburn1.wav", 1, ATTN_NORM);
 		else
@@ -417,7 +417,7 @@ local float		rs;
 	// water death sounds
 	if (self.waterlevel == 3)
 	{
-		DeathBubbles(20);
+//		DeathBubbles(20);
 		sound (self, CHAN_VOICE, "player/h2odeath.wav", 1, ATTN_NONE);
 		return;
 	}
@@ -444,6 +444,7 @@ void() PlayerDead =
 	self.nextthink = -1;
 // allow respawn after a certain time
 	self.deadflag = DEAD_DEAD;
+	self.deadtime = time + 3;
 };
 
 vector(float dm) VelocityForDamage =

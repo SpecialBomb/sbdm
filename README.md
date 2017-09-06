@@ -47,6 +47,8 @@ It also adds more ways to move, and adds different ways of playing.
 
 +Instagib mode with the railgun can be enabled with "dethamatch 4". Disables item pickups, and you have infinite ammo.
 
++Practice mode can be enabled with "deathmatch 5". It gives you a non-damaging super shotgun, rocket launcher, grenade launcher, and infinite ammo to practice walljump and super shotgun jump combos. It is impossible to take damage in this mode.
+
 +Random spawns. (needs improving)
 
 +Grenades aren't random.
@@ -106,3 +108,5 @@ vote_deathmatch - Starts a vote for changing the mode to deathmatch and restarti
 vote_instaaxes - Starts a vote for changing the mode to insta axes and restarting the server (impulse 24)
 
 vote_instagib - Starts a vote for changing the mode to instagib and restarting the server (impulse 25)
+
+vote_practice - starts a vote for changing the mode to practice and restarting the server (impulse 26)

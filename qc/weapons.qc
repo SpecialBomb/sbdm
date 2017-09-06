@@ -312,7 +312,8 @@ void() W_FireSuperShotgun =
 
 	//self.punchangle_x = -4;
 	
-	self.currentammo = self.ammo_shells = self.ammo_shells - 2;
+	if (deathmatch != 5)
+		self.currentammo = self.ammo_shells = self.ammo_shells - 2;
 	dir = aim (self, 100000);
 	if (!deathmatch)
 	{
@@ -326,7 +327,8 @@ void() W_FireSuperShotgun =
 	else {
 		self.velocity = (-dir*150)+self.velocity;
 	}
-	FireBullets (15, dir, '0.16 0.16 0', (20/3));
+	//if (deathmatch != 5)
+		FireBullets (15, dir, '0.16 0.16 0', (20/3));
 	}
 };
 
@@ -405,7 +407,8 @@ void() W_FireRocket =
 {
 	local	entity missile, mpuff;
 	
-	self.currentammo = self.ammo_rockets = self.ammo_rockets - 1;
+	if (deathmatch != 5)
+		self.currentammo = self.ammo_rockets = self.ammo_rockets - 1;
 	
 	sound (self, CHAN_WEAPON, "weapons/sgun1.wav", 1, ATTN_NORM);
 
@@ -432,7 +435,8 @@ void() W_FireRocket =
           missile.weaponmodel = self.weaponmodel;
 	setmodel (missile, "progs/missile.mdl");
 	setsize (missile, '0 0 0', '0 0 0');		
-	setorigin (missile, self.origin + v_forward*8 + '0 0 16');
+	setorigin (missile, self.origin + self.view_ofs + v_forward*8);
+	//setorigin (missile, self.origin + v_forward*8 + '0 0 16');
 };
 
 /*
@@ -598,7 +602,8 @@ void() W_FireGrenade =
 {
 	local	entity missile, mpuff;
 	
-	self.currentammo = self.ammo_rockets = self.ammo_rockets - 1;
+	if (deathmatch != 5)
+		self.currentammo = self.ammo_rockets = self.ammo_rockets - 1;
 	
 	sound (self, CHAN_WEAPON, "weapons/grenade.wav", 1, ATTN_NORM);
 
@@ -863,6 +868,14 @@ local float rand;
 	}
 	else
 	{
+		if (other.classname == "plat" || other.classname == "door" || other.classname == "train")
+		{
+			remove(self);
+			self.owner.nails = self.owner.nails - 1;
+			count_spike(self.owner);
+			return;
+		}
+		
 		self.classname = "stuck_spike";
 		self.movetype = MOVETYPE_NONE;
 		self.touch = spike_hurt;
@@ -947,6 +960,8 @@ void() W_SetCurrentAmmo =
 	{
 		self.currentammo = 0;
 		self.weaponmodel = "progs/v_axe.mdl";
+		if (deathmatch == 5)
+			self.weaponmodel = "";
 		self.weaponframe = 0;
 	}
 	else if (self.weapon == IT_SHOTGUN)
@@ -1076,6 +1091,8 @@ void() W_Attack =
 
 	if (self.weapon == IT_AXE)
 	{
+		if (deathmatch == 5)
+			return;
 		sound (self, CHAN_WEAPON, "weapons/ax1.wav", 1, ATTN_NORM);
 		r = random();
 		if (r < 0.25)
@@ -1463,6 +1480,9 @@ void() walljump =
 
 void() ImpulseCommands =
 {
+	if (!self.deadflag)
+	{
+	
 	if (self.impulse >= 1 && self.impulse <= 8)
 		W_ChangeWeapon ();
 
@@ -1477,6 +1497,8 @@ void() ImpulseCommands =
 
 	if (self.impulse == 255)
 		QuadCheat ();
+		
+	}
 		
 	if (self.impulse == 13 && vote_time > time && self.voted == 0) //yes
 	{
@@ -1604,6 +1626,18 @@ void() ImpulseCommands =
 		bprint (" voted yes\n");
 	}
 	
+	if (self.impulse == 26 && vote_time < time) //vote_practice
+	{
+		vote_time = time + 30;
+		vote_subj = "deathmatch 5; restart";
+		vote_yes = vote_yes + 1;
+		self.voted = 1;
+		sprint (self, "Voted yes\n");
+		bprint ("Vote to change gamemode to walljump practice type yes or no in console\n");
+		bprint (self.netname);
+		bprint (" voted yes\n");
+	}
+	
 	if (self.impulse == 21) //spikes
 		count_spike(self);
 		
@@ -1621,7 +1655,7 @@ void() ImpulseCommands =
 		count_spike(self);
 	}
 		
-	if (self.impulse == 30)
+	if (self.impulse == 30 && !self.deadflag)
 		walljump ();
 		
 	self.impulse = 0;
@@ -1657,6 +1691,10 @@ Called every frame so impulse events can be handled as well as possible
 
 void() W_WeaponFrame =
 {
+
+	if (!self.deadflag)
+	{
+	
 	if ((self.flags & FL_CLIENT))
 	{
 		TraceID ();
@@ -1679,7 +1717,7 @@ void() W_WeaponFrame =
 	//	self.attack_finished = time + 0.4;
 	//}
 	
-	if (time == self.attack_finished && self.weapon == IT_LIGHTNING && self.ammo_cells > 0)
+	if (time == self.attack_finished && self.weapon == IT_LIGHTNING && self.ammo_cells > 0 && self.health > 0)
 	{
 		sound (self, CHAN_WEAPON, "weapons/lhit.wav", 1, ATTN_NORM);
 		stuffcmd(self, "bf\n");
@@ -1693,11 +1731,13 @@ void() W_WeaponFrame =
 	if (time < self.attack_finished)
 		return;
 
+	}
+	
 	if (self.impulse)
 		ImpulseCommands ();
 	
 // check for attack
-	if (self.button0)
+	if (self.button0 && !self.deadflag)
 	{
 		SuperDamageSound ();
 		W_Attack ();
