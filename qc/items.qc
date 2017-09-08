@@ -37,6 +37,7 @@ void() PlaceItem =
 {
 	//insta-axe items fix by SpecialBomb
 	if (deathmode == 3 || deathmode == 4 || deathmode == 5) {
+		remove(self);
 		return;
 	}
 	local float	oldz;
