@@ -73,12 +73,12 @@ void() SetNewParms =
 	parm8 = 1;
 	parm9 = 0;
 	//insta-axe remove shotgun fix by SpecialBomb
-	if (deathmatch == 3)
+	if (deathmode == 3)
 	{
 		parm1 = IT_AXE;
 		parm4 = 0;
 	}
-	if (deathmatch == 5)
+	if (deathmode == 5)
 	{
 		parm1 = IT_SUPER_SHOTGUN | IT_ROCKET_LAUNCHER | IT_GRENADE_LAUNCHER;
 		parm4 = 100;
@@ -109,14 +109,14 @@ void() DecodeLevelParms =
 	self.ammo_cells = parm7;
 	self.weapon = parm8;
 	self.armortype = parm9 * 0.01;
-	if (deathmatch == 4)
+	if (deathmode == 4)
 	{
 		self.ammo_shells = 0;
 		self.ammo_cells = 100;
 		self.items = IT_LIGHTNING;
 		self.weapon = IT_LIGHTNING;
 	}
-	if (deathmatch == 5)
+	if (deathmode == 5)
 		self.weapon = IT_SUPER_SHOTGUN;
 };
 
@@ -843,7 +843,7 @@ void() WaterMove =
 	if (self.health < 0)
 		return;
 
-	if (self.waterlevel != 3 && deathmatch != 5)
+	if (self.waterlevel != 3 && deathmode != 5)
 	{
 		if (self.air_finished < time)
 			sound (self, CHAN_VOICE, "player/gasp2.wav", 1, ATTN_NORM);
@@ -852,7 +852,7 @@ void() WaterMove =
 		self.air_finished = time + 12;
 		self.dmg = 2;
 	}
-	else if (self.air_finished < time && deathmatch != 5)
+	else if (self.air_finished < time && deathmode != 5)
 	{	// drown!
 		if (self.pain_finished < time)
 		{
@@ -875,7 +875,7 @@ void() WaterMove =
 		return;
 	}
 
-	if (self.watertype == CONTENT_LAVA && deathmatch != 5)
+	if (self.watertype == CONTENT_LAVA && deathmode != 5)
 	{	// do damage
 		if (self.dmgtime < time)
 		{
@@ -887,7 +887,7 @@ void() WaterMove =
 			T_Damage (self, world, world, 10*self.waterlevel);
 		}
 	}
-	else if (self.watertype == CONTENT_SLIME && deathmatch != 5)
+	else if (self.watertype == CONTENT_SLIME && deathmode != 5)
 	{	// do damage
 		if (self.dmgtime < time && self.radsuit_finished < time)
 		{

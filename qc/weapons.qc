@@ -57,7 +57,7 @@ void() W_FireAxe =
 		}
 		else
 		{
-		if (deathmatch == 3){
+		if (deathmode == 3){
 			T_Damage (trace_ent, self, self, 1000);
 		}
 		else {
@@ -312,7 +312,7 @@ void() W_FireSuperShotgun =
 
 	//self.punchangle_x = -4;
 	
-	if (deathmatch != 5)
+	if (deathmode != 5)
 		self.currentammo = self.ammo_shells = self.ammo_shells - 2;
 	dir = aim (self, 100000);
 	if (!deathmatch)
@@ -327,7 +327,7 @@ void() W_FireSuperShotgun =
 	else {
 		self.velocity = (-dir*150)+self.velocity;
 	}
-	//if (deathmatch != 5)
+	//if (deathmode != 5)
 		FireBullets (15, dir, '0.16 0.16 0', (20/3));
 	}
 };
@@ -407,7 +407,7 @@ void() W_FireRocket =
 {
 	local	entity missile, mpuff;
 	
-	if (deathmatch != 5)
+	if (deathmode != 5)
 		self.currentammo = self.ammo_rockets = self.ammo_rockets - 1;
 	
 	sound (self, CHAN_WEAPON, "weapons/sgun1.wav", 1, ATTN_NORM);
@@ -513,7 +513,7 @@ void() Lshoot =
 	WriteCoord (MSG_BROADCAST, trace_endpos_y);
 	WriteCoord (MSG_BROADCAST, trace_endpos_z);
 	
-	if (deathmatch == 4)
+	if (deathmode == 4)
 	{
 		LightningDamage (src, trace_endpos + v_forward*4, self, 1000);
 	}
@@ -555,7 +555,7 @@ void() W_FireLightning =
 	//}
 	Lshoot();
 	self.attack_finished = time + 1.5;
-	if (deathmatch != 4)
+	if (deathmode != 4)
 		self.currentammo = self.ammo_cells = self.ammo_cells - 10;
 	SuperDamageSound();
 	sound (self, CHAN_WEAPON, "weapons/lstart.wav", 1, ATTN_NORM);
@@ -602,7 +602,7 @@ void() W_FireGrenade =
 {
 	local	entity missile, mpuff;
 	
-	if (deathmatch != 5)
+	if (deathmode != 5)
 		self.currentammo = self.ammo_rockets = self.ammo_rockets - 1;
 	
 	sound (self, CHAN_WEAPON, "weapons/grenade.wav", 1, ATTN_NORM);
@@ -960,7 +960,7 @@ void() W_SetCurrentAmmo =
 	{
 		self.currentammo = 0;
 		self.weaponmodel = "progs/v_axe.mdl";
-		if (deathmatch == 5)
+		if (deathmode == 5)
 			self.weaponmodel = "";
 		self.weaponframe = 0;
 	}
@@ -1050,7 +1050,7 @@ float() W_CheckNoAmmo =
 	if (self.weapon == IT_AXE)
 		return TRUE;
 		
-	if (deathmatch == 4)
+	if (deathmode == 4)
 		return TRUE;
 	
 	self.weapon = W_BestWeapon ();
@@ -1091,7 +1091,7 @@ void() W_Attack =
 
 	if (self.weapon == IT_AXE)
 	{
-		if (deathmatch == 5)
+		if (deathmode == 5)
 			return;
 		sound (self, CHAN_WEAPON, "weapons/ax1.wav", 1, ATTN_NORM);
 		r = random();
@@ -1318,7 +1318,7 @@ void() CycleWeaponCommand =
 		else if (self.weapon == IT_ROCKET_LAUNCHER)
 		{
 			self.weapon = IT_LIGHTNING;
-			if (self.ammo_cells < 10 && deathmatch != 4)
+			if (self.ammo_cells < 10 && deathmode != 4)
 				am = 1;
 		}
 	
@@ -1392,7 +1392,7 @@ void() CycleWeaponReverseCommand =
 		else if (self.weapon == IT_AXE)
 		{
 			self.weapon = IT_LIGHTNING;
-			if (self.ammo_cells < 10 && deathmatch != 4)
+			if (self.ammo_cells < 10 && deathmode != 4)
 				am = 1;
 		}
 	
@@ -1593,7 +1593,7 @@ void() ImpulseCommands =
 	if (self.impulse == 23 && vote_time < time) //vote_deathmatch
 	{
 		vote_time = time + 30;
-		vote_subj = "deathmatch 1; restart";
+		vote_subj = "temp1 0; restart";
 		vote_yes = vote_yes + 1;
 		self.voted = 1;
 		sprint (self, "Voted yes\n");
@@ -1605,7 +1605,7 @@ void() ImpulseCommands =
 	if (self.impulse == 24 && vote_time < time) //vote_instaaxe
 	{
 		vote_time = time + 30;
-		vote_subj = "deathmatch 3; restart";
+		vote_subj = "temp1 3; restart";
 		vote_yes = vote_yes + 1;
 		self.voted = 1;
 		sprint (self, "Voted yes\n");
@@ -1617,7 +1617,7 @@ void() ImpulseCommands =
 	if (self.impulse == 25 && vote_time < time) //vote_instagib
 	{
 		vote_time = time + 30;
-		vote_subj = "deathmatch 4; restart";
+		vote_subj = "temp1 4; restart";
 		vote_yes = vote_yes + 1;
 		self.voted = 1;
 		sprint (self, "Voted yes\n");
@@ -1629,7 +1629,7 @@ void() ImpulseCommands =
 	if (self.impulse == 26 && vote_time < time) //vote_practice
 	{
 		vote_time = time + 30;
-		vote_subj = "deathmatch 5; restart";
+		vote_subj = "temp1 5; restart";
 		vote_yes = vote_yes + 1;
 		self.voted = 1;
 		sprint (self, "Voted yes\n");
@@ -1723,7 +1723,7 @@ void() W_WeaponFrame =
 		stuffcmd(self, "bf\n");
 	}
 	
-	if (self.button0 == FALSE && deathmatch == 4 && self.weapon == IT_LIGHTNING && self.ammo_cells < 10)
+	if (self.button0 == FALSE && deathmode == 4 && self.weapon == IT_LIGHTNING && self.ammo_cells < 10)
 	{
 		self.ammo_cells = 10;
 	}

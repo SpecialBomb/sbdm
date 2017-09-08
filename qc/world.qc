@@ -419,6 +419,7 @@ void() StartFrame =
 {
 	teamplay = cvar("teamplay");
 	skill = cvar("skill");
+	deathmode = cvar("temp1");
 	framecount = framecount + 1;
 	if (!votemaster)
 	{

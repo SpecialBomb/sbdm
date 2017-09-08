@@ -36,7 +36,7 @@ plants the object on the floor
 void() PlaceItem =
 {
 	//insta-axe items fix by SpecialBomb
-	if (deathmatch == 3 || deathmatch == 4 || deathmatch == 5) {
+	if (deathmode == 3 || deathmode == 4 || deathmode == 5) {
 		return;
 	}
 	local float	oldz;

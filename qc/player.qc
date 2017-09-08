@@ -552,7 +552,7 @@ void() PlayerDie =
 	self.modelindex = modelindex_player;	// don't use eyes
 	stuffcmd (self, "v_cshift 0 0 0 0");//clear ring effect
 
-	if ((deathmatch || coop) && deathmatch != 3 && deathmatch != 4)
+	if ((deathmatch || coop) && deathmode != 3 && deathmode != 4)
 		DropBackpack();
 	
 	self.weaponmodel="";

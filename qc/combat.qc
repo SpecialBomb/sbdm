@@ -144,7 +144,7 @@ void(entity targ, entity inflictor, entity attacker, float damage) T_Damage=
 	}
 	
 	// pushtime and push entity gets set here
-	if (targ.flags & FL_CLIENT && attacker.flags & FL_CLIENT && targ != attacker && deathmatch != 5)
+	if (targ.flags & FL_CLIENT && attacker.flags & FL_CLIENT && targ != attacker && deathmode != 5)
 	{
 		targ.pusher = attacker;
 		
@@ -161,7 +161,7 @@ void(entity targ, entity inflictor, entity attacker, float damage) T_Damage=
 // figure momentum add
 	if ( (inflictor != world) && (targ.movetype == MOVETYPE_WALK) && (inflictor.classname != "stuck_spike") )
 	{
-		if (deathmatch == 5 && targ != attacker)
+		if (deathmode == 5 && targ != attacker)
 			return;
 		dir = targ.origin - (inflictor.absmin + inflictor.absmax) * 0.5;
 		dir = normalize(dir);
@@ -191,7 +191,7 @@ void(entity targ, entity inflictor, entity attacker, float damage) T_Damage=
 		
 // do the damage
 
-	if (targ.flags & FL_CLIENT && deathmatch == 5)
+	if (targ.flags & FL_CLIENT && deathmode == 5)
 		return;
 	
 	targ.health = targ.health - take;

@@ -419,6 +419,9 @@ float		vote_yes;
 float		vote_no;
 entity		votemaster;
 
+//deathmode define
+float deathmode;
+
 //deathmessage vars
 string dmesg1;
 string dmesg2;
