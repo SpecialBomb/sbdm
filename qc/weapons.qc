@@ -779,7 +779,7 @@ if (other.takedamage)
 	{
 		local entity thing;
 		local float tdmg;
-		tdmg = 30;
+		tdmg = 0;
 		thing = findradius(self.origin, 1);
 		while(thing)
 		{
