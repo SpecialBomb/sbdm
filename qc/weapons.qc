@@ -1119,7 +1119,9 @@ void() W_Attack =
 	}
 	else if (self.weapon == IT_NAILGUN)
 	{
-		player_nail1 ();
+		//player_nail1 ();
+		player_rocket1();
+		W_FireSpikes (0);
 		self.attack_finished = time + 1;
 	}
 	else if (self.weapon == IT_SUPER_NAILGUN)
