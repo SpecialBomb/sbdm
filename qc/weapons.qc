@@ -1122,7 +1122,7 @@ void() W_Attack =
 		//player_nail1 ();
 		player_rocket1();
 		W_FireSpikes (0);
-		self.attack_finished = time + 1;
+		self.attack_finished = time + 0.8;
 	}
 	else if (self.weapon == IT_SUPER_NAILGUN)
 	{
