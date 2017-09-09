@@ -22,6 +22,7 @@ void() W_Precache =
 	precache_sound ("weapons/grenade.wav");	// grenade launcher
 	precache_sound ("weapons/bounce.wav");		// grenade bounce
 	precache_sound ("weapons/shotgn2.wav");	// super shotgun
+	precache_model ("progs/v_spike.mdl");
 };
 
 float() crandom =
@@ -1122,7 +1123,7 @@ void() W_Attack =
 		//player_nail1 ();
 		player_rocket1();
 		W_FireSpikes (0);
-		self.attack_finished = time + 0.8;
+		self.attack_finished = time + 0.6;
 	}
 	else if (self.weapon == IT_SUPER_NAILGUN)
 	{
