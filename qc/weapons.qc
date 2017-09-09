@@ -701,7 +701,7 @@ void(vector org, vector dir) launch_spike =
 		newmis.movetype = MOVETYPE_TOSS;
 		newmis.nextthink = time + 60;
 	}
-	setmodel (newmis, "progs/spike.mdl");
+	setmodel (newmis, "progs/v_spike.mdl");
 	setsize (newmis, VEC_ORIGIN, VEC_ORIGIN);		
 	setorigin (newmis, org);
 
@@ -752,7 +752,7 @@ void(float ox) W_FireSpikes =
 		return;
 	}
 	
-	if (!(self.nails < 30))
+	if (!(self.nails < 3))
 	{
 		sound (self, CHAN_WEAPON, "weapons/tink1.wav", 1, ATTN_NORM);
 		return;
@@ -779,7 +779,7 @@ if (other.takedamage)
 	{
 		local entity thing;
 		local float tdmg;
-		tdmg = 9;
+		tdmg = 30;
 		thing = findradius(self.origin, 1);
 		while(thing)
 		{
@@ -787,7 +787,7 @@ if (other.takedamage)
 			{
 				self.owner.nails = self.owner.nails - 1;
 				remove(thing);
-				tdmg = tdmg + 9;
+				tdmg = tdmg + 30;
 			}
 			thing = thing.chain;
 		}
@@ -860,8 +860,8 @@ local float rand;
 // hit something that bleeds
 	if (other.takedamage)
 	{
-		spawn_touchblood (9);
-		T_Damage (other, self, self.owner, 9);
+		spawn_touchblood (30);
+		T_Damage (other, self, self.owner, 30);
 		remove(self);
 		self.owner.nails = self.owner.nails - 1;
 		count_spike(self.owner);
