@@ -181,7 +181,7 @@ void() player_nail1   =[$nailatt1, player_nail2  ]
 		self.weaponframe = 1;
 	SuperDamageSound();
 	W_FireSpikes (0);
-	self.attack_finished = time + 0.2;
+	self.attack_finished = time + 1;
 };
 void() player_nail2   =[$nailatt2, player_nail1  ]
 {
@@ -194,7 +194,7 @@ void() player_nail2   =[$nailatt2, player_nail1  ]
 		self.weaponframe = 1;
 	SuperDamageSound();
 	W_FireSpikes (0);
-	self.attack_finished = time + 0.2;
+	self.attack_finished = time + 1;
 };
 
 //============================================================================
