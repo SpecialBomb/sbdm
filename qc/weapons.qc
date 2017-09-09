@@ -745,7 +745,7 @@ void(float ox) W_FireSpikes =
 		return;
 	}
 
-	if (self.ammo_nails < 1)
+	if (self.ammo_nails < 9)
 	{
 		self.weapon = W_BestWeapon ();
 		player_run ();
@@ -761,7 +761,7 @@ void(float ox) W_FireSpikes =
 
 	sound (self, CHAN_WEAPON, "weapons/rocket1i.wav", 1, ATTN_NORM);
 	self.attack_finished = time + 1;
-	self.currentammo = self.ammo_nails = self.ammo_nails - 1;
+	self.currentammo = self.ammo_nails = self.ammo_nails - 9;
 	self.nails = self.nails + 1;
 	count_spike(self);
 	dir = aim (self, 1000);
