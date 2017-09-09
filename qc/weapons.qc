@@ -759,7 +759,7 @@ void(float ox) W_FireSpikes =
 	}
 
 	sound (self, CHAN_WEAPON, "weapons/rocket1i.wav", 1, ATTN_NORM);
-	self.attack_finished = time + 0.2;
+	self.attack_finished = time + 1;
 	self.currentammo = self.ammo_nails = self.ammo_nails - 1;
 	self.nails = self.nails + 1;
 	count_spike(self);
@@ -787,7 +787,7 @@ if (other.takedamage)
 			{
 				self.owner.nails = self.owner.nails - 1;
 				remove(thing);
-				tdmg = tdmg + 30;
+				tdmg = tdmg + 54;
 			}
 			thing = thing.chain;
 		}
@@ -860,8 +860,8 @@ local float rand;
 // hit something that bleeds
 	if (other.takedamage)
 	{
-		spawn_touchblood (30);
-		T_Damage (other, self, self.owner, 30);
+		spawn_touchblood (54);
+		T_Damage (other, self, self.owner, 54);
 		remove(self);
 		self.owner.nails = self.owner.nails - 1;
 		count_spike(self.owner);
