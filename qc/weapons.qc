@@ -753,7 +753,7 @@ void(float ox) W_FireSpikes =
 		return;
 	}
 	
-	if (!(self.nails < 3))
+	if (!(self.nails < 5))
 	{
 		sound (self, CHAN_WEAPON, "weapons/tink1.wav", 1, ATTN_NORM);
 		return;
@@ -1709,7 +1709,7 @@ void() W_WeaponFrame =
 		self.wjcount = 0;
 	}
 
-	if (self.impulse == 30)
+	if (self.impulse == 30 || self.impulse == 21 || self.impulse == 22)
 		ImpulseCommands ();
 		
 	//if (self.button0 == FALSE && self.weapon == IT_LIGHTNING && self.lcharge > 0)
