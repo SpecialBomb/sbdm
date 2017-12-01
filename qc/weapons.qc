@@ -1181,7 +1181,7 @@ void() W_ChangeWeapon =
 	else if (self.impulse == 4)
 	{
 		fl = IT_NAILGUN;
-		if (self.ammo_nails < 1 || self.nails > 29)
+		if (self.ammo_nails < 9 || self.nails > 4)
 			am = 1;
 	}
 	else if (self.impulse == 5)
