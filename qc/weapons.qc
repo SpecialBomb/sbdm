@@ -1480,7 +1480,9 @@ void() walljump =
 		wwj = v_forward * 500;
 		wwj_z = 200;
 		
-		makevectors(self.velocity);
+		local	vector vel;
+		vel_y = self.velocity_y;
+		makevectors(vel);
 		sprint(self, ftos(vlen(v_forward)));
 		sprint(self, "\n");
 		
