@@ -705,6 +705,10 @@ void(vector org, vector dir) launch_spike =
 	setmodel (newmis, "progs/s_spike.mdl");
 	setsize (newmis, VEC_ORIGIN, VEC_ORIGIN);		
 	setorigin (newmis, org);
+	
+	self.avelocity_x = crandom(200);
+	self.avelocity_y = crandom(200);
+	self.avelocity_z = crandom(200);
 
 	newmis.velocity = dir * 1000;
 };
@@ -883,9 +887,7 @@ local float rand;
 		//setsize (self, VEC_ORIGIN, ' 0 0 4');
 		self.velocity = '0 0 0';
 		
-		self.avelocity_x = crandom(200);
-		self.avelocity_y = crandom(200);
-		self.avelocity_z = crandom(200);
+		
 
 		WriteByte (MSG_BROADCAST, SVC_TEMPENTITY);
 		
