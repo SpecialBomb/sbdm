@@ -11,6 +11,12 @@ in function spike_touch (line 651),
 weapons.qc:846: warning: rand duplicate definition ignored
 weapons.qc:807:    rand  is defined here
 weapons.qc:847: warning: Implicit conversion
+weapons.qc:886: warning: too many parameters
+weapons.qc:28:    crandom  is defined here
+weapons.qc:887: warning: too many parameters
+weapons.qc:28:    crandom  is defined here
+weapons.qc:888: warning: too many parameters
+weapons.qc:28:    crandom  is defined here
 compiling world.qc
 compiling dmesg.qc
 compiling client.qc
@@ -73,7 +79,7 @@ weapons.qc:715: warning: old  no references
 weapons.qc:738: warning: old  no references
 weapons.qc:775: warning: hit_z  no references
 weapons.qc:807: warning: rand  no references
-weapons.qc:913: warning: rand  no references
+weapons.qc:910: warning: rand  no references
 world.qc:450: warning: e  no references
 client.qc:321: warning: pos  no references
 client.qc:748: warning: old_self  no references
@@ -106,13 +112,13 @@ demon.qc:280: warning: vec  no references
 dog.qc:306: warning: vec  no references
 zombie.qc:164: warning: mpuff  no references
  93436 strofs (of 1000000)
- 22389 numstatements (of 524288)
+ 22365 numstatements (of 524288)
   2114 numfunctions (of 16384)
   4500 numglobaldefs (of 32768)
    231 numfielddefs (208 unique) (of 2048)
-  4545 numpr_globals (of 65536)
+  4541 numpr_globals (of 65536)
 Writing ../progs.dat
-404868 TOTAL SIZE
+404660 TOTAL SIZE
 Writing ../progs.lno
 225 unique precache_sounds
  95 unique precache_models
@@ -120,11 +126,11 @@ Writing ../progs.lno
 Compile Complete
 
 optres_shortenifnots 126
-optres_overlaptemps 8169
+optres_overlaptemps 8139
 optres_constantarithmatic 23
-optres_nonvec_parms 4203
-optres_assignments 489
+optres_nonvec_parms 4204
+optres_assignments 488
 optres_unreferenced 69
 optres_dupconstdefs 101
-numtemps 125
-67 warnings
+numtemps 121
+70 warnings
