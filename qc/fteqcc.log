@@ -7,16 +7,17 @@ compiling ai.qc
 compiling combat.qc
 compiling items.qc
 compiling weapons.qc
+in function launch_spike (line 675),
+weapons.qc:709: warning: too many parameters
+weapons.qc:28:    crandom  is defined here
+weapons.qc:710: warning: too many parameters
+weapons.qc:28:    crandom  is defined here
+weapons.qc:711: warning: too many parameters
+weapons.qc:28:    crandom  is defined here
 in function spike_touch (line 651),
-weapons.qc:846: warning: rand duplicate definition ignored
-weapons.qc:807:    rand  is defined here
-weapons.qc:847: warning: Implicit conversion
-weapons.qc:886: warning: too many parameters
-weapons.qc:28:    crandom  is defined here
-weapons.qc:887: warning: too many parameters
-weapons.qc:28:    crandom  is defined here
-weapons.qc:888: warning: too many parameters
-weapons.qc:28:    crandom  is defined here
+weapons.qc:850: warning: rand duplicate definition ignored
+weapons.qc:811:    rand  is defined here
+weapons.qc:851: warning: Implicit conversion
 compiling world.qc
 compiling dmesg.qc
 compiling client.qc
@@ -75,11 +76,11 @@ items.qc:1087: warning: best  no references
 weapons.qc:104: warning: mpuff  no references
 weapons.qc:409: warning: mpuff  no references
 weapons.qc:604: warning: mpuff  no references
-weapons.qc:715: warning: old  no references
-weapons.qc:738: warning: old  no references
-weapons.qc:775: warning: hit_z  no references
-weapons.qc:807: warning: rand  no references
-weapons.qc:910: warning: rand  no references
+weapons.qc:719: warning: old  no references
+weapons.qc:742: warning: old  no references
+weapons.qc:779: warning: hit_z  no references
+weapons.qc:811: warning: rand  no references
+weapons.qc:912: warning: rand  no references
 world.qc:450: warning: e  no references
 client.qc:321: warning: pos  no references
 client.qc:748: warning: old_self  no references
