@@ -1479,6 +1479,8 @@ void() walljump =
 		wwj_z = 200;
 		self.velocity = wwj;
 		sound (self, CHAN_VOICE, "player/land.wav", 1, ATTN_NORM);
+		sprint(self, vtos(vlen(self.velocity_y)));
+		sprint(self, "\n");
 	}
 };
 
