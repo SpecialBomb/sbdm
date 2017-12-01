@@ -1473,14 +1473,19 @@ void() walljump =
 		self.wjcount = self.wjcount + 1;
 		local	vector wj;
 		local	vector wwj;
+		local	vector forward;
 		wj_y = self.angles_y;
 		makevectors (wj);
+		forward = v_forward;
 		wwj = v_forward * 500;
 		wwj_z = 200;
+		
+		makevectors(self.velocity)
+		sprint(self, vtos(vlen(v_forward)));
+		sprint(self, "\n");
+		
 		self.velocity = wwj;
 		sound (self, CHAN_VOICE, "player/land.wav", 1, ATTN_NORM);
-		sprint(self, ftos(self.velocity_y));
-		sprint(self, "\n");
 	}
 };
 
