@@ -883,7 +883,7 @@ local float rand;
 		//setsize (self, VEC_ORIGIN, ' 0 0 4');
 		self.velocity = '0 0 0';
 		makevectors(self.angles);
-		traceline(self.origin, self.origin + v_forward*4, FALSE, self);
+		traceline(self.origin, self.origin, FALSE, self);
 		
 		self.angles = vectoangles(trace_plane_normal);
 		self.angles_x = self.angles_x+(crandom()*30);
