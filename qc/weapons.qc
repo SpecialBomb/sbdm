@@ -1035,7 +1035,7 @@ float() W_BestWeapon =
 		return IT_SUPER_NAILGUN;
 	if(self.ammo_shells >= 2 && (it & IT_SUPER_SHOTGUN) )
 		return IT_SUPER_SHOTGUN;
-	if(self.ammo_nails >= 1 && (it & IT_NAILGUN) && (self.nails < 30))
+	if(self.ammo_nails >= 9 && (it & IT_NAILGUN) && (self.nails < 5))
 		return IT_NAILGUN;
 	if(self.ammo_shells >= 1 && (it & IT_SHOTGUN) )
 		return IT_SHOTGUN;
@@ -1298,7 +1298,7 @@ void() CycleWeaponCommand =
 		else if (self.weapon == IT_SUPER_SHOTGUN)
 		{
 			self.weapon = IT_NAILGUN;
-			if (self.ammo_nails < 1 || self.nails > 29)
+			if (self.ammo_nails < 9 || self.nails > 4)
 				am = 1;
 		}
 		else if (self.weapon == IT_NAILGUN)
@@ -1374,7 +1374,7 @@ void() CycleWeaponReverseCommand =
 		else if (self.weapon == IT_SUPER_NAILGUN)
 		{
 			self.weapon = IT_NAILGUN;
-			if (self.ammo_nails < 1 || self.nails > 29)
+			if (self.ammo_nails < 9 || self.nails > 4)
 				am = 1;
 		}
 		else if (self.weapon == IT_NAILGUN)
