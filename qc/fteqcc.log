@@ -7,17 +7,10 @@ compiling ai.qc
 compiling combat.qc
 compiling items.qc
 compiling weapons.qc
-in function launch_spike (line 675),
-weapons.qc:709: warning: too many parameters
-weapons.qc:28:    crandom  is defined here
-weapons.qc:710: warning: too many parameters
-weapons.qc:28:    crandom  is defined here
-weapons.qc:711: warning: too many parameters
-weapons.qc:28:    crandom  is defined here
 in function spike_touch (line 651),
-weapons.qc:850: warning: rand duplicate definition ignored
-weapons.qc:811:    rand  is defined here
-weapons.qc:851: warning: Implicit conversion
+weapons.qc:848: warning: rand duplicate definition ignored
+weapons.qc:809:    rand  is defined here
+weapons.qc:849: warning: Implicit conversion
 compiling world.qc
 compiling dmesg.qc
 compiling client.qc
@@ -76,11 +69,11 @@ items.qc:1087: warning: best  no references
 weapons.qc:104: warning: mpuff  no references
 weapons.qc:409: warning: mpuff  no references
 weapons.qc:604: warning: mpuff  no references
-weapons.qc:719: warning: old  no references
-weapons.qc:742: warning: old  no references
-weapons.qc:779: warning: hit_z  no references
-weapons.qc:811: warning: rand  no references
-weapons.qc:912: warning: rand  no references
+weapons.qc:717: warning: old  no references
+weapons.qc:740: warning: old  no references
+weapons.qc:777: warning: hit_z  no references
+weapons.qc:809: warning: rand  no references
+weapons.qc:910: warning: rand  no references
 world.qc:450: warning: e  no references
 client.qc:321: warning: pos  no references
 client.qc:748: warning: old_self  no references
@@ -113,13 +106,13 @@ demon.qc:280: warning: vec  no references
 dog.qc:306: warning: vec  no references
 zombie.qc:164: warning: mpuff  no references
  93436 strofs (of 1000000)
- 22365 numstatements (of 524288)
+ 22355 numstatements (of 524288)
   2114 numfunctions (of 16384)
   4500 numglobaldefs (of 32768)
    231 numfielddefs (208 unique) (of 2048)
-  4541 numpr_globals (of 65536)
+  4540 numpr_globals (of 65536)
 Writing ../progs.dat
-404660 TOTAL SIZE
+404576 TOTAL SIZE
 Writing ../progs.lno
 225 unique precache_sounds
  95 unique precache_models
@@ -129,9 +122,9 @@ Compile Complete
 optres_shortenifnots 126
 optres_overlaptemps 8139
 optres_constantarithmatic 23
-optres_nonvec_parms 4204
+optres_nonvec_parms 4201
 optres_assignments 488
 optres_unreferenced 69
 optres_dupconstdefs 101
-numtemps 121
-70 warnings
+numtemps 120
+67 warnings
