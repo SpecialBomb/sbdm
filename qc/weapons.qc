@@ -784,7 +784,7 @@ if (other.takedamage)
 		thing = findradius(self.origin, 1);
 		while(thing)
 		{
-			if ( (thing.classname == "stuck_spike") && (thing.classname != self) )
+			if ( (thing.classname == "stuck_spike") && (thing != self) )
 			{
 				self.owner.nails = self.owner.nails - 1;
 				remove(thing);
