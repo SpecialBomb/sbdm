@@ -706,7 +706,7 @@ void(vector org, vector dir) launch_spike =
 	setsize (newmis, VEC_ORIGIN, VEC_ORIGIN);		
 	setorigin (newmis, org);
 	
-	self.avelocity = '300 300 300';
+	newmis.avelocity = '300 300 300';
 
 	newmis.velocity = dir * 1000;
 };
