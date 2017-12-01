@@ -888,7 +888,7 @@ local float rand;
 		self.angles = vectoangles(trace_plane_normal);
 		self.angles_x = self.angles_x+(crandom()*30)+180;
 		self.angles_y = self.angles_y+(crandom()*30)+180;
-		self.angles_z = self.angles_z+(crandom()*30);
+		self.angles_z = self.angles_z+(crandom()*30)+180;
 
 		WriteByte (MSG_BROADCAST, SVC_TEMPENTITY);
 		
