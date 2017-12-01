@@ -882,13 +882,10 @@ local float rand;
 		self.touch = spike_hurt;
 		//setsize (self, VEC_ORIGIN, ' 0 0 4');
 		self.velocity = '0 0 0';
-		makevectors(self.angles);
-		traceline(self.origin, self.origin + v_forward*4, FALSE, self);
 		
-		self.angles = vectoangles(trace_plane_normal);
-		self.angles_x = self.angles_x+(crandom()*30)+180;
-		self.angles_y = self.angles_y+(crandom()*30)+180;
-		self.angles_z = self.angles_z+(crandom()*30)+180;
+		self.avelocity_x = crandom(200);
+		self.avelocity_y = crandom(200);
+		self.avelocity_z = crandom(200);
 
 		WriteByte (MSG_BROADCAST, SVC_TEMPENTITY);
 		
