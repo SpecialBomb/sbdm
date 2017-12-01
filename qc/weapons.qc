@@ -780,11 +780,11 @@ if (other.takedamage)
 	{
 		local entity thing;
 		local float tdmg;
-		tdmg = 0;
+		tdmg = 54;
 		thing = findradius(self.origin, 1);
 		while(thing)
 		{
-			if (thing.classname == "stuck_spike")
+			if (thing.classname == "stuck_spike") && (thing.classname != self)
 			{
 				self.owner.nails = self.owner.nails - 1;
 				remove(thing);
@@ -794,7 +794,7 @@ if (other.takedamage)
 		}
 		spawn_touchblood (tdmg);
 		T_Damage (other, self, self.owner, tdmg);
-		//self.owner.nails = self.owner.nails - 1;
+		self.owner.nails = self.owner.nails - 1;
 		count_spike(self.owner);
 		remove(self);
 	}
