@@ -702,7 +702,7 @@ void(vector org, vector dir) launch_spike =
 		newmis.movetype = MOVETYPE_TOSS;
 		newmis.nextthink = time + 60;
 	}
-	setmodel (newmis, "progs/v_spike.mdl");
+	setmodel (newmis, "progs/s_spike.mdl");
 	setsize (newmis, VEC_ORIGIN, VEC_ORIGIN);		
 	setorigin (newmis, org);
 
