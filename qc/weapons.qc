@@ -1482,6 +1482,7 @@ void() walljump =
 		
 		local	vector vel;
 		vel_y = self.velocity_y;
+		vel_x = self.velocity_x;
 		makevectors(vel);
 		sprint(self, ftos(vlen(v_forward)));
 		sprint(self, "\n");
