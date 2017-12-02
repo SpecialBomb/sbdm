@@ -1483,10 +1483,16 @@ void() walljump =
 		local	vector vel;
 		vel = self.velocity;
 		vel_z = 0;
-		sprint(self, ftos(vlen(vel)));
-		sprint(self, "\n");
 		
-		self.velocity = wwj;
+		if (vlen(vel) < 500)
+		{
+			self.velocity = wwj;
+		}
+		else
+		{
+			self.velocity = v_forward * vlen(vel);
+			self.velocity_z = 200;
+		}
 		sound (self, CHAN_VOICE, "player/land.wav", 1, ATTN_NORM);
 	}
 };
