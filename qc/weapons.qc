@@ -1684,7 +1684,7 @@ void() ImpulseCommands =
 			self.wjmode = 1;
 			sprint(self, "ALIAS WALLJUMP ENABLED\n");
 		}	
-		if (self.wjmode == 1)
+		else
 		{
 			self.wjmode = 0;
 			sprint(self, "JUMP WALLJUMP ENABLED\n");
