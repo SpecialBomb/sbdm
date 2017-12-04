@@ -1674,8 +1674,17 @@ void() ImpulseCommands =
 		count_spike(self);
 	}
 		
-	if (self.impulse == 30 && !self.deadflag)
+	if (self.impulse == 30 && !self.deadflag && self.wjmode == 1)
 		walljump ();
+
+	if (self.impulse == 31)
+	{
+		if (self.wjmode == 0)
+			self.wjmode = 1;
+			
+		if (self.wjmode == 1)
+			self.wjmode = 0;
+	}
 		
 	self.impulse = 0;
 };

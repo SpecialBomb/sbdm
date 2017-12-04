@@ -808,7 +808,11 @@ void() PlayerJump =
 	}
 
 	if (!(self.flags & FL_ONGROUND))
+	{
+		if (self.wjmode == 0)
+			walljump();
 		return;
+	}
 
 	if ( !(self.flags & FL_JUMPRELEASED) )
 		return;		// don't pogo stick
@@ -969,6 +973,7 @@ void() PlayerPreThink =
 		centerprint (self, "Welcome to SpecialBomb's Deathmatch Mod!\n\nTo use the walljump, bind the \"walljump\" alias\n\nThe weapons have been changed, so you may need to get used to them\n\nTo vote for a map, type the map name in console. Type yes or no to vote.");
 		// send aliases here
 		sprint (self, "Sending aliases...\n");
+		stuffcmd (self, "alias wjmode \"impulse 31\"\n");
 		stuffcmd (self, "alias yes \"impulse 13\"\n");
 		stuffcmd (self, "alias no \"impulse 14\"\n");
 		stuffcmd (self, "alias dm1 \"impulse 15\"\n");
