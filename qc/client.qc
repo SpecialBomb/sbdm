@@ -809,8 +809,12 @@ void() PlayerJump =
 
 	if (!(self.flags & FL_ONGROUND))
 	{
-		if (self.wjmode == 0 && !(self.flags & FL_JUMPRELEASED))
-			walljump();
+		if (self.wjmode == 0)
+			if (self.wjflag == 1)
+			{
+				walljump();
+				self.wkflag = 0;
+			}
 		return;
 	}
 
@@ -1018,7 +1022,10 @@ void() PlayerPreThink =
 		PlayerJump ();
 	}
 	else
+	{
 		self.flags = self.flags | FL_JUMPRELEASED;
+		self.wjflag = 1;
+	}
 
 // teleporters can force a non-moving pause time	
 	if (time < self.pausetime)
