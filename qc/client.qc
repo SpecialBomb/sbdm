@@ -814,7 +814,7 @@ void() PlayerJump =
 			{
 				walljump();
 				self.wjflag = 0;
-				self.flags = self.flags - (self.flags & FL_JUMPRELEASED);
+				//self.flags = self.flags - (self.flags & FL_JUMPRELEASED);
 			}
 		return;
 	}
