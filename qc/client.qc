@@ -809,7 +809,7 @@ void() PlayerJump =
 
 	if (!(self.flags & FL_ONGROUND))
 	{
-		if (self.wjmode == 0)
+		if (self.wjmode == 0 && !(self.flags & FL_JUMPRELEASED))
 			walljump();
 		return;
 	}
