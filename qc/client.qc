@@ -813,7 +813,7 @@ void() PlayerJump =
 			if (self.wjflag == 1)
 			{
 				walljump();
-				self.wkflag = 0;
+				self.wjflag = 0;
 			}
 		return;
 	}
