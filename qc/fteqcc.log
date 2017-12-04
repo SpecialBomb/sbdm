@@ -49,7 +49,7 @@ defs.qc:518: warning: dest  no references
 defs.qc:565: warning: waitmax  no references
 defs.qc:566: warning: distance  no references
 defs.qc:567: warning: volume  no references
-defs.qc:722: warning: lattacking  no references
+defs.qc:724: warning: lattacking  no references
 fight.qc:298: warning: chance  no references
 ai.qc:37: warning: current_yaw  no references
 ai.qc:476: warning: mtemp  no references
@@ -79,13 +79,13 @@ client.qc:321: warning: pos  no references
 client.qc:748: warning: old_self  no references
 client.qc:783: warning: start  no references
 client.qc:783: warning: end  no references
-client.qc:966: warning: mspeed  no references
-client.qc:966: warning: aspeed  no references
-client.qc:967: warning: r  no references
-client.qc:1208: warning: mspeed  no references
-client.qc:1208: warning: aspeed  no references
-client.qc:1209: warning: r  no references
-client.qc:1314: warning: deathstring2  no references
+client.qc:967: warning: mspeed  no references
+client.qc:967: warning: aspeed  no references
+client.qc:968: warning: r  no references
+client.qc:1209: warning: mspeed  no references
+client.qc:1209: warning: aspeed  no references
+client.qc:1210: warning: r  no references
+client.qc:1316: warning: deathstring2  no references
 monsters.qc:51: warning: ent  no references
 monsters.qc:51: warning: otemp  no references
 monsters.qc:51: warning: stemp  no references
@@ -105,14 +105,14 @@ ogre.qc:92: warning: mpuff  no references
 demon.qc:280: warning: vec  no references
 dog.qc:306: warning: vec  no references
 zombie.qc:164: warning: mpuff  no references
- 93628 strofs (of 1000000)
- 22404 numstatements (of 524288)
+ 93644 strofs (of 1000000)
+ 22411 numstatements (of 524288)
   2114 numfunctions (of 16384)
-  4513 numglobaldefs (of 32768)
-   233 numfielddefs (210 unique) (of 2048)
-  4554 numpr_globals (of 65536)
+  4514 numglobaldefs (of 32768)
+   234 numfielddefs (211 unique) (of 2048)
+  4555 numpr_globals (of 65536)
 Writing ../progs.dat
-405336 TOTAL SIZE
+405428 TOTAL SIZE
 Writing ../progs.lno
 225 unique precache_sounds
  95 unique precache_models
@@ -120,7 +120,7 @@ Writing ../progs.lno
 Compile Complete
 
 optres_shortenifnots 126
-optres_overlaptemps 8165
+optres_overlaptemps 8170
 optres_constantarithmatic 23
 optres_nonvec_parms 4207
 optres_assignments 489
