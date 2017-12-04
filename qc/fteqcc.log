@@ -49,7 +49,7 @@ defs.qc:518: warning: dest  no references
 defs.qc:565: warning: waitmax  no references
 defs.qc:566: warning: distance  no references
 defs.qc:567: warning: volume  no references
-defs.qc:721: warning: lattacking  no references
+defs.qc:722: warning: lattacking  no references
 fight.qc:298: warning: chance  no references
 ai.qc:37: warning: current_yaw  no references
 ai.qc:476: warning: mtemp  no references
@@ -79,13 +79,13 @@ client.qc:321: warning: pos  no references
 client.qc:748: warning: old_self  no references
 client.qc:783: warning: start  no references
 client.qc:783: warning: end  no references
-client.qc:962: warning: mspeed  no references
-client.qc:962: warning: aspeed  no references
-client.qc:963: warning: r  no references
-client.qc:1201: warning: mspeed  no references
-client.qc:1201: warning: aspeed  no references
-client.qc:1202: warning: r  no references
-client.qc:1307: warning: deathstring2  no references
+client.qc:966: warning: mspeed  no references
+client.qc:966: warning: aspeed  no references
+client.qc:967: warning: r  no references
+client.qc:1208: warning: mspeed  no references
+client.qc:1208: warning: aspeed  no references
+client.qc:1209: warning: r  no references
+client.qc:1314: warning: deathstring2  no references
 monsters.qc:51: warning: ent  no references
 monsters.qc:51: warning: otemp  no references
 monsters.qc:51: warning: stemp  no references
@@ -105,14 +105,14 @@ ogre.qc:92: warning: mpuff  no references
 demon.qc:280: warning: vec  no references
 dog.qc:306: warning: vec  no references
 zombie.qc:164: warning: mpuff  no references
- 93612 strofs (of 1000000)
- 22401 numstatements (of 524288)
+ 93628 strofs (of 1000000)
+ 22404 numstatements (of 524288)
   2114 numfunctions (of 16384)
-  4512 numglobaldefs (of 32768)
-   232 numfielddefs (209 unique) (of 2048)
-  4553 numpr_globals (of 65536)
+  4513 numglobaldefs (of 32768)
+   233 numfielddefs (210 unique) (of 2048)
+  4554 numpr_globals (of 65536)
 Writing ../progs.dat
-405276 TOTAL SIZE
+405336 TOTAL SIZE
 Writing ../progs.lno
 225 unique precache_sounds
  95 unique precache_models
