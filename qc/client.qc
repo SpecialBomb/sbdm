@@ -809,11 +809,12 @@ void() PlayerJump =
 
 	if (!(self.flags & FL_ONGROUND))
 	{
-		if (self.wjmode == 0 && self.extjump == 1)
+		if (self.wjmode == 0 && (self.flags & FL_JUMPRELEASED))
 			if (self.wjflag == 1)
 			{
 				walljump();
 				self.wjflag = 0;
+				self.flags = self.flags - (self.flags & FL_JUMPRELEASED);
 			}
 		return;
 	}
