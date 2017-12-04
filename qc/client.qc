@@ -809,7 +809,7 @@ void() PlayerJump =
 
 	if (!(self.flags & FL_ONGROUND))
 	{
-		if (self.wjmode == 0)
+		if (self.wjmode == 0 && self.extjump == 1)
 			if (self.wjflag == 1)
 			{
 				walljump();
@@ -832,6 +832,7 @@ void() PlayerJump =
 // player jumping sound
 	sound (self, CHAN_BODY, "player/plyrjmp8.wav", 1, ATTN_NORM);
 	self.velocity_z = self.velocity_z + 270;
+	self.extjump = 1;
 };
 
 
@@ -1235,6 +1236,7 @@ void() PlayerPostThink =
 			sound (self, CHAN_VOICE, "player/land.wav", 1, ATTN_NORM);
 
 		self.jump_flag = 0;
+		self.extjump = 0;
 	}
 
 	if (!(self.flags & FL_ONGROUND))

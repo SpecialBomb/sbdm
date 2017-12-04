@@ -718,6 +718,8 @@ float(entity targ, entity inflictor) CanDamage;
 .float wjmode;
 .float wjflag;
 
+.float extjump;
+
 .float lcharge;
 .float lattacking;
 
