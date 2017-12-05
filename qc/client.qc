@@ -1302,6 +1302,8 @@ void() ClientDisconnect =
 		}
 	}
 	
+	self.classname = "spectator";
+	
 };
 
 /*
